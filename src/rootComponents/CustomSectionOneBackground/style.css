@@ -30,8 +30,8 @@
 
 .emailWrap {
   background-color: #f8c70c;
-  position: fixed;
-  bottom: 24vh;
+  position: absolute;
+  top: 76vh;
   left: -98px;
   width: fit-content;
   padding: 6px 6px 10px 6px;
