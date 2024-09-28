@@ -100,14 +100,8 @@ const CustomCursor = React.memo(
         clearTimeout(timeoutRef.current);
         cancelAnimationFrame(requestRef.current);
       };
-    }, [
-      isTouchDevice,
-      move,
-      animate,
-      handleMouseDown,
-      handleMouseUp,
-      handleWheel,
-    ]);
+      // eslint-disable-next-line
+    }, [isTouchDevice]);
 
     const sharedBaseStyle = useMemo(
       () => ({
