@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import InfiniteScrollBackground from "../../components/InfiniteScrollBackground";
 import Header from "../../components/Header";
+import GoalsTicker from "../../components/GoalsTicker";
 import "./style.css";
 import SystemWindow from "../../components/SystemWindow";
 import { CursorContext } from "../../contexts/cursorState";
@@ -8,6 +9,7 @@ import { CursorContext } from "../../contexts/cursorState";
 export default function HeroSection() {
   const { isClicking, buttonHovered, setIsClicking, setButtonHovered } =
     useContext(CursorContext);
+  const [showStats, setShowStats] = useState(1);
   const handleMouseEnter = () => setButtonHovered(true);
   const handleMouseLeave = () => setButtonHovered(false);
 
@@ -15,7 +17,12 @@ export default function HeroSection() {
     <div className="landingSection">
       <InfiniteScrollBackground />
       <Header />
-      <div className="devImgWrapper">
+      <div
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={() => setShowStats(!showStats)}
+        className="devImgWrapper"
+      >
         <img
           draggable="false"
           style={{}}
@@ -23,7 +30,7 @@ export default function HeroSection() {
           alt="Developer"
         />
       </div>
-      <SystemWindow />
+      <SystemWindow isOpen={showStats} setIsOpen={setShowStats} />
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -31,11 +38,7 @@ export default function HeroSection() {
       >
         khalifasafvan@yahoo.com
       </div>
-      <div className="rightStatsWrapper">
-        <div className="rightStats">ASK1</div>
-        <div className="rightStats">ASK1</div>
-        <div className="rightStats">ASK1</div>
-      </div>
+      <GoalsTicker />
     </div>
   );
 }
