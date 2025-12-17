@@ -136,6 +136,62 @@ export const portfolioConfig = {
       quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
       image: "/avatar3.png",
       color: "#e76f51" // Red
-    }
+    },
+    {
+      id: 4,
+      name: "Souther Helkcax",
+      role: "Marketing Manager",
+      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
+      image: "/avatar3.png",
+      color: "#e76f51" // Red
+    },
+    {
+      id: 5,
+      name: "Souther Helkcax",
+      role: "Marketing Manager",
+      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
+      image: "/avatar3.png",
+      color: "#e76f51" // Red
+    },
+    {
+      id: 6,
+      name: "Souther Helkcax",
+      role: "Marketing Manager",
+      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
+      image: "/avatar3.png",
+      color: "#e76f51" // Red
+    },
+    {
+      id: 7,
+      name: "Souther Helkcax",
+      role: "Marketing Manager",
+      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
+      image: "/avatar3.png",
+      color: "#e76f51" // Red
+    },
+    {
+      id: 8,
+      name: "Souther Helkcax",
+      role: "Marketing Manager",
+      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
+      image: "/avatar3.png",
+      color: "#e76f51" // Red
+    },
+    {
+      id: 9,
+      name: "Souther Helkcax",
+      role: "Marketing Manager",
+      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
+      image: "/avatar3.png",
+      color: "#e76f51" // Red
+    },
+    {
+      id: 10,
+      name: "Souther Helkcax",
+      role: "Marketing Manager",
+      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
+      image: "/avatar3.png",
+      color: "#e76f51" // Red
+    },
   ],
 };

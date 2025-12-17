@@ -1,136 +1,253 @@
+/* --- General Section --- */
 .testimonials {
     padding-top: var(--spacing-4xl);
     padding-bottom: var(--spacing-4xl);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* Ensure overflow doesn't break layout */
+    overflow: hidden;
 }
 
-.mw-600 {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-2xl);
-    width: 100%;
-}
-
-.testimonial-card {
-    background: white;
-    padding: var(--spacing-xl);
-    border-radius: var(--border-radius-xl);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* --- Header Section --- */
+.testimonials-header-main {
+    margin-bottom: var(--spacing-4xl);
     text-align: center;
-    box-shadow: var(--shadow-sm);
-    position: relative;
-    transition: transform var(--transition-normal);
 }
 
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+.testimonials-header-main h2 strong {
+    font-weight: 800;
+    /* Make "real people" extra bold */
 }
 
-.testimonial-avatar-wrapper {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    margin-bottom: var(--spacing-lg);
-    margin-top: -50px;
-    /* Pull avatar up */
-}
-
-.testimonial-avatar-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    opacity: 0.2;
-    transform: scale(1.2);
-}
-
-.testimonial-avatar {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    position: relative;
-    z-index: 1;
-}
-
-.testimonial-quote {
-    font-family: var(--font-family-body);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-    line-height: var(--line-height-relaxed);
-    margin-bottom: var(--spacing-lg);
-    font-style: italic;
-}
-
-.author-name {
-    font-family: var(--font-family-primary);
+/* Trustpilot Badge */
+.trustpilot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: var(--spacing-md);
     font-size: var(--font-size-base);
-    font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
-    margin-bottom: var(--spacing-xs);
 }
 
-.author-role {
-    font-size: var(--font-size-xs);
-    color: var(--color-text-secondary);
-    text-transform: uppercase;
+.trustpilot-star {
+    color: #00b67a;
+    /* Trustpilot Green */
+    font-size: 24px;
 }
 
+.rating-score {
+    font-weight: bold;
+}
+
+/* --- Split Layout Container --- */
+.testimonials-split-layout {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow stacking on mobile */
+    gap: var(--spacing-2xl);
+    align-items: flex-start;
+}
+
+/* --- Left Column (Static) --- */
+.testimonials-left {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: var(--spacing-xl);
+}
+
+.quote-icon-large {
+    margin-bottom: var(--spacing-lg);
+    color: #cbd5e1;
+    /* Light gray */
+}
+
+.left-title {
+    font-size: 3rem;
+    /* Large display text */
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: var(--spacing-2xl);
+    color: var(--color-text-primary);
+}
+
+/* Controls */
 .testimonial-controls {
     display: flex;
+    align-items: center;
     gap: var(--spacing-md);
 }
 
 .control-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--color-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: all var(--transition-normal);
+    color: var(--color-text-secondary);
+    transition: color 0.2s;
+    padding: 0;
 }
 
 .control-btn:hover {
-    border-color: var(--color-primary);
     color: var(--color-primary);
 }
 
-.control-btn.next {
-    background-color: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
+.control-line {
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-border);
 }
 
-.control-btn.next:hover {
-    background-color: var(--color-primary-dark);
+/* --- Right Column (Carousel) --- */
+.testimonials-right {
+    flex: 1;
+    /* Limit width to prevent overflow issues */
+    min-width: 0;
+    position: relative;
 }
 
-/* Responsive */
-@media (max-width: 968px) {
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-3xl);
-        /* More space for stacked cards */
+/* Scroll Container */
+.testimonials-scroller {
+    display: flex;
+    gap: var(--spacing-xl);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: var(--spacing-xl);
+    /* Space for shadow */
+    padding-left: var(--spacing-xs);
+    /* Padding for start */
+
+    /* Scroll Snap Logic */
+    scroll-snap-type: x mandatory;
+
+    /* Hide Scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE */
+}
+
+.testimonials-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- Card Groups --- */
+.testimonial-card-group {
+    flex: 0 0 350px;
+    /* Fixed width cards */
+    display: flex;
+    flex-direction: column;
+
+    /* Snap Alignment */
+    scroll-snap-align: start;
+    scroll-margin-left: var(--spacing-xs);
+    /* align with container padding */
+}
+
+/* Speech Bubble */
+.speech-bubble {
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* Soft shadow */
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+    /* Space for tail */
+}
+
+/* Triangle Tail */
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 40px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    transform: rotate(45deg);
+    /* To merge visually with bubble, usually needs careful positioning or simple border trick. 
+       Simple box-shadow doesn't work well on rotated element unless carefully handled.
+       Or simpler border-width method.
+    */
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.03);
+    /* Subtle shadow on bottom right of diamond */
+}
+
+.bubble-text {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.star-rating {
+    color: #00b67a;
+    /* Green stars */
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+/* User Profile */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding-left: var(--spacing-md);
+    /* Align generally under bubble start */
+}
+
+.user-avatar-bg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-color: #eee;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+}
+
+.user-meta {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .testimonials-split-layout {
+        flex-direction: column;
     }
 
-    .testimonial-card {
-        margin-top: var(--spacing-xl);
+    .testimonials-left {
+        width: 100%;
+        flex: none;
+        align-items: center;
+        text-align: center;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .left-title {
+        font-size: 2.5rem;
+    }
+
+    .left-title br {
+        display: none;
+        /* Unwrap text on mobile center */
+    }
+
+    .testimonial-controls {
+        justify-content: center;
+    }
+
+    .testimonials-right {
+        width: 100%;
     }
 }
