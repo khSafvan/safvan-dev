@@ -1,98 +1,60 @@
-import React, { useContext, useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { CursorContext } from "../../contexts/cursorState";
+import React from "react";
 import { portfolioConfig } from "../../config/portfolio";
-import InfiniteScrollBackground from "../../components/layout/InfiniteScrollBackground";
-import Header from "../../components/layout/Header";
-import GoalsTicker from "../../components/ui/GoalsTicker";
 import "./HeroSection.css";
-import GameButton from "../../components/ui/GameButton/GameButton";
-
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
-  const { setButtonHovered } = useContext(CursorContext);
-  const { hero } = portfolioConfig;
-  const sectionRef = useRef(null);
-
-  const handleMouseEnter = () => setButtonHovered(true);
-  const handleMouseLeave = () => setButtonHovered(false);
-
-  // GSAP Sticky Scroll Effect
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    // Create sticky scroll effect
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top top",
-      end: "bottom top",
-      pin: true,
-      pinSpacing: false,
-      onEnter: () => {
-        gsap.to(section, {
-          scale: 1.02,
-          duration: 0.8,
-          ease: "power2.out",
-        });
-      },
-      onLeave: () => {
-        gsap.to(section, {
-          scale: 1,
-          duration: 0.6,
-          ease: "power2.out",
-        });
-      },
-    });
-
-    // Cleanup function
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
+  const { hero, personal } = portfolioConfig;
 
   return (
-    <section ref={sectionRef} className="hero">
-      <InfiniteScrollBackground />
-      <Header />
+    <section className="hero section container">
+      <div className="hero-grid">
+        {/* Left Column: Text & Stats */}
+        <div className="hero-content">
+          <h1 className="hero-title">
+            <span className="greeting">{hero.greeting}</span>
+            <br />
+            <span className="name">{hero.name}</span>
+          </h1>
 
-      {/* Developer Image */}
-      <div
-        className="image-wrapper"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <img
-          draggable="false"
-          src={hero.image}
-          alt="Developer"
-          className="image"
-        />
+          <a href={`mailto:${personal.email}`} className="hero-email">
+            {personal.email}
+          </a>
+
+          <div className="hero-stat">
+            <span className="stat-number">{hero.experience}</span>
+            <span className="stat-label">YEARS<br />EXPERIENCE</span>
+          </div>
+        </div>
+
+        {/* Right Column: Image & Badge */}
+        <div className="hero-visual">
+          <div className="brush-background"></div>
+          <img
+            src={hero.image}
+            alt={hero.name}
+            className="hero-image"
+          />
+
+          <div className="hero-quote">
+            <p>{hero.description}</p>
+          </div>
+
+          <div className="hero-badge">
+            <div className="badge-circle">
+              {/* Simple CSS Badge or SVG */}
+              <svg viewBox="0 0 100 100" className="badge-svg">
+                <path id="curve" d="M 50 50 m -37 0 a 37 37 0 1 1 74 0 a 37 37 0 1 1 -74 0" fill="transparent" />
+                <text width="100">
+                  <textPath href="#curve" className="badge-text" startOffset="50%" textAnchor="middle">
+                    IDF CERTIFIED PROFESSIONAL
+                  </textPath>
+                </text>
+                <text x="50" y="55" className="badge-center-text" textAnchor="middle">UI/UX</text>
+              </svg>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {/* Hero Content */}
-      <div className="content">
-        <h1 className="title">
-          {hero.greeting} {hero.name}
-        </h1>
-        <p className="description">{hero.description}</p>
-        <GameButton color="#4da8da">Hire Me!</GameButton>
-      </div>
-
-      {/* Email Contact */}
-      <a
-        href={`mailto:${portfolioConfig.personal.email}`}
-        className="email"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        {portfolioConfig.personal.email}
-      </a>
-
-      <GoalsTicker />
     </section>
   );
 }
