@@ -30,14 +30,19 @@ export default function ExperienceSection() {
             // Calculate total scroll distance: content width - viewport width + buffer
             const scrollDistance = totalWidth - viewportWidth + 100;
 
+            // Dynamic duration based on content width relative to viewport
+            // Checks how many "screens" of width we have
+            const widthRatio = scrollDistance / viewportWidth;
+            // Base duration on width, but ensure a minimum scroll distance
+            const scrollDuration = Math.max(window.innerHeight * 1.5, window.innerHeight * widthRatio);
+
             gsap.to(section, {
                 x: -scrollDistance,
                 ease: "none",
                 scrollTrigger: {
                     trigger: trigger,
                     start: "top top",
-                    // The scroll duration is proportional to viewport height (300% of viewport height)
-                    end: "+=" + (window.innerHeight * 3),
+                    end: "+=" + scrollDuration,
                     scrub: 1, // Smooth scrubbing
                     pin: true, // Pin the section while scrolling horizontally
                     invalidateOnRefresh: true, // Recalculate on window resize
@@ -46,7 +51,7 @@ export default function ExperienceSection() {
         }, trigger);
 
         return () => ctx.revert(); // Cleanup GSAP matchMedia/context on unmount
-    }, []);
+    }, [experience]); // Re-run when experience data changes
 
     return (
         <section className="experience-wrapper" ref={triggerRef} id="experience">
