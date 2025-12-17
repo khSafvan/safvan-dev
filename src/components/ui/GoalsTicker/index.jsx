@@ -1,5 +1,5 @@
 import React from "react";
-import { portfolioConfig } from "../../config/portfolio";
+import { portfolioConfig } from "../../../config/portfolio";
 import "./style.css";
 
 const GoalsTicker = () => {
