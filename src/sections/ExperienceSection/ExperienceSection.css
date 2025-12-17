@@ -20,7 +20,6 @@
     z-index: 10;
     text-align: center;
     background-color: var(--color-background);
-    /* Cover the track as it scrolls if needed */
     height: auto;
 }
 
@@ -28,19 +27,17 @@
     height: 100%;
     display: flex;
     align-items: center;
-    /* Center vertically in the remaining space */
+    /* Account for title height */
     padding-top: 80px;
-    /* Space for title */
 }
 
-/* The Track */
+/* --- Track & Line --- */
+
 .experience-track {
     display: flex;
     align-items: center;
     gap: 0;
-    /* No gap, spacing handled by item width */
     height: 80vh;
-    /* Most of the screen height */
     padding: 0;
 }
 
@@ -55,33 +52,40 @@
     transform: translateY(-50%);
 }
 
+/* --- Experience Node --- */
+
 .experience-node {
     width: 100vw;
-    /* Window width apart */
+    /* Takes full viewport width */
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Vertically center content */
     align-items: flex-start;
-    /* Left align */
     padding: 0 10vw;
-    /* Side padding */
     box-sizing: border-box;
     position: relative;
     height: 100%;
 }
 
-.node-top {
-    margin-bottom: var(--spacing-xl);
+.node-top,
+.node-bottom {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: flex-start;
     text-align: left;
     height: 30%;
-    /* Assign portion of height */
     width: 100%;
+}
+
+.node-top {
+    margin-bottom: var(--spacing-xl);
+    justify-content: flex-end;
+}
+
+.node-bottom {
+    margin-top: var(--spacing-xl);
+    justify-content: flex-start;
 }
 
 .node-company {
@@ -93,56 +97,6 @@
 .node-period {
     font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
-}
-
-.node-center {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    /* Aligned left, but maybe relative to the line? */
-    width: 100%;
-    height: 10%;
-    position: relative;
-    z-index: 2;
-}
-
-/* Align dot with content or line? 
-   If content is left aligned, dot should probably be nearby or strictly on the line.
-   Let's keep the line spanning the whole width and the dot aligning with the text roughly?
-   Actually, if "windows width apart", the dot should probably be at the start of the section 
-   or the line is just a global background line.
-   Let's align dot with text padding.
-*/
-
-.node-dot {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-background);
-    /* Match bg to hide line behind */
-    margin-left: -15px;
-    /* Pull back slightly or just 0? Let's verify */
-}
-
-.node-dot-inner {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-}
-
-.node-bottom {
-    margin-top: var(--spacing-xl);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    text-align: left;
-    height: 30%;
-    width: 100%;
 }
 
 .node-role {
@@ -159,7 +113,39 @@
     max-width: 600px;
 }
 
-/* Responsive */
+/* --- Center Dot --- */
+
+.node-center {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 10%;
+    position: relative;
+    z-index: 2;
+}
+
+.node-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-background);
+    /* Offset to align with content padding if desired, or just purely centered on line */
+    margin-left: -15px;
+}
+
+.node-dot-inner {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+/* --- Responsive --- */
+
 @media (max-width: 768px) {
     .experience-node {
         padding: 0 var(--spacing-lg);

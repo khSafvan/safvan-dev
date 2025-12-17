@@ -2,8 +2,10 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { portfolioConfig } from "../../config/portfolio";
+import ExperienceNode from "./ExperienceNode";
 import "./ExperienceSection.css";
 
+// Register GSAP ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ExperienceSection() {
@@ -15,30 +17,35 @@ export default function ExperienceSection() {
         const section = sectionRef.current;
         const trigger = triggerRef.current;
 
-        // Kill any previous ScrollTriggers to avoid duplicates on hmr
+        // Safety check to ensure refs are available
+        if (!section || !trigger) return;
+
+        // Clean up any existing ScrollTriggers to prevent duplicates on hot reload
         ScrollTrigger.getAll().forEach(t => t.kill());
 
-        let ctx = gsap.context(() => {
+        const ctx = gsap.context(() => {
             const totalWidth = section.scrollWidth;
             const viewportWidth = window.innerWidth;
-            // Scroll enough to show the end, plus some padding
-            const scrollWidth = totalWidth - viewportWidth + 100;
+
+            // Calculate total scroll distance: content width - viewport width + buffer
+            const scrollDistance = totalWidth - viewportWidth + 100;
 
             gsap.to(section, {
-                x: -scrollWidth,
+                x: -scrollDistance,
                 ease: "none",
                 scrollTrigger: {
                     trigger: trigger,
                     start: "top top",
-                    end: "+=" + (window.innerHeight * 3), // Ensure enough scroll distance for "pressure"
-                    scrub: 1,
-                    pin: true,
-                    invalidateOnRefresh: true,
+                    // The scroll duration is proportional to viewport height (300% of viewport height)
+                    end: "+=" + (window.innerHeight * 3),
+                    scrub: 1, // Smooth scrubbing
+                    pin: true, // Pin the section while scrolling horizontally
+                    invalidateOnRefresh: true, // Recalculate on window resize
                 }
             });
         }, trigger);
 
-        return () => ctx.revert();
+        return () => ctx.revert(); // Cleanup GSAP matchMedia/context on unmount
     }, []);
 
     return (
@@ -48,27 +55,18 @@ export default function ExperienceSection() {
 
                 <div className="horizontal-container">
                     <div className="experience-track card-track" ref={sectionRef}>
-                        {/* Horizontal Dashed Line */}
+                        {/* Horizontal Dashed Line Background */}
                         <div className="track-line"></div>
 
                         {experience.map((exp) => (
-                            <div className="experience-node" key={exp.id}>
-                                <div className="node-top">
-                                    <h3 className="node-company" style={{ color: exp.color }}>{exp.company}</h3>
-                                    <span className="node-period">{exp.period}</span>
-                                </div>
-
-                                <div className="node-center">
-                                    <div className="node-dot" style={{ borderColor: exp.color, backgroundColor: exp.color + '20' }}>
-                                        <div className="node-dot-inner" style={{ backgroundColor: exp.color }}></div>
-                                    </div>
-                                </div>
-
-                                <div className="node-bottom">
-                                    <h4 className="node-role">{exp.role}</h4>
-                                    <p className="node-desc">{exp.description}</p>
-                                </div>
-                            </div>
+                            <ExperienceNode
+                                key={exp.id}
+                                company={exp.company}
+                                period={exp.period}
+                                role={exp.role}
+                                description={exp.description}
+                                color={exp.color}
+                            />
                         ))}
                     </div>
                 </div>
