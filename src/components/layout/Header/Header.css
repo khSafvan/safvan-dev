@@ -3,9 +3,16 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: var(--spacing-lg) 0;
+  padding: var(--spacing-xl) 0;
   z-index: 50;
   background: transparent;
+}
+
+/* Reduced padding on small screens */
+@media (max-width: 768px) {
+  .header {
+    padding: var(--spacing-lg) 0;
+  }
 }
 
 .header-container {
@@ -15,17 +22,13 @@
 }
 
 .logo {
-  font-family: var(--font-family-script);
-  font-size: var(--font-size-2xl);
+  font-family: var(--font-family-primary);
+  /* Bold Sans per image "Mike." looks bold */
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   text-decoration: none;
-  font-weight: 400;
-  transform-origin: center;
-  transition: transform var(--transition-normal);
-}
-
-.logo:hover {
-  transform: scale(1.05) rotate(-2deg);
+  letter-spacing: -0.02em;
 }
 
 .nav {
@@ -36,109 +39,61 @@
 .nav-list {
   display: flex;
   list-style: none;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-xl);
   margin: 0;
   padding: 0;
 }
 
 .nav-link {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-sm);
+  font-size: 1.125rem;
+  /* Increased from base (1rem) */
   font-weight: var(--font-weight-medium);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   transition: color var(--transition-normal);
+  text-decoration: none;
 }
 
 .nav-link:hover {
-  color: var(--color-primary);
-}
-
-.nav-link-pill {
-  border: 1px solid var(--color-text-secondary);
-  padding: 8px 24px;
-  border-radius: 50px;
-  transition: all var(--transition-normal);
-}
-
-.nav-link-pill:hover {
-  border-color: var(--color-primary);
-  background-color: transparent;
-  color: var(--color-primary);
+  text-decoration: underline;
 }
 
 .contact-info {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
 }
 
-.phone-number {
+.header-email {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-sm);
+  font-size: 1.125rem;
+  /* Increased from base (1rem) */
   font-weight: var(--font-weight-medium);
   color: var(--color-text-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color var(--transition-normal);
 }
 
-.call-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  color: var(--color-text-primary);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-}
-
-.call-btn:hover {
-  background-color: var(--color-primary);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+.header-email:hover {
+  color: var(--color-primary);
 }
 
 /* Responsive */
 @media (max-width: 968px) {
-  .header {
-    background: var(--color-background);
-    /* Add bg since it might scroll */
-    padding: var(--spacing-md) 0;
-  }
-
   .header-container {
-    flex-direction: column;
-    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    /* Allow wrapping */
   }
 
   .nav {
+    order: 3;
     width: 100%;
+    margin-top: var(--spacing-md);
     overflow-x: auto;
-    /* Allow horizontal scroll if needed */
     justify-content: center;
-    padding-bottom: var(--spacing-xs);
-  }
-
-  .nav-list {
-    gap: var(--spacing-md);
   }
 
   .contact-info {
-    display: none;
-    /* Hide phone/call on mobile header to save space, or keep if critical */
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-list {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .nav-link {
-    font-size: 12px;
+    order: 2;
   }
 }

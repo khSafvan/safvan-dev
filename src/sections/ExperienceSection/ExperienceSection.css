@@ -21,6 +21,9 @@
     text-align: center;
     background-color: var(--color-background);
     height: auto;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
 }
 
 .horizontal-container {

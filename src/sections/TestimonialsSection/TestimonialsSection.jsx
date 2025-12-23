@@ -4,83 +4,87 @@ import "./TestimonialsSection.css";
 
 export default function TestimonialsSection() {
     const { testimonials } = portfolioConfig;
-    const scrollRef = React.useRef(null);
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    const colors = ["#e57373", "#81c784", "#64b5f6", "#ffb74d", "#ba68c8"];
+    const borderColors = ["#b3e5fc", "#f8bbd0", "#fff9c4", "#e1bee7", "#c8e6c9"]; // Pastel complements
+    const getRandomColor = (id) => colors[id % colors.length];
+    const getBorderColor = (id) => borderColors[id % borderColors.length];
 
-    const scroll = (direction) => {
-        if (scrollRef.current) {
-            const { current } = scrollRef;
-            const scrollAmount = 382; // Card (350px) + Gap (32px from 2rem)
-            current.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    };
+    const [isPaused, setIsPaused] = React.useState(false);
+
+    // Auto-cycle logic
+    React.useEffect(() => {
+        if (isPaused) return; // Stop cycling if paused
+
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % testimonials.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [testimonials.length, isPaused]);
+
+    const activeItem = testimonials[activeIndex];
 
     return (
-        <section className="testimonials section" id="testimonials">
-            <div className="container">
-                {/* Header Section */}
-                <div className="testimonials-header-main text-center">
-                    <h2 className="section-title">Reviews from <strong>real people</strong></h2>
-                    <div className="trustpilot-badge">
-                        <span className="rating-score">4.5/5</span>
-                        <span className="trustpilot-star">★</span>
-                        <span className="trustpilot-text"><strong>Trustpilot</strong> Based on 3,987 reviews</span>
-                    </div>
+        <section
+            className="testimonials section container"
+            id="testimonials"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+        >
+            <div className="testimonials-header-main text-center">
+                <h2 className="section-title">References of colleagues <br />and clients</h2>
+            </div>
+
+            {/* Avatar Grid */}
+            <div className="avatar-grid-wrapper">
+                <div className="avatar-grid">
+                    {testimonials.map((item, index) => (
+                        <div key={item.id} className="avatar-container">
+                            <button
+                                className={`avatar-btn ${index === activeIndex ? "active" : ""}`}
+                                onClick={() => setActiveIndex(index)}
+                                aria-label={`View testimonial from ${item.name}`}
+                                style={{ "--active-border-color": getBorderColor(item.id) }}
+                            >
+                                {item.image ? (
+                                    <div
+                                        className="avatar-img"
+                                        style={{ backgroundImage: `url(${item.image})` }}
+                                    ></div>
+                                ) : (
+                                    <div
+                                        className="avatar-img avatar-initials"
+                                        style={{ backgroundColor: getRandomColor(item.id) }}
+                                    >
+                                        {item.name
+                                            .split(" ")
+                                            .map((n) => n[0])
+                                            .join("")
+                                            .substring(0, 2)
+                                            .toUpperCase()}
+                                    </div>
+                                )}
+                            </button>
+
+                            {/* Active Ring (handled via CSS) */}
+                        </div>
+                    ))}
                 </div>
+            </div>
 
-                <div className="testimonials-split-layout">
-                    {/* Left Column: Fixed Info */}
-                    <div className="testimonials-left">
-                        <div className="quote-icon-large">
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor" className="text-gray-300">
-                                <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" />
-                            </svg>
-                        </div>
-                        <h3 className="left-title">What our <br />customers are <br />saying</h3>
-
-                        <div className="testimonial-controls">
-                            <button className="control-btn prev" onClick={() => scroll('left')} aria-label="Previous">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
-                            </button>
-                            <span className="control-line"></span>
-                            <button className="control-btn next" onClick={() => scroll('right')} aria-label="Next">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                            </button>
-                        </div>
+            {/* Spotlight Content */}
+            <div className="spotlight-content">
+                <div key={activeItem.id} className="fade-wrapper">
+                    <div className="spotlight-info">
+                        <span className="spotlight-name">{activeItem.name}</span>
+                        <span className="spotlight-divider">|</span>
+                        <span className="spotlight-relationship">{activeItem.relationship}</span>
                     </div>
 
-                    {/* Right Column: Carousel */}
-                    <div className="testimonials-right">
-                        <div className="testimonials-scroller" ref={scrollRef}>
-                            {testimonials.map((item) => (
-                                <div className="testimonial-card-group" key={item.id}>
-                                    {/* Speech Bubble */}
-                                    <div className="speech-bubble">
-                                        <p className="bubble-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                            {/* Ideally use item.quote here if it was longer, but design implies tailored text */}
-                                        </p>
-                                        <div className="star-rating">
-                                            ★★★★★
-                                        </div>
-                                    </div>
-
-                                    {/* User Profile */}
-                                    <div className="user-profile">
-                                        <div
-                                            className="user-avatar-bg"
-                                            style={{ backgroundImage: `url(${item.image})` }}
-                                        ></div>
-                                        <div className="user-info">
-                                            <h4 className="user-name">{item.name}</h4>
-                                            <span className="user-meta">1 day ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                    <div className="spotlight-quote-wrapper">
+                        <p className="spotlight-quote">
+                            “{activeItem.quote}”
+                        </p>
                     </div>
                 </div>
             </div>

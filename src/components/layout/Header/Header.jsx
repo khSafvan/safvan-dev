@@ -12,17 +12,17 @@ const Header = () => {
       <div className="header-container container">
         {/* Logo */}
         <a href="#home" className="logo" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          Binjan
+          Mike.
         </a>
 
         {/* Navigation */}
         <nav className="nav">
           <ul className="nav-list">
-            {["Services", "Works", "Notes", "Experience"].map((item) => (
+            {["About", "Projects", "Experience", "Services"].map((item) => (
               <li key={item} className="nav-item">
                 <a
                   href={`#${item.toLowerCase()}`}
-                  className={`nav-link ${item === "Services" ? "nav-link-pill" : ""}`}
+                  className="nav-link"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -35,26 +35,14 @@ const Header = () => {
 
         {/* Contact */}
         <div className="contact-info">
-          <span className="phone-number">+001 (313) 345 678</span>
-          <button
-            className="call-btn"
+          <a
+            href="mailto:hellomikejack@gmail.com"
+            className="header-email"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            aria-label="Call"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .57 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.05 12.05 0 0 0 2.81.57A2 2 0 0 1 22 16.92z" />
-            </svg>
-          </button>
+            hellomikejack@gmail.com
+          </a>
         </div>
       </div>
     </header>
