@@ -1,0 +1,184 @@
+.experience-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.pinned-content {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: var(--color-background);
+    overflow: hidden;
+}
+
+.sticky-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-2xl) 0;
+    z-index: 10;
+    text-align: center;
+    background-color: var(--color-background);
+    /* Cover the track as it scrolls if needed */
+    height: auto;
+}
+
+.horizontal-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* Center vertically in the remaining space */
+    padding-top: 80px;
+    /* Space for title */
+}
+
+/* The Track */
+.experience-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    /* No gap, spacing handled by item width */
+    height: 80vh;
+    /* Most of the screen height */
+    padding: 0;
+}
+
+.track-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border-top: 2px dashed var(--color-border);
+    z-index: 0;
+    transform: translateY(-50%);
+}
+
+.experience-node {
+    width: 100vw;
+    /* Window width apart */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Vertically center content */
+    align-items: flex-start;
+    /* Left align */
+    padding: 0 10vw;
+    /* Side padding */
+    box-sizing: border-box;
+    position: relative;
+    height: 100%;
+}
+
+.node-top {
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    text-align: left;
+    height: 30%;
+    /* Assign portion of height */
+    width: 100%;
+}
+
+.node-company {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.node-period {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+}
+
+.node-center {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Aligned left, but maybe relative to the line? */
+    width: 100%;
+    height: 10%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Align dot with content or line? 
+   If content is left aligned, dot should probably be nearby or strictly on the line.
+   Let's keep the line spanning the whole width and the dot aligning with the text roughly?
+   Actually, if "windows width apart", the dot should probably be at the start of the section 
+   or the line is just a global background line.
+   Let's align dot with text padding.
+*/
+
+.node-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-background);
+    /* Match bg to hide line behind */
+    margin-left: -15px;
+    /* Pull back slightly or just 0? Let's verify */
+}
+
+.node-dot-inner {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.node-bottom {
+    margin-top: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    height: 30%;
+    width: 100%;
+}
+
+.node-role {
+    font-size: var(--font-size-3xl);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.node-desc {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .experience-node {
+        padding: 0 var(--spacing-lg);
+    }
+
+    .node-company {
+        font-size: var(--font-size-2xl);
+    }
+
+    .node-role {
+        font-size: var(--font-size-xl);
+    }
+
+    .sticky-title {
+        font-size: var(--font-size-2xl);
+        padding: var(--spacing-lg) 0;
+    }
+
+    .horizontal-container {
+        padding-top: 60px;
+    }
+}
