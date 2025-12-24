@@ -19,16 +19,16 @@
 .sticky-title {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
+    max-width: var(--container-max-width);
     padding: var(--spacing-2xl) var(--spacing-xl);
     z-index: 10;
     text-align: left;
     background-color: var(--color-background);
     height: auto;
-    font-family: var(--font-family-primary);
-    font-size: var(--font-size-3xl);
-    font-weight: 700;
+    /* Font styles inherited from global .section-title if applied in JSX, but sticky-title adds positioning */
 }
 
 .horizontal-container {

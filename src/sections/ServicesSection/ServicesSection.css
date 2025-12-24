@@ -12,6 +12,9 @@
 
 .section-header {
     margin-bottom: var(--spacing-3xl);
+    width: 100%;
+    max-width: var(--container-max-width);
+    text-align: left;
 }
 
 .section-subtitle {

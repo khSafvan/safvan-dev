@@ -125,6 +125,26 @@ button {
   box-sizing: border-box;
 }
 
+/* Standard Section Title */
+.section-title {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: left;
+  margin-bottom: var(--spacing-xl);
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  /* Ensure element is centered in viewport but text is left */
+  text-transform: uppercase;
+  /* Standardizing to Uppercase for clean look, or Title Case? User didn't specify case, checking existing. Experience was mixed. Let's go with Uppercase for impact or inherit. Let's try Uppercase as it's common in this design. */
+  /* Actually, "My Latest Works" is Title Case. "My Work Experience" is Title Case. */
+  /* I will NOT force uppercase, just font/size/align. */
+  text-transform: none;
+}
+
 /* Experience section override if needed, though it handles its own height */
 #experience {
   height: auto;
