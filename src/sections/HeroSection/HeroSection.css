@@ -261,6 +261,25 @@
   }
 }
 
+/* Animation for Squircle Rotation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-shape {
+  animation: spin 10s linear infinite;
+  transform-origin: 100px 100px;
+  /* SVG Viewbox center */
+  transform-box: fill-box;
+  /* Ensure it spins around its own center */
+}
+
 /* Responsive */
 @media (max-width: 968px) {
   .hero-title {
