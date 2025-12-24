@@ -3,6 +3,11 @@
     padding-top: var(--spacing-4xl);
     padding-bottom: var(--spacing-4xl);
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .testimonials-header-main {
@@ -28,7 +33,10 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
-    max-width: 1000px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
 }
 
 .avatar-btn {
@@ -91,7 +99,7 @@
 /* --- Spotlight Content --- */
 .spotlight-content {
     text-align: left;
-    max-width: 800px;
+    width: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;

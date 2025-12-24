@@ -4,6 +4,9 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-3xl);
+    min-height: 100vh;
+    justify-content: space-between;
+    /* align-items: center removed to allow top/bottom bars to stretch full width */
 }
 
 /* --- Top Bar --- */

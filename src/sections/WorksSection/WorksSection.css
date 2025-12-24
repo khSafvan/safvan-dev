@@ -1,7 +1,11 @@
 /* WorksSection.css */
 .works {
     padding: var(--spacing-4xl) 0;
-    min-height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     /* Allow natural height */
 }
 

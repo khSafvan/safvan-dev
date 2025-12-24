@@ -18,8 +18,8 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
-  max-width: 1400px;
-  /* Wider for the big text */
+  justify-content: center;
+  z-index: 10;
   width: 100%;
 }
 

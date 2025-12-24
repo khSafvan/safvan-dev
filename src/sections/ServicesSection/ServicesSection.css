@@ -3,6 +3,11 @@
     padding-top: var(--spacing-4xl);
     padding-bottom: var(--spacing-4xl);
     background-color: var(--color-background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .section-header {
