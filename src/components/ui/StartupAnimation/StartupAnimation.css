@@ -1,0 +1,102 @@
+.startup-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #E3F2FD;
+    /* Pastel Light Blue (Material Blue 50) */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Start from top */
+    align-items: flex-start;
+    padding: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.startup-animation.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.boot-log-container {
+    width: 100%;
+    max-width: 1000px;
+    color: #37474F;
+    /* Dark Blue Grey for contrast on pastel blue */
+    font-size: 0.85rem;
+    line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Start from top */
+}
+
+.timestamp {
+    color: #F4D03F;
+    /* Darker Pastel Yellow */
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.log-entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeInLog 0.05s forwards;
+    white-space: pre-wrap;
+    /* Preserve spaces in timestamps */
+}
+
+/* Style for the breaks/empty lines */
+.log-break {
+    height: 10px;
+}
+
+/* Highlight the timestamp - "appropriate to site" = Darker Pastel Yellow or a specific accent?
+   Since background is blue, yellow text might have poor contrast.
+   Let's use a darker shade of the site's accent or a complementary color.
+   Actually, standard linux timestamps are often green or white.
+   Let's try a Darker Teal or remain Dark Grey but bold.
+   User asked for "appropriate to site text colours". Site has black/dark text.
+   Let's stick to the dark grey/blue for text.
+   Maybe bold the timestamp?
+*/
+
+.log-text {
+    font-weight: 500;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background-color: #37474F;
+    /* Dark cursor */
+    animation: blink 1s step-end infinite;
+    margin-top: 5px;
+}
+
+@keyframes fadeInLog {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}

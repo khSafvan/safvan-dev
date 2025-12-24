@@ -7,12 +7,12 @@
 
 .testimonials-header-main {
     margin-bottom: var(--spacing-3xl);
-    text-align: center;
+    text-align: left;
 }
 
 .testimonials-header-main .section-title {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 /* --- Avatar Grid --- */
@@ -90,19 +90,19 @@
 
 /* --- Spotlight Content --- */
 .spotlight-content {
-    text-align: center;
+    text-align: left;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--spacing-lg);
 }
 
 .spotlight-info {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 8px;
     /* Close spacing */
     font-family: var(--font-family-primary);
@@ -148,7 +148,7 @@
     /* Layout stability: accom longest quote */
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .fade-wrapper {

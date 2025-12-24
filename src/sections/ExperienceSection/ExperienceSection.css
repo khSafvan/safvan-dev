@@ -16,9 +16,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-2xl) var(--spacing-xl);
     z-index: 10;
-    text-align: center;
+    text-align: left;
     background-color: var(--color-background);
     height: auto;
     font-family: var(--font-family-primary);
@@ -164,7 +164,7 @@
 
     .sticky-title {
         font-size: var(--font-size-2xl);
-        padding: var(--spacing-lg) 0;
+        padding: var(--spacing-lg) var(--spacing-md);
     }
 
     .horizontal-container {
