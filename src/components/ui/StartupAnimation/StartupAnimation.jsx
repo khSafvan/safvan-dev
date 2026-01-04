@@ -160,7 +160,7 @@ const StartupAnimation = () => {
         timeoutId = setTimeout(processNextLog, 100);
 
         return () => clearTimeout(timeoutId);
-    }, []);
+    }, [bootMessages]);
 
     // Auto-scroll to bottom of logs
     useEffect(() => {
