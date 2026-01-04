@@ -1,17 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
 @import "./theme.css";
 
-/* Reset and base styles */
+
 * {
   box-sizing: border-box;
 }
 
 html {
-  scrollbar-width: none;
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 html::-webkit-scrollbar {
   display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+
+  scrollbar-width: none;
+
 }
 
 body {
@@ -22,16 +30,17 @@ body {
   line-height: var(--line-height-normal);
   color: var(--color-text-primary);
   background-color: var(--color-background);
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 body::-webkit-scrollbar {
   display: none;
 }
 
-/* Typography */
+
+
+
 h1,
 h2,
 h3,
@@ -48,20 +57,20 @@ p {
   margin: 0 0 var(--spacing-md) 0;
 }
 
-/* Links */
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Images */
+
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Buttons */
+
 button {
   border: none;
   background: none;
@@ -70,31 +79,82 @@ button {
   font-size: inherit;
 }
 
-/* Focus styles */
+
 *:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
-/* Selection */
+
 ::selection {
   background-color: var(--color-primary);
   color: var(--color-text-primary);
 }
 
-/* Container */
+
 .container {
+  width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding-left: var(--spacing-xl);
+  padding-right: var(--spacing-xl);
 }
 
-/* Section spacing */
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+}
+
+
+
+
+
 .section {
-  padding: var(--section-padding) 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: var(--spacing-4xl) 0;
+
+  position: relative;
+  box-sizing: border-box;
 }
 
-/* Utility classes */
+
+.section-title {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: left;
+  margin-bottom: var(--spacing-xl);
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+
+  text-transform: uppercase;
+
+
+
+  text-transform: none;
+}
+
+
+#experience {
+  height: auto;
+
+  min-height: 100vh;
+  padding: 0;
+
+}
+
+
 .visually-hidden {
   position: absolute;
   width: 1px;

@@ -1,0 +1,122 @@
+/* ServicesSection.css (Redesigned as My Stack) */
+.services {
+    padding-top: var(--spacing-4xl);
+    padding-bottom: var(--spacing-4xl);
+    background-color: var(--color-background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-header {
+    margin-bottom: var(--spacing-3xl);
+    width: 100%;
+    max-width: var(--container-max-width);
+    text-align: left;
+}
+
+.section-subtitle {
+    font-family: var(--font-family-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Stack Layout */
+.stack-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4xl);
+}
+
+.stack-category {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    /* Fixed width for title, result flexible */
+    gap: var(--spacing-2xl);
+    align-items: start;
+}
+
+.category-title {
+    font-family: var(--font-family-primary);
+    /* Assuming "Impact" or heavy bold style in reference, using primary font bold */
+    font-size: 3.5rem;
+    /* Massive size */
+    font-weight: 900;
+    color: var(--color-text-primary);
+    /* Or maybe outline style if requested, but checking image it looks solid white/grey */
+    /* Reference image text looks lighter grey/white on dark bg. Site is light, so dark text. */
+    /* Let's try to match the "impact" vibe */
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
+    color: #cbd5e1;
+    /* Light grey for the big text like "FRONTEND" to be subtle? No, image has it fairly prominent. */
+    /* Let's stick to a solid color but maybe slightly lighter than pure black */
+    color: rgba(0, 0, 0, 0.2);
+    /* Faded distinct look? Or maybe outline? */
+    /* The user said "sites colour scheme". Site is pastel. */
+    /* Let's use a solid dark grey */
+    color: var(--color-text-secondary);
+    opacity: 0.5;
+    /* Fade it */
+}
+
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl) var(--spacing-3xl);
+    /* Row gap, Column gap */
+    align-items: center;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 180px;
+    /* Fixed width for better grid alignment like list */
+}
+
+.tech-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    /* Larger icon */
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.tech-item:hover .tech-icon {
+    transform: scale(1.1);
+}
+
+.tech-name {
+    font-family: var(--font-family-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+
+/* Responsive */
+@media (max-width: 968px) {
+    .stack-category {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .category-title {
+        font-size: 2.5rem;
+    }
+}

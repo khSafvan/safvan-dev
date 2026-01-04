@@ -1,137 +1,319 @@
+/* HeroSection.css */
 .hero {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
   position: relative;
-  z-index: 5;
-}
-
-.image-wrapper {
-  position: absolute;
-  bottom: var(--spacing-xl);
-  left: 50%;
-  transform: translateX(-50%);
-  height: 82%;
-  aspect-ratio: 2 / 3;
-  z-index: 10;
-}
-
-.image {
-  width: 100%;
-  height: auto;
-  filter: var(--drop-shadow);
-  display: block;
-  aspect-ratio: 2 / 3;
-  user-select: none;
-  pointer-events: none;
-  z-index: 11;
-}
-
-.email {
-  position: absolute;
-  bottom: 384px;
-  left: 0;
-  display: inline-block;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  width: fit-content;
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-normal);
-  line-height: 1;
-  letter-spacing: normal;
-  color: var(--color-text-light);
-  background-color: var(--color-primary-light);
-  filter: var(--drop-shadow);
-  backdrop-filter: var(--backdrop-blur);
-  -webkit-backdrop-filter: var(--backdrop-blur);
-  border: 1px solid var(--color-text-light);
-  border-bottom: 0px;
-  border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
-  transform-origin: bottom left;
-  transform: rotate(90deg);
-  transition: all var(--transition-slow);
-  z-index: 12;
-  cursor: pointer;
-}
-
-.email:hover {
-  background-color: rgba(40, 40, 40, 0.7);
-  backdrop-filter: var(--backdrop-blur);
-}
-
-.content {
-  position: absolute;
-  bottom: 108px;
-  left: 84px;
-  max-width: 20%;
-  text-align: left;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
-  align-items: left;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: var(--header-height);
+  overflow: hidden;
+  background-color: var(--color-background);
+}
+
+.hero-center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  justify-content: center;
+  z-index: 10;
+  width: 100%;
+}
+
+.hero-title {
+  /* No single font family here, mixed */
+  font-size: 6.5rem;
+  /* Reduced from 8rem */
+  line-height: 1.1;
+  font-weight: 400;
   color: var(--color-text-primary);
-  z-index: 15;
+  margin-bottom: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.title {
+.title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* Row 1: Serif style */
+.serif-text {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-normal);
-  line-height: var(--line-height-tight);
-  text-transform: uppercase;
-  margin: 0;
+  /* Use sans for the "Hi I'm" part if matching Alex Carter image which looks Sans */
+  /* Actually Alex Carter image "Hi, I'm" looks like a clean Sans-Serif (Inter), "Alex Carter" also Sans. 
+     Wait, the previous request asked for Serif. This new image "Alex Carter" is clearly Sans-Serif (like Inter or Helv). 
+     I will switch to Sans-Serif for the main title to match the image exactly.
+  */
+  font-family: var(--font-family-primary);
+  font-weight: 600;
+  /* Boldish */
+  letter-spacing: -0.03em;
 }
 
-.description {
-  font-family: var(--font-family-secondary);
-  font-weight: var(--font-weight-normal);
-  line-height: var(--line-height-tight);
-  font-size: var(--font-size-lg);
-  margin: 0;
+/* Row 2: "I'm a" (Light grey), "Product Lead" (Bold Black) */
+.sans-text-light {
+  font-family: var(--font-family-primary);
+  font-weight: 400;
+  color: #a0a0a0;
+  /* Light grey */
 }
 
-.cta {
-  width: fit-content;
-  margin-top: var(--spacing-sm);
+.sans-text-bold {
+  font-family: var(--font-family-primary);
+  font-weight: 600;
+  color: black;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .content {
-    left: var(--spacing-lg);
-    right: var(--spacing-lg);
-    max-width: none;
-    bottom: var(--spacing-2xl);
+/* Row 3: Colored Company */
+.sans-text-colored {
+  font-family: var(--font-family-primary);
+  font-weight: 600;
+  color: #e76f51;
+  /* Orange/Red from image */
+}
+
+/* Floating Image */
+.floating-image-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  width: 120px;
+  /* Slightly larger for shape */
+  height: 120px;
+  margin: 0 10px;
+  transform: rotate(-5deg);
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+  /* Shadow on the SVG shape itself */
+}
+
+/* Remove old styles */
+.floating-image-wrapper.svg-shape {
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.cookie-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.floating-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Status Badge */
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 50px;
+  box-shadow: var(--shadow-sm);
+  margin-left: 10px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #2ed573;
+  /* Green dot */
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(46, 213, 115, 0.2);
+}
+
+.status-text {
+  font-family: var(--font-family-primary);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+/* Description */
+.hero-description {
+  font-family: var(--font-family-primary);
+  color: var(--color-text-secondary);
+  font-size: 1.5rem;
+  /* Bigger as requested "text bellow bigger" */
+  max-width: 700px;
+  margin: var(--spacing-xl) 0 var(--spacing-3xl);
+  line-height: 1.5;
+}
+
+/* Actions */
+.hero-actions {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.btn-primary {
+  background-color: var(--color-text-primary);
+  color: white;
+  padding: 14px 28px;
+  /* Reduced from 20px 40px */
+  border-radius: 50px;
+  /* Pill shape standard for this look */
+  font-weight: 500;
+  font-size: 1rem;
+  /* Reduced from 1.25rem */
+  transition: all var(--transition-normal);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background-color: #333;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  padding: 14px 28px;
+  /* Reduced from 20px 40px */
+  border-radius: 50px;
+  /* Pill shape */
+  font-weight: 500;
+  font-size: 1rem;
+  /* Reduced from 1.25rem */
+  border: 1px solid #e0e0e0;
+  /* Thinner border */
+  transition: all var(--transition-normal);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-text-primary);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Footer Section */
+.hero-footer {
+  position: absolute;
+  bottom: 3rem;
+  left: 0;
+  width: 100%;
+  padding: 0 var(--spacing-2xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25rem;
+  /* Increased from 1.125rem */
+  color: var(--color-text-secondary);
+}
+
+.social-links {
+  display: flex;
+  gap: var(--spacing-xl);
+}
+
+.social-link {
+  font-family: var(--font-family-primary);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  transition: color var(--transition-normal);
+}
+
+.social-link:hover {
+  color: var(--color-primary);
+}
+
+.discover-more {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.arrow-icon {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
   }
 
-  .title {
-    font-size: var(--font-size-2xl);
+  40% {
+    transform: translateY(6px);
   }
 
-  .description {
-    font-size: var(--font-size-base);
-  }
-
-  .email {
-    bottom: 200px;
-    font-size: var(--font-size-sm);
-    padding: var(--spacing-xs);
+  60% {
+    transform: translateY(3px);
   }
 }
 
-@media (max-width: 480px) {
-  .content {
-    left: var(--spacing-md);
-    right: var(--spacing-md);
-    bottom: var(--spacing-xl);
+/* Animation for Squircle Rotation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
 
-  .title {
-    font-size: var(--font-size-xl);
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-shape {
+  animation: spin 10s linear infinite;
+  transform-origin: 100px 100px;
+  /* SVG Viewbox center */
+  transform-box: fill-box;
+  /* Ensure it spins around its own center */
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .hero-title {
+    font-size: 5rem;
   }
 
-  .description {
-    font-size: var(--font-size-sm);
+  .status-badge {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 3.5rem;
+    gap: 0.25rem;
+  }
+
+  .floating-image-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .status-badge {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-footer {
+    position: relative;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-3xl);
+    bottom: auto;
+    padding: 0;
   }
 }

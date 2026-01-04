@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import ReactLenis from "lenis/react";
 import App from "./App";
 import { CursorProvider } from "./contexts/cursorState";
-import CustomCursor from "./components/CustomCursor";
+import CustomCursor from "./components/ui/CustomCursor";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
