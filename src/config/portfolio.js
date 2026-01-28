@@ -48,6 +48,23 @@ export const portfolioConfig = {
       description: "Find Product Photography Canada. Large Selection. Always Sale. Cheap Prices. Full Offer. Save Online. Compare Online. Simple Search. The Best Price. Compare Simply.",
       color: "#f4a261" // Yellow/Orange
     }
+    , {
+      id: 4,
+      company: "Self-Employed, Brisbane",
+      period: "Sep 2016 - Aug 2016",
+      role: "Visual Designer",
+      description: "A visual designer designs for a variety of platforms, which may include internet and intranet sites, games, movies, kiosks and wearables. In short, they create the concepts.",
+      color: "#2f6a62" // Green
+    },
+    {
+      id: 5,
+      company: "New Man Services",
+      period: "Jan 17 - Mar 2018",
+      role: "UI/UX Designer",
+      description: "User interface design or user interface engineering is the design of user interfaces for machines and software, such as computers, home appliances, mobile devices.",
+      color: "#e76f51" // Reddish Orange
+    }
+
   ],
 
   // Works Section
@@ -75,6 +92,22 @@ export const portfolioConfig = {
       image: "/mockup-brand.png",
       color: "#e0f7fa", // Light Blue
       textColor: "#1a1a1a"
+    },
+    {
+      id: 4,
+      category: "App Design",
+      title: "Food Delivery App",
+      image: "/mockup-app.png", // Start with placeholder
+      color: "#f8c70c", // Yellow
+      textColor: "#fff"
+    },
+    {
+      id: 5,
+      category: "Web Design",
+      title: "Agency Website",
+      image: "/mockup-web.png",
+      color: "#2f6a62", // Green
+      textColor: "#fff"
     }
   ],
 
