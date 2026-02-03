@@ -75,7 +75,8 @@ export const portfolioConfig = {
       title: "Food Delivery App",
       image: "/mockup-app.png", // Start with placeholder
       color: "#f8c70c", // Yellow
-      textColor: "#fff"
+      textColor: "#000000",
+      buttonColor: "#000000" // Black button on yellow
     },
     {
       id: 2,
@@ -83,7 +84,8 @@ export const portfolioConfig = {
       title: "Agency Website",
       image: "/mockup-web.png",
       color: "#2f6a62", // Green
-      textColor: "#fff"
+      textColor: "#ffffff",
+      buttonColor: "#f1c40f" // Pop of yellow on green
     },
     {
       id: 3,
@@ -91,15 +93,17 @@ export const portfolioConfig = {
       title: "Brand Kleiner",
       image: "/mockup-brand.png",
       color: "#e0f7fa", // Light Blue
-      textColor: "#1a1a1a"
+      textColor: "#000000",
+      buttonColor: "#2f6a62" // Dark green on light blue
     },
     {
       id: 4,
       category: "App Design",
       title: "Food Delivery App",
-      image: "/mockup-app.png", // Start with placeholder
+      image: "/mockup-app.png",
       color: "#f8c70c", // Yellow
-      textColor: "#fff"
+      textColor: "#000000",
+      buttonColor: "#000000"
     },
     {
       id: 5,
@@ -107,7 +111,8 @@ export const portfolioConfig = {
       title: "Agency Website",
       image: "/mockup-web.png",
       color: "#2f6a62", // Green
-      textColor: "#fff"
+      textColor: "#ffffff",
+      buttonColor: "#f1c40f"
     }
   ],
 
@@ -117,81 +122,46 @@ export const portfolioConfig = {
       id: 1,
       name: "Anamika Sandula",
       role: "Product Manager",
-      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. I really say that it was satisfying.",
-      image: "/avatar1.png",
-      color: "#2f6a62" // Green
+      relationship: "Supervisor",
+      quote: "Vlad is great to work with. He articulates all decisions with facts and provides a visually appealing finished product.",
+      image: "", // Fallback forced
+      color: "#2f6a62"
     },
     {
       id: 2,
       name: "John Allendone",
-      role: "Creative Manager",
-      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
-      image: "/avatar2.png",
-      color: "#f8c70c" // Yellow
+      role: "Creative Director",
+      relationship: "Manager",
+      quote: "His eye for detail is unmatched. He transformed our vague concepts into a coherent, stunning design system.",
+      image: "", // Fallback forced
+      color: "#f8c70c"
     },
     {
       id: 3,
       name: "Souther Helkcax",
-      role: "Marketing Manager",
-      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
-      image: "/avatar3.png",
-      color: "#e76f51" // Red
+      role: "Lead Developer",
+      relationship: "Coworker",
+      quote: "Rarely do you find a designer who understands code this well. Handing off files was always smooth and precise.",
+      image: "", // Fallback forced
+      color: "#e76f51"
     },
     {
       id: 4,
-      name: "Souther Helkcax",
-      role: "Marketing Manager",
-      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
-      image: "/avatar3.png",
-      color: "#e76f51" // Red
+      name: "Marta Kowalski",
+      role: "Marketing Head",
+      relationship: "Client",
+      quote: "The landing page he designed doubled our conversion rate in a week. Professional, fast, and incredibly talented.",
+      image: "", // Fallback forced
+      color: "#2f6a62"
     },
     {
       id: 5,
-      name: "Souther Helkcax",
-      role: "Marketing Manager",
-      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
-      image: "/avatar3.png",
-      color: "#e76f51" // Red
-    },
-    {
-      id: 6,
-      name: "Souther Helkcax",
-      role: "Marketing Manager",
-      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
-      image: "/avatar3.png",
-      color: "#e76f51" // Red
-    },
-    {
-      id: 7,
-      name: "Souther Helkcax",
-      role: "Marketing Manager",
-      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
-      image: "/avatar3.png",
-      color: "#e76f51" // Red
-    },
-    {
-      id: 8,
-      name: "Souther Helkcax",
-      role: "Marketing Manager",
-      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
-      image: "/avatar3.png",
-      color: "#e76f51" // Red
-    },
-    {
-      id: 9,
-      name: "Souther Helkcax",
-      role: "Marketing Manager",
-      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
-      image: "/avatar3.png",
-      color: "#e76f51" // Red
-    },
-    {
-      id: 10,
-      name: "Souther Helkcax",
-      role: "Marketing Manager",
-      quote: "A complete search of the internet has found these results satisfactory result is the most popular phrase on the web. You wouldn't really say that it was satisfying!",
-      image: "/avatar3.png",
-      color: "#e76f51" // Red
-    },
+      name: "David Chen",
+      role: "Founder",
+      relationship: "Client",
+      quote: "He didn't just design a website; he built a brand identity that perfectly communicates our values.",
+      image: "", // Fallback forced
+      color: "#f8c70c"
+    }
   ],
 };

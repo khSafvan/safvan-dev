@@ -45,16 +45,16 @@
 }
 
 .bg-green {
-    background-color: #2f6a62;
+    background-color: var(--color-brand-green);
 }
 
 .bg-yellow {
-    background-color: #f1c40f;
+    background-color: var(--color-brand-yellow);
 }
 
 /* Adjusted yellow to be visible */
 .bg-orange {
-    background-color: #e76f51;
+    background-color: var(--color-brand-orange);
 }
 
 .service-info h3 {

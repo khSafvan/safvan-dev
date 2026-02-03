@@ -2,252 +2,189 @@
 .testimonials {
     padding-top: var(--spacing-4xl);
     padding-bottom: var(--spacing-4xl);
-    /* Ensure overflow doesn't break layout */
     overflow: hidden;
 }
 
-/* --- Header Section --- */
 .testimonials-header-main {
-    margin-bottom: var(--spacing-4xl);
+    margin-bottom: var(--spacing-3xl);
     text-align: center;
 }
 
-.testimonials-header-main h2 strong {
-    font-weight: 800;
-    /* Make "real people" extra bold */
+.testimonials-header-main .section-title {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-/* Trustpilot Badge */
-.trustpilot-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: var(--spacing-md);
-    font-size: var(--font-size-base);
-    color: var(--color-text-primary);
+/* --- Avatar Grid --- */
+.avatar-grid-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-4xl);
+    padding: 0 var(--spacing-md);
 }
 
-.trustpilot-star {
-    color: #00b67a;
-    /* Trustpilot Green */
-    font-size: 24px;
-}
-
-.rating-score {
-    font-weight: bold;
-}
-
-/* --- Split Layout Container --- */
-.testimonials-split-layout {
+.avatar-grid {
     display: flex;
     flex-wrap: wrap;
-    /* Allow stacking on mobile */
-    gap: var(--spacing-2xl);
-    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+    max-width: 1000px;
 }
 
-/* --- Left Column (Static) --- */
-.testimonials-left {
-    flex: 0 0 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: var(--spacing-xl);
-}
-
-.quote-icon-large {
-    margin-bottom: var(--spacing-lg);
-    color: #cbd5e1;
-    /* Light gray */
-}
-
-.left-title {
-    font-size: 3rem;
-    /* Large display text */
-    line-height: 1.1;
-    font-weight: 700;
-    margin-bottom: var(--spacing-2xl);
-    color: var(--color-text-primary);
-}
-
-/* Controls */
-.testimonial-controls {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.control-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-text-secondary);
-    transition: color 0.2s;
-    padding: 0;
-}
-
-.control-btn:hover {
-    color: var(--color-primary);
-}
-
-.control-line {
+.avatar-btn {
     width: 60px;
-    height: 2px;
-    background-color: var(--color-border);
+    height: 60px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: transparent;
+    opacity: 0.5;
+    filter: grayscale(100%);
 }
 
-/* --- Right Column (Carousel) --- */
-.testimonials-right {
-    flex: 1;
-    /* Limit width to prevent overflow issues */
-    min-width: 0;
-    position: relative;
-}
+/* ... skipped hover/active ... */
 
-/* Scroll Container */
-.testimonials-scroller {
-    display: flex;
-    gap: var(--spacing-xl);
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding-bottom: var(--spacing-xl);
-    /* Space for shadow */
-    padding-left: var(--spacing-xs);
-    /* Padding for start */
-
-    /* Scroll Snap Logic */
-    scroll-snap-type: x mandatory;
-
-    /* Hide Scrollbar */
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE */
-}
-
-.testimonials-scroller::-webkit-scrollbar {
-    display: none;
-}
-
-/* --- Card Groups --- */
-.testimonial-card-group {
-    flex: 0 0 350px;
-    /* Fixed width cards */
-    display: flex;
-    flex-direction: column;
-
-    /* Snap Alignment */
-    scroll-snap-align: start;
-    scroll-margin-left: var(--spacing-xs);
-    /* align with container padding */
-}
-
-/* Speech Bubble */
-.speech-bubble {
-    background: white;
-    padding: var(--spacing-xl);
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    /* Soft shadow */
-    position: relative;
-    margin-bottom: var(--spacing-xl);
-    /* Space for tail */
-}
-
-/* Triangle Tail */
-.speech-bubble::after {
-    content: '';
+/* Pastel Complementary Ring */
+.avatar-btn.active::after {
+    content: "";
     position: absolute;
-    bottom: -10px;
-    left: 40px;
-    width: 20px;
-    height: 20px;
-    background: white;
-    transform: rotate(45deg);
-    /* To merge visually with bubble, usually needs careful positioning or simple border trick. 
-       Simple box-shadow doesn't work well on rotated element unless carefully handled.
-       Or simpler border-width method.
-    */
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.03);
-    /* Subtle shadow on bottom right of diamond */
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 3px solid var(--active-border-color);
+    /* Dynamic pastel color */
+    z-index: -1;
 }
 
-.bubble-text {
-    font-size: var(--font-size-sm);
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-md);
-}
-
-.star-rating {
-    color: #00b67a;
-    /* Green stars */
-    font-size: 18px;
-    letter-spacing: 2px;
-}
-
-/* User Profile */
-.user-profile {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    padding-left: var(--spacing-md);
-    /* Align generally under bubble start */
-}
-
-.user-avatar-bg {
-    width: 50px;
-    height: 50px;
+/* Ensure avatar image stays circle and on top */
+.avatar-img {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     background-size: cover;
     background-position: center;
     background-color: #eee;
+    position: relative;
+    z-index: 1;
 }
 
-.user-info {
+.avatar-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 500;
+    /* Clean, Google-like weight */
+    font-size: 1.5rem;
+    /* Larger, clearer text */
+    font-family: var(--font-family-primary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    /* Subtle depth */
+}
+
+/* ... (skipping unchanged parts) ... */
+
+/* --- Spotlight Content --- */
+.spotlight-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
 }
 
-.user-name {
-    font-weight: 700;
-    font-size: var(--font-size-base);
+.spotlight-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* Close spacing */
+    font-family: var(--font-family-primary);
+    font-size: 1rem;
+    /* Unified size */
+    /* Unified size */
+    text-transform: uppercase;
+    /* User: "name and title both should be allcaps" */
+    letter-spacing: 0.05em;
+    /* Add slight spacing for caps */
     color: var(--color-text-primary);
+    /* Strict base styles */
+    font-weight: 400;
+    font-style: normal;
 }
 
-.user-meta {
-    font-size: 12px;
+.spotlight-name {
+    font-weight: 700;
+    /* Bold */
+    font-style: normal;
+    margin: 0;
+}
+
+.spotlight-divider {
+    opacity: 0.5;
+    font-weight: 400;
+    /* Normal */
+    font-style: normal;
+}
+
+.spotlight-relationship {
+    font-weight: 400;
+    font-style: normal;
+    /* Normal (not italic) */
+    text-transform: uppercase;
+    /* Capital only */
     color: var(--color-text-secondary);
 }
 
-/* --- Responsive --- */
-@media (max-width: 900px) {
-    .testimonials-split-layout {
-        flex-direction: column;
+.spotlight-quote-wrapper {
+    position: relative;
+    min-height: 140px;
+    /* Layout stability: accom longest quote */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fade-wrapper {
+    animation: fadeUp 0.6s ease forwards;
+    width: 100%;
+}
+
+.spotlight-quote {
+    font-family: var(--font-family-primary);
+    /* or Serif if desired */
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
-    .testimonials-left {
-        width: 100%;
-        flex: none;
-        align-items: center;
-        text-align: center;
-        margin-bottom: var(--spacing-xl);
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .avatar-btn {
+        width: 45px;
+        height: 45px;
     }
 
-    .left-title {
-        font-size: 2.5rem;
-    }
-
-    .left-title br {
-        display: none;
-        /* Unwrap text on mobile center */
-    }
-
-    .testimonial-controls {
-        justify-content: center;
-    }
-
-    .testimonials-right {
-        width: 100%;
+    .spotlight-quote {
+        font-size: 1.25rem;
     }
 }
