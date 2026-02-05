@@ -8,7 +8,6 @@ import ExperienceSection from "./sections/ExperienceSection/ExperienceSection";
 import WorksSection from "./sections/WorksSection/WorksSection";
 import TestimonialsSection from "./sections/TestimonialsSection/TestimonialsSection";
 import ScrollProgress from "./components/ui/ScrollProgress/ScrollProgress";
-import StartupAnimation from "./components/ui/StartupAnimation/StartupAnimation";
 import "./styles/global.css";
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
 
   return (
     <div className="app-container">
-      <StartupAnimation />
       <Header />
       <main>
         <HeroSection />
