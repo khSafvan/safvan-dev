@@ -139,6 +139,17 @@
     margin: 0;
 }
 
+.spotlight-link {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease, text-decoration 0.2s ease;
+}
+
+.spotlight-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
 .spotlight-divider {
     opacity: 0.5;
     font-weight: 400;
