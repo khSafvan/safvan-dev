@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState, useMemo, useContext } from "react";
 import { CursorContext } from "../../../contexts/cursorState";
 
 const cursorColors = {
-  inactive: "rgba(40, 40, 40, 1)",
-  active: "rgba(255, 214, 107, 1)",
-  hoverRing: "rgba(255, 214, 107, 1)",
-  clickRing: "rgba(77, 168, 218, 1)",
+  inactive: "rgba(140, 122, 107, 1)",  /* Pastel Brown */
+  active: "rgba(178, 211, 194, 1)", /* Pastel Green */
+  hoverRing: "rgba(178, 211, 194, 1)", /* Pastel Green */
+  clickRing: "rgba(245, 235, 224, 1)", /* Beige */
 };
 
 const lerp = (start, end, amt) => start + (end - start) * amt;
