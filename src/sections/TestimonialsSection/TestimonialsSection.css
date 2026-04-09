@@ -38,6 +38,7 @@
 }
 
 .avatar-btn {
+    position: relative;
     width: 60px;
     height: 60px;
     padding: 0;
@@ -48,6 +49,11 @@
     background: transparent;
     opacity: 0.5;
     filter: grayscale(100%);
+}
+
+.avatar-btn.active {
+    opacity: 1;
+    filter: grayscale(0%);
 }
 
 
@@ -103,6 +109,7 @@
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-lg);
+    min-height: 400px;
 }
 
 .spotlight-info {
@@ -165,7 +172,7 @@
 .spotlight-quote {
     font-family: var(--font-family-primary);
 
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 500;
     line-height: 1.4;
     color: var(--color-text-primary);
@@ -190,7 +197,11 @@
         height: 45px;
     }
 
+    .spotlight-content {
+        min-height: 650px;
+    }
+
     .spotlight-quote {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
     }
 }
