@@ -60,7 +60,7 @@
     color: #cbd5e1;
     /* Light grey for the big text like "FRONTEND" to be subtle? No, image has it fairly prominent. */
     /* Let's stick to a solid color but maybe slightly lighter than pure black */
-    color: rgba(0, 0, 0, 0.2);
+    color: rgba(74, 64, 54, 0.15);
     /* Faded distinct look? Or maybe outline? */
     /* The user said "sites colour scheme". Site is pastel. */
     /* Let's use a solid dark grey */

@@ -5,36 +5,14 @@ import "./WorksSection.css";
 export default function WorksSection() {
     const { works } = portfolioConfig;
     const [activeIndex, setActiveIndex] = useState(0);
-    const scrollContainerRef = useRef(null);
-
-    // Auto-scroll logic
+    // Auto-scroll logic (state only)
     useEffect(() => {
         const interval = setInterval(() => {
-            setActiveIndex((prevIndex) => {
-                const nextIndex = (prevIndex + 1) % works.length;
-
-                // Scroll to the next item
-                if (scrollContainerRef.current) {
-                    const cardHeight = scrollContainerRef.current.children[0].offsetHeight;
-                    // Usually we might want smooth scroll, or instant snap. 
-                    // For "auto scrolling" we usually want smooth.
-                    // If looping back to 0, we might want to reset scroll instantly or scroll top.
-
-                    if (nextIndex === 0) {
-                        scrollContainerRef.current.scrollTo({ top: 0, behavior: "smooth" });
-                    } else {
-                        scrollContainerRef.current.scrollTo({
-                            top: nextIndex * cardHeight,
-                            behavior: "smooth"
-                        });
-                    }
-                }
-                return nextIndex;
-            });
-        }, 3000); // 3 seconds
+            setActiveIndex((prevIndex) => (prevIndex + 1) % works.length);
+        }, 5000); // 5 seconds (slower for reading)
 
         return () => clearInterval(interval);
-    }, [activeIndex, works.length]);
+    }, [works.length]);
 
     // Handle manual scroll (optional, if user scrolls we might want to update active index)
     // For now, let's keep it simple: Auto-scroll drives the state. 
@@ -107,30 +85,8 @@ export default function WorksSection() {
                             <span>{portfolioConfig.personal.location}</span>
                         </div>
                     </div>
-                </div>
 
-                {/* RIGHT PANEL: CAROUSEL */}
-                <div className="works-carousel-panel" ref={scrollContainerRef}>
-                    {works.map((work, index) => (
-                        <div
-                            key={work.id}
-                            className={`carousel-item ${index === activeIndex ? "active" : ""}`}
-                        >
-                            {work.image ? (
-                                <img
-                                    src={work.image}
-                                    alt={work.title}
-                                    className="work-image"
-                                />
-                            ) : (
-                                <div className="work-image-fallback" style={{ backgroundColor: work.color, width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '2rem', fontWeight: 'bold' }}>
-                                    {work.title}
-                                </div>
-                            )}
-                        </div>
-                    ))}
-
-                    {/* Controls Overlay */}
+                    {/* Controls Overlay inside Info Panel */}
                     <div className="carousel-controls">
                         <button className="nav-arrow up" onClick={handlePrev}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 15l-6-6-6 6" /></svg>
