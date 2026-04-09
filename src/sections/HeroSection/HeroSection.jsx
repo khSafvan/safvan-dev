@@ -82,12 +82,6 @@ export default function HeroSection() {
       </div>
 
       <div className="hero-footer">
-        <div className="social-links">
-          {["Twitter", "Dribbble", "Behance", "LinkedIn"].map((social) => (
-            <a href="#!" key={social} className="social-link">{social}</a>
-          ))}
-        </div>
-
         <div className="discover-more">
           <span>Discover</span>
           <svg className="arrow-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
