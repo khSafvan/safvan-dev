@@ -58,6 +58,7 @@ export const portfolioConfig = {
       title: "Cloud-Hosted Multi-Modal AI Agents Platform",
       description: "Developed dynamic, interactive user interfaces for an advanced AI platform entirely with Next.js and Three.js. Engineered adaptive, high-performance components that dynamically supported and rendered an array of multi-modal AI outputs including interactive 3D models, audio, and video.",
       image: "",
+      link: "",
       color: "#f8c70c", // Yellow
       textColor: "#000000",
       buttonColor: "#000000" // Black button on yellow
@@ -68,6 +69,7 @@ export const portfolioConfig = {
       title: "Transportation Management Platform",
       description: "Developed a mission-critical platform for scheduling, quoting, and dispatch. Radically reduced backend latency by ~45% by shifting from a Sequelize ORM to highly optimized raw MySQL stored procedures. Accelerated quoting workflows from multi-hour delays down to ~90 seconds.",
       image: "",
+      link: "",
       color: "#2f6a62", // Green
       textColor: "#ffffff",
       buttonColor: "#f1c40f" // Pop of yellow on green
@@ -78,6 +80,7 @@ export const portfolioConfig = {
       title: "InnerCircle Peer-to-Peer Marketplace",
       description: "A dynamic web application empowering users to securely buy, sell, or rent products directly within their trusted social circles. Architected with a highly responsive React.js UI boasting advanced filtering, and supported by a robust Node.js/Express backend handling REST APIs.",
       image: "",
+      link: "",
       color: "#e76f51", // Reddish Orange
       textColor: "#ffffff",
       buttonColor: "#000000"

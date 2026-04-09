@@ -78,16 +78,24 @@ export default function WorksSection() {
                             {activeWork.description || "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}
                         </p>
 
-                        <button
-                            className="explore-btn"
-                            style={{
-                                backgroundColor: activeWork.buttonColor,
-                                color: activeWork.textColor === '#000000' && activeWork.buttonColor === '#000000' ? '#fff' : (activeWork.buttonColor === '#f1c40f' ? '#000' : '#fff')
-                                /* Simple logic: if button is black, text white. If button yellow, text black. Else default white text */
-                            }}
-                        >
-                            Explore More
-                        </button>
+                        {activeWork.link && (
+                            <a
+                                href={activeWork.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="explore-btn"
+                                style={{
+                                    backgroundColor: activeWork.buttonColor,
+                                    color: activeWork.textColor === '#000000' && activeWork.buttonColor === '#000000' ? '#fff' : (activeWork.buttonColor === '#f1c40f' ? '#000' : '#fff'),
+                                    textDecoration: 'none',
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}
+                            >
+                                Explore More
+                            </a>
+                        )}
                     </div>
 
                     <div className="info-footer" style={{ color: activeWork.textColor }}>
@@ -96,7 +104,7 @@ export default function WorksSection() {
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
-                            <span>Great Britain, London</span>
+                            <span>{portfolioConfig.personal.location}</span>
                         </div>
                     </div>
                 </div>

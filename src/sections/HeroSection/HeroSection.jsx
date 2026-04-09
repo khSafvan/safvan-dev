@@ -80,18 +80,18 @@ export default function HeroSection() {
         </p>
 
         <div className="hero-actions">
-          <button className="btn-primary">Let's Connect</button>
-          <button className="btn-secondary">View Work</button>
+          <a href={`mailto:${portfolioConfig.personal.email}`} className="btn-primary" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>Let's Connect</a>
+          <a href="#works" className="btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>View Work</a>
         </div>
       </div>
 
       <div className="hero-footer">
-        <div className="discover-more">
+        <a href="#works" className="discover-more" style={{ textDecoration: 'none', color: 'inherit' }}>
           <span>Discover</span>
           <svg className="arrow-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M12 5v14M19 12l-7 7-7-7" />
           </svg>
-        </div>
+        </a>
       </div>
     </section>
   );
