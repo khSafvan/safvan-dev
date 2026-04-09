@@ -62,9 +62,9 @@
 /* Row 2: "I'm a" (Light grey), "Product Lead" (Bold Black) */
 .sans-text-light {
   font-family: var(--font-family-primary);
-  font-weight: 400;
-  color: #a0a0a0;
-  /* Light grey */
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  /* Darker grey for accessibility */
 }
 
 .sans-text-bold {

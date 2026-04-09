@@ -5,7 +5,7 @@ const ExperienceNode = ({ company, period, role, description, color }) => {
     return (
         <div className="experience-node">
             <div className="node-top">
-                <h3 className="node-company" style={{ color }}>
+                <h3 className="node-company">
                     {company}
                 </h3>
                 <span className="node-period">{period}</span>
