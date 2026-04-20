@@ -31,10 +31,10 @@ export default function HeroSection() {
                     C 180,200 200,180 200,100 
                     C 200,20 180,0 100,0 Z" />
 
-                  {/* Gradient for Border: Pastel Beige to Pastel Green */}
+                  {/* Gradient for Border: Warm Cream to Vibrant Mint Green */}
                   <linearGradient id="border-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="200" y2="200">
-                    <stop offset="0%" stopColor="#F5EBE0" /> {/* Pastel Beige */}
-                    <stop offset="100%" stopColor="#B2D3C2" /> {/* Pastel Green */}
+                    <stop offset="0%" stopColor="#FFECD6" /> {/* Warm Cream */}
+                    <stop offset="100%" stopColor="#68CBA0" /> {/* Vibrant Mint Green */}
                   </linearGradient>
                 </defs>
                 <clipPath id="cookie-clip">
