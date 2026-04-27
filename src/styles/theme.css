@@ -1,32 +1,43 @@
 :root {
-  /* Color Palette - Binjan Design */
-  --color-primary: #2f6a62;
-  /* Deep Green */
-  --color-primary-light: #3d8b80;
-  --color-primary-dark: #1e4d46;
+  /* Color Palette - Binjan Redesign */
+  --color-primary: #1a56db;
+  /* Royal Blue */
+  --color-primary-light: #4c7bf4;
+  --color-primary-dark: #103c9e;
 
-  --color-secondary: #f4a261;
-  /* Accent Orange */
-  --color-secondary-light: #f6b581;
-  --color-secondary-dark: #d68c50;
+  --color-secondary: #000000;
+  /* Black for contrast */
+  --color-secondary-light: #333333;
+  --color-secondary-dark: #000000;
 
-  --color-background: #fcfcf7;
-  /* Cream Background */
+  --color-background: #f8f9fa;
+  /* Very light gray/white */
   --color-surface: #ffffff;
-  --color-surface-translucent: rgba(255, 255, 255, 0.8);
+  --color-surface-translucent: rgba(255, 255, 255, 0.9);
 
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #4a4a4a;
+  --color-text-primary: #111111;
+  --color-text-secondary: #555555;
   --color-text-muted: #888888;
-  --color-text-light: #fcfcf7;
+  --color-text-light: #ffffff;
   --color-text-accent: #e76f51;
-  /* Reddish orange for details */
+  /* Orange Accent used in Hero/Services */
 
-  --color-border: rgba(47, 106, 98, 0.2);
+  /* Brand Colors */
+  --color-brand-green: #2f6a62;
+  --color-brand-yellow: #f1c40f;
+  --color-brand-orange: #e76f51;
+  --color-brand-trustpilot: #00b67a;
+
+  --color-border: rgba(0, 0, 0, 0.1);
+
+  /* Additional Surfaces */
+  --color-surface-dark: #2a2a2a;
 
   /* Typography */
-  --font-family-primary: "Outfit", sans-serif;
-  /* Main headings & Body */
+  --font-family-primary: "Inter", sans-serif;
+  /* Body */
+  --font-family-serif: "Instrument Serif", "Playfair Display", serif;
+  /* Headings */
   --font-family-script: "Caveat", cursive;
   /* Signature / Logo */
 
