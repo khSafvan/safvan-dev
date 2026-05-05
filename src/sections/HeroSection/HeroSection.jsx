@@ -20,16 +20,25 @@ export default function HeroSection() {
             <div className="floating-image-wrapper svg-shape">
               <svg viewBox="0 0 200 200" className="cookie-svg">
                 <defs>
-                  {/* 7-Sided Cookie Shape Path */}
-                  {/* Okay, I will use a simpler verified "flower" path from a standard library for "7 petal" */}
-                  <path id="cookie-shape" d="M100,15 C115,15 128,25 140,32 C155,40 172,40 182,55 C192,70 190,88 195,105 C200,122 195,140 185,155 C175,170 158,175 145,185 C132,195 115,198 100,195 C85,192 68,190 55,180 C42,170 32,155 25,142 C18,128 10,115 12,98 C14,80 25,65 35,52 C45,40 60,30 75,22 C88,15 100,15 100,15Z" />
+                  {/* Squircle Shape Path */}
+                  <path id="squircle-shape" d="M 100,0 
+                    C 20,0 0,20 0,100 
+                    C 0,180 20,200 100,200 
+                    C 180,200 200,180 200,100 
+                    C 200,20 180,0 100,0 Z" />
+
+                  {/* Gradient for Border: Pastel Yellow to Pastel Blue */}
+                  <linearGradient id="border-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="200" y2="200">
+                    <stop offset="0%" stopColor="#FCD34D" /> {/* More vibrant Pastel Yellow (Amber 300) */}
+                    <stop offset="100%" stopColor="#64B5F6" /> {/* More visible Pastel Blue (Blue 300) */}
+                  </linearGradient>
                 </defs>
                 <clipPath id="cookie-clip">
-                  <use href="#cookie-shape" />
+                  <use href="#squircle-shape" className="spin-shape" />
                 </clipPath>
 
-                {/* Border (Stroke) */}
-                <use href="#cookie-shape" stroke="white" strokeWidth="8" fill="none" />
+                {/* Border (Stroke) with Gradient */}
+                <use href="#squircle-shape" className="spin-shape" stroke="url(#border-gradient)" strokeWidth="6" fill="none" />
 
                 {/* Image */}
                 <image

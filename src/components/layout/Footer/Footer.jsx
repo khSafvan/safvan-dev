@@ -2,49 +2,49 @@ import React from "react";
 import "./Footer.css";
 
 export default function Footer() {
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
     return (
         <footer className="footer container">
-            {/* CTA Section */}
-            <div className="footer-cta section">
-                <div className="cta-left">
-                    <h2 className="cta-title">
-                        Let's make something<br />
-                        amazing together.
-                    </h2>
-                    <div className="cta-action">
-                        <span className="cta-label">Start by </span>
-                        <a href="mailto:banjan10@gmail.com" className="cta-link">saying hi</a>
-                    </div>
-                </div>
+            {/* Top Bar: Copyright and Back to Top */}
+            <div className="footer-top">
+                <p className="footer-copyright">© {new Date().getFullYear()}</p>
 
-                <div className="cta-right">
-                    <div className="footer-info">
-                        <h4 className="info-title">Information</h4>
-                        <p className="info-address">145 New York, FL 5467, USA</p>
-
-                        <nav className="footer-nav">
-                            <a href="#services">Services</a>
-                            <a href="#works">Works</a>
-                            <a href="#notes">Notes</a>
-                            <a href="#experience">Experience</a>
-                        </nav>
+                <button className="back-to-top" onClick={scrollToTop}>
+                    <span>BACK TO TOP</span>
+                    <div className="arrow-circle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                     </div>
+                </button>
+            </div>
+
+            {/* Center: Massive CTA */}
+            <div className="footer-center">
+                <p className="cta-label">HAVE A PROJECT IN MIND?</p>
+                <div className="cta-heading-wrapper">
+                    <h1 className="cta-heading">LET'S TALK</h1>
                 </div>
             </div>
 
-            <div className="footer-divider"></div>
-
-            {/* Bottom Legal */}
+            {/* Bottom Bar: Social Pills and Credits */}
             <div className="footer-bottom">
-                <a href="#home" className="footer-logo">Binjan</a>
+                <div className="social-pills">
+                    <a href="https://github.com/banjan10" target="_blank" rel="noopener noreferrer" className="social-pill">GITHUB</a>
+                    <a href="https://linkedin.com/in/banjan10" target="_blank" rel="noopener noreferrer" className="social-pill">LINKEDIN</a>
+                    <a href="https://twitter.com/banjan10" target="_blank" rel="noopener noreferrer" className="social-pill">TWITTER</a>
+                </div>
 
-                <p className="copyright">
-                    © 2023. All Rights Reserved
-                </p>
-
-                <p className="credit">
-                    Design by <span className="credit-link">Chris Creative Agency</span>
-                </p>
+                <div className="footer-credits">
+                    <p>Design by <span className="credit-name">The Avgxy Design Studio</span></p>
+                    <p>Development by <span className="credit-name">Safvan</span></p>
+                </div>
             </div>
         </footer>
     );

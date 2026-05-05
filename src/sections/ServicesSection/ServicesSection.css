@@ -1,131 +1,114 @@
+/* ServicesSection.css (Redesigned as My Stack) */
 .services {
     padding-top: var(--spacing-4xl);
     padding-bottom: var(--spacing-4xl);
+    background-color: var(--color-background);
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-2xl);
+.section-header {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.section-subtitle {
+    font-family: var(--font-family-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: flex;
     align-items: center;
+    gap: 8px;
 }
 
-/* Service Cards */
-.services-list {
+/* Stack Layout */
+.stack-container {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-4xl);
 }
 
-.service-card {
+.stack-category {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    /* Fixed width for title, result flexible */
+    gap: var(--spacing-2xl);
+    align-items: start;
+}
+
+.category-title {
+    font-family: var(--font-family-primary);
+    /* Assuming "Impact" or heavy bold style in reference, using primary font bold */
+    font-size: 3.5rem;
+    /* Massive size */
+    font-weight: 900;
+    color: var(--color-text-primary);
+    /* Or maybe outline style if requested, but checking image it looks solid white/grey */
+    /* Reference image text looks lighter grey/white on dark bg. Site is light, so dark text. */
+    /* Let's try to match the "impact" vibe */
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
+    color: #cbd5e1;
+    /* Light grey for the big text like "FRONTEND" to be subtle? No, image has it fairly prominent. */
+    /* Let's stick to a solid color but maybe slightly lighter than pure black */
+    color: rgba(0, 0, 0, 0.2);
+    /* Faded distinct look? Or maybe outline? */
+    /* The user said "sites colour scheme". Site is pastel. */
+    /* Let's use a solid dark grey */
+    color: var(--color-text-secondary);
+    opacity: 0.5;
+    /* Fade it */
+}
+
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl) var(--spacing-3xl);
+    /* Row gap, Column gap */
+    align-items: center;
+}
+
+.tech-item {
     display: flex;
     align-items: center;
-    gap: var(--spacing-lg);
-    background: white;
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius-xl);
-    box-shadow: var(--shadow-sm);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    gap: 12px;
+    width: 180px;
+    /* Fixed width for better grid alignment like list */
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.service-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+.tech-icon {
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    font-size: 1.75rem;
+    /* Larger icon */
     flex-shrink: 0;
+    transition: transform 0.2s ease;
 }
 
-.bg-green {
-    background-color: var(--color-brand-green);
+.tech-item:hover .tech-icon {
+    transform: scale(1.1);
 }
 
-.bg-yellow {
-    background-color: var(--color-brand-yellow);
-}
-
-/* Adjusted yellow to be visible */
-.bg-orange {
-    background-color: var(--color-brand-orange);
-}
-
-.service-info h3 {
+.tech-name {
     font-family: var(--font-family-primary);
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
-    margin-bottom: var(--spacing-xs);
-}
-
-.service-info p {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-sm);
-    margin: 0;
-}
-
-/* Content */
-.services-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xl);
-}
-
-.section-title {
-    font-family: var(--font-family-primary);
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
+    font-size: 1.1rem;
+    font-weight: 500;
     color: var(--color-text-primary);
 }
 
-.services-description p {
-    font-family: var(--font-family-body);
-    color: var(--color-text-secondary);
-    line-height: var(--line-height-relaxed);
-    margin-bottom: var(--spacing-md);
-}
-
-.services-stats {
-    display: flex;
-    gap: var(--spacing-3xl);
-    margin-top: var(--spacing-md);
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-value {
-    font-family: var(--font-family-primary);
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
-}
-
-.stat-label {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-    margin-top: var(--spacing-xs);
-}
 
 /* Responsive */
 @media (max-width: 968px) {
-    .services-grid {
+    .stack-category {
         grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
+        gap: var(--spacing-lg);
     }
 
-    .services-content {
-        order: -1;
-        /* Text first on mobile? Or standard order? Design usually image/cards first? Let's keep standard top-down */
-        order: 0;
+    .category-title {
+        font-size: 2.5rem;
     }
 }
