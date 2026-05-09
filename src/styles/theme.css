@@ -72,7 +72,7 @@
   --spacing-4xl: 8rem;
 
   /* Layout */
-  --container-max-width: 85%;
+  --container-max-width: 1400px;
   /* Fluid but constrained to 85% */
   --header-height: 80px;
   --section-padding: var(--spacing-4xl);
