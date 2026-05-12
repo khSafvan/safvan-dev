@@ -15,15 +15,12 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: var(--spacing-2xl);
+    width: 100%;
+    max-width: var(--container-max-width);
 }
 
-.section-title {
-    font-family: var(--font-family-primary);
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
-    margin-bottom: var(--spacing-xs);
-}
+/* .section-title is now global */
+
 
 .section-subtitle {
     font-family: var(--font-family-body);

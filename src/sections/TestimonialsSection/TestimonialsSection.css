@@ -13,10 +13,12 @@
 .testimonials-header-main {
     margin-bottom: var(--spacing-3xl);
     text-align: left;
+    width: 100%;
+    max-width: var(--container-max-width);
 }
 
 .testimonials-header-main .section-title {
-    max-width: 800px;
+    /* Inherits global */
     margin: 0;
 }
 
