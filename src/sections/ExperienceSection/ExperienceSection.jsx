@@ -20,29 +20,18 @@ export default function ExperienceSection() {
         // Safety check to ensure refs are available
         if (!section || !trigger) return;
 
-        // Clean up any existing ScrollTriggers to prevent duplicates on hot reload
-        ScrollTrigger.getAll().forEach(t => t.kill());
-
         const ctx = gsap.context(() => {
-            const totalWidth = section.scrollWidth;
-            const viewportWidth = window.innerWidth;
-
-            // Calculate total scroll distance: content width - viewport width + buffer
-            const scrollDistance = totalWidth - viewportWidth + 100;
-
-            // Dynamic duration based on content width relative to viewport
-            // Checks how many "screens" of width we have
-            const widthRatio = scrollDistance / viewportWidth;
-            // Base duration on width, but ensure a minimum scroll distance
-            const scrollDuration = Math.max(window.innerHeight * 1.5, window.innerHeight * widthRatio);
-
             gsap.to(section, {
-                x: -scrollDistance,
+                x: () => -(section.scrollWidth - window.innerWidth),
                 ease: "none",
                 scrollTrigger: {
                     trigger: trigger,
                     start: "top top",
-                    end: "+=" + scrollDuration,
+                    end: () => {
+                        const dist = section.scrollWidth - window.innerWidth;
+                        const ratio = dist > 0 ? dist / window.innerWidth : 0;
+                        return "+=" + Math.max(window.innerHeight * 1.5, window.innerHeight * ratio);
+                    },
                     scrub: 1, // Smooth scrubbing
                     pin: true, // Pin the section while scrolling horizontally
                     invalidateOnRefresh: true, // Recalculate on window resize
