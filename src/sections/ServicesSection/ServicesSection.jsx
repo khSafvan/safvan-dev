@@ -52,7 +52,7 @@ export default function ServicesSection() {
     ];
 
     return (
-        <section className="services section container" id="services">
+        <section className="services section container" id="stack">
             <div className="section-header">
                 <h2 className="section-title">My Stack</h2>
             </div>
