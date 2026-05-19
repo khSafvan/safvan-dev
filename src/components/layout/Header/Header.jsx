@@ -16,7 +16,7 @@ const Header = () => {
         {/* Navigation */}
         <nav className="nav">
           <ul className="nav-list">
-            {["Works", "Experience", "Services", "Testimonials"].map((item) => (
+            {["Works", "Experience", "Stack", "Testimonials"].map((item) => (
               <li key={item} className="nav-item">
                 <a
                   href={`#${item.toLowerCase()}`}
