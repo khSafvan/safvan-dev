@@ -5,36 +5,14 @@ import "./WorksSection.css";
 export default function WorksSection() {
     const { works } = portfolioConfig;
     const [activeIndex, setActiveIndex] = useState(0);
-    const scrollContainerRef = useRef(null);
-
-    // Auto-scroll logic
+    // Auto-scroll logic (state only)
     useEffect(() => {
         const interval = setInterval(() => {
-            setActiveIndex((prevIndex) => {
-                const nextIndex = (prevIndex + 1) % works.length;
-
-                // Scroll to the next item
-                if (scrollContainerRef.current) {
-                    const cardHeight = scrollContainerRef.current.children[0].offsetHeight;
-                    // Usually we might want smooth scroll, or instant snap. 
-                    // For "auto scrolling" we usually want smooth.
-                    // If looping back to 0, we might want to reset scroll instantly or scroll top.
-
-                    if (nextIndex === 0) {
-                        scrollContainerRef.current.scrollTo({ top: 0, behavior: "smooth" });
-                    } else {
-                        scrollContainerRef.current.scrollTo({
-                            top: nextIndex * cardHeight,
-                            behavior: "smooth"
-                        });
-                    }
-                }
-                return nextIndex;
-            });
-        }, 3000); // 3 seconds
+            setActiveIndex((prevIndex) => (prevIndex + 1) % works.length);
+        }, 5000); // 5 seconds (slower for reading)
 
         return () => clearInterval(interval);
-    }, [activeIndex, works.length]);
+    }, [works.length]);
 
     // Handle manual scroll (optional, if user scrolls we might want to update active index)
     // For now, let's keep it simple: Auto-scroll drives the state. 
@@ -78,16 +56,24 @@ export default function WorksSection() {
                             {activeWork.description || "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}
                         </p>
 
-                        <button
-                            className="explore-btn"
-                            style={{
-                                backgroundColor: activeWork.buttonColor,
-                                color: activeWork.textColor === '#000000' && activeWork.buttonColor === '#000000' ? '#fff' : (activeWork.buttonColor === '#f1c40f' ? '#000' : '#fff')
-                                /* Simple logic: if button is black, text white. If button yellow, text black. Else default white text */
-                            }}
-                        >
-                            Explore More
-                        </button>
+                        {activeWork.link && (
+                            <a
+                                href={activeWork.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="explore-btn"
+                                style={{
+                                    backgroundColor: activeWork.buttonColor,
+                                    color: activeWork.textColor === '#000000' && activeWork.buttonColor === '#000000' ? '#fff' : (activeWork.buttonColor === '#f1c40f' ? '#000' : '#fff'),
+                                    textDecoration: 'none',
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}
+                            >
+                                Explore More
+                            </a>
+                        )}
                     </div>
 
                     <div className="info-footer" style={{ color: activeWork.textColor }}>
@@ -96,27 +82,11 @@ export default function WorksSection() {
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
-                            <span>Great Britain, London</span>
+                            <span>{portfolioConfig.personal.location}</span>
                         </div>
                     </div>
-                </div>
 
-                {/* RIGHT PANEL: CAROUSEL */}
-                <div className="works-carousel-panel" ref={scrollContainerRef}>
-                    {works.map((work, index) => (
-                        <div
-                            key={work.id}
-                            className={`carousel-item ${index === activeIndex ? "active" : ""}`}
-                        >
-                            <img
-                                src={work.image}
-                                alt={work.title}
-                                className="work-image"
-                            />
-                        </div>
-                    ))}
-
-                    {/* Controls Overlay */}
+                    {/* Controls Overlay inside Info Panel */}
                     <div className="carousel-controls">
                         <button className="nav-arrow up" onClick={handlePrev}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 15l-6-6-6 6" /></svg>

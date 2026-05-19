@@ -4,20 +4,20 @@
 export const portfolioConfig = {
   // Personal Information
   personal: {
-    name: "Binjan",
-    title: "UI/UX Designer",
-    email: "banjan10@gmail.com",
-    location: "USA",
-    phone: "+001 (313) 345 678",
+    name: "Safvan",
+    title: "Software Developer",
+    email: "khalifasafvan@yahoo.com",
+    location: "India (Relocating to Boston Suburbs)",
+    phone: "(+91) 8153837262",
   },
 
   // Hero Section
   hero: {
     greeting: "Hey There, I'm",
-    name: "Binjan",
-    title: "UI/UX Designer",
-    description: "I design beautifully simple things, And I love what i do.",
-    experience: "10",
+    name: "Safvan Khalifa",
+    title: "Software Developer",
+    description: "I build robust full-stack web applications and scalable systems.",
+    experience: "3",
     ctaText: "Hire Me",
     image: "/dev8bitArt.png", // Start with existing, user needs to replace
   },
@@ -26,93 +26,64 @@ export const portfolioConfig = {
   experience: [
     {
       id: 1,
-      company: "Self-Employed, Brisbane",
-      period: "Sep 2016 - Aug 2016",
-      role: "Visual Designer",
-      description: "A visual designer designs for a variety of platforms, which may include internet and intranet sites, games, movies, kiosks and wearables. In short, they create the concepts.",
-      color: "#2f6a62" // Green
+      company: "MarketingSolver.in Freelance",
+      period: "Aug '24 - Aug '25",
+      role: "Full Stack Developer",
+      description: "Served as the sole full-stack developer at a local startup. Built custom single-page applications (SPAs) and reliable backend systems using React, Node.js, Express, and MongoDB. Integrated complex functionality like authentication, structured booking workflows, and automated online payments.",
+      color: "#68CBA0" // Sage Green
     },
     {
       id: 2,
-      company: "New Man Services",
-      period: "Jan 17 - Mar 2018",
-      role: "UI/UX Designer",
-      description: "User interface design or user interface engineering is the design of user interfaces for machines and software, such as computers, home appliances, mobile devices.",
-      color: "#e76f51" // Reddish Orange
+      company: "La Net Team Software Solution",
+      period: "Jul '22 - Jul '24",
+      role: "Full Stack Developer",
+      description: "Delivered scalable, high-performance web applications for international clients directly within an Agile sprint cycle. Handled optimizations for API data handling, enforced strict code via Git peer reviews, and focused heavily on performance scaling and responsive cross-browser compatibility.",
+      color: "#B57449" // Terracotta Brown
     },
     {
       id: 3,
-      company: "Global Solution",
-      period: "Feb 2019 - Mar 2020",
-      role: "Sr. Product Designer",
-      description: "Find Product Photography Canada. Large Selection. Always Sale. Cheap Prices. Full Offer. Save Online. Compare Online. Simple Search. The Best Price. Compare Simply.",
-      color: "#f4a261" // Yellow/Orange
+      company: "La Net Team Software Solution",
+      period: "Jan '22 - Jul '22",
+      role: "Full Stack Developer (Internship)",
+      description: "Completed an intensive transition program to full-stack engineering. Built, reviewed, and successfully deployed real-world scalable solutions leveraging the robust technologies of React.js, Node.js, Express.js, and MongoDB, earning a top-tier evaluation grade.",
+      color: "#FFECD6" // Cream Beige
     }
-    , {
-      id: 4,
-      company: "Self-Employed, Brisbane",
-      period: "Sep 2016 - Aug 2016",
-      role: "Visual Designer",
-      description: "A visual designer designs for a variety of platforms, which may include internet and intranet sites, games, movies, kiosks and wearables. In short, they create the concepts.",
-      color: "#2f6a62" // Green
-    },
-    {
-      id: 5,
-      company: "New Man Services",
-      period: "Jan 17 - Mar 2018",
-      role: "UI/UX Designer",
-      description: "User interface design or user interface engineering is the design of user interfaces for machines and software, such as computers, home appliances, mobile devices.",
-      color: "#e76f51" // Reddish Orange
-    }
-
   ],
 
   // Works Section
   works: [
     {
       id: 1,
-      category: "App Design",
-      title: "Food Delivery App",
-      image: "/mockup-app.png", // Start with placeholder
-      color: "#f8c70c", // Yellow
-      textColor: "#000000",
-      buttonColor: "#000000" // Black button on yellow
+      category: "AI Platform",
+      title: "Cloud-Hosted Multi-Modal AI Agents Platform",
+      description: "Developed dynamic, interactive user interfaces for an advanced AI platform entirely with Next.js and Three.js. Engineered adaptive, high-performance components that dynamically supported and rendered an array of multi-modal AI outputs including interactive 3D models, audio, and video.",
+      image: "",
+      link: "",
+      color: "#68CBA0", // Sage Green
+      textColor: "#FFF9F0", // Cream Text
+      buttonColor: "#B57449" // Terracotta Button
     },
     {
       id: 2,
-      category: "Web Design",
-      title: "Agency Website",
-      image: "/mockup-web.png",
-      color: "#2f6a62", // Green
-      textColor: "#ffffff",
-      buttonColor: "#f1c40f" // Pop of yellow on green
+      category: "B2B SaaS",
+      title: "Transportation Management Platform",
+      description: "Developed a mission-critical platform for scheduling, quoting, and dispatch. Radically reduced backend latency by ~45% by shifting from a Sequelize ORM to highly optimized raw MySQL stored procedures. Accelerated quoting workflows from multi-hour delays down to ~90 seconds.",
+      image: "",
+      link: "",
+      color: "#B57449", // Terracotta Brown
+      textColor: "#FFF9F0", // Cream Text
+      buttonColor: "#68CBA0" // Sage Button
     },
     {
       id: 3,
-      category: "Brand Identity",
-      title: "Brand Kleiner",
-      image: "/mockup-brand.png",
-      color: "#e0f7fa", // Light Blue
-      textColor: "#000000",
-      buttonColor: "#2f6a62" // Dark green on light blue
-    },
-    {
-      id: 4,
-      category: "App Design",
-      title: "Food Delivery App",
-      image: "/mockup-app.png",
-      color: "#f8c70c", // Yellow
-      textColor: "#000000",
-      buttonColor: "#000000"
-    },
-    {
-      id: 5,
-      category: "Web Design",
-      title: "Agency Website",
-      image: "/mockup-web.png",
-      color: "#2f6a62", // Green
-      textColor: "#ffffff",
-      buttonColor: "#f1c40f"
+      category: "Full Stack App",
+      title: "InnerCircle Peer-to-Peer Marketplace",
+      description: "A dynamic web application empowering users to securely buy, sell, or rent products directly within their trusted social circles. Architected with a highly responsive React.js UI boasting advanced filtering, and supported by a robust Node.js/Express backend handling REST APIs.",
+      image: "",
+      link: "",
+      color: "#FFECD6", // Cream Background
+      textColor: "#2D2824", // Espresso Text
+      buttonColor: "#B57449" // Terracotta Button
     }
   ],
 
@@ -120,48 +91,33 @@ export const portfolioConfig = {
   testimonials: [
     {
       id: 1,
-      name: "Anamika Sandula",
-      role: "Product Manager",
-      relationship: "Supervisor",
-      quote: "Vlad is great to work with. He articulates all decisions with facts and provides a visually appealing finished product.",
-      image: "", // Fallback forced
-      color: "#2f6a62"
+      name: "Abhishek Jariwala",
+      role: "Full Stack Engineer | Scalable APIs",
+      relationship: "Coworker",
+      quote: "A cooperative team member who was receptive to feedback and collaborative problem-solving. Contributed to team goals and maintained a professional approach while working through challenges together. Overall, a good experience working in the same team.",
+      image: "/abhishek.png",
+      linkedin: "https://www.linkedin.com/in/abhishekjariwalaa/",
+      color: "#68CBA0" // Sage Green
     },
     {
       id: 2,
-      name: "John Allendone",
-      role: "Creative Director",
-      relationship: "Manager",
-      quote: "His eye for detail is unmatched. He transformed our vague concepts into a coherent, stunning design system.",
-      image: "", // Fallback forced
-      color: "#f8c70c"
+      name: "Damini Choat",
+      role: "HR Professional | CRM Specialist",
+      relationship: "Direct Manager",
+      quote: "As the HR representative of the company, I had the opportunity to closely observe Safvan Khalifa during his tenure with us as a Software Developer. Safvan is a dedicated and detail-oriented professional with a strong understanding of software development principles and a genuine passion for building effective solutions. He consistently demonstrated a problem-solving mindset, handled responsibilities with maturity, and collaborated well with cross-functional teams. Safvan was always open to learning, receptive to feedback, and proactive in improving both his technical and professional skills. Beyond his technical abilities, Safvan is reliable, disciplined, and maintains a positive attitude in the workplace. He was a valued member of the team, and his contributions had a meaningful impact on our projects. I am happy to recommend Safvan and wish him continued success in his future endeavors.",
+      image: "/damini.png",
+      linkedin: "https://www.linkedin.com/in/damini-choat-5a8843154/",
+      color: "#B57449" // Terracotta Brown
     },
     {
       id: 3,
-      name: "Souther Helkcax",
-      role: "Lead Developer",
+      name: "Shrey Jariwala",
+      role: "Software Developer",
       relationship: "Coworker",
-      quote: "Rarely do you find a designer who understands code this well. Handing off files was always smooth and precise.",
-      image: "", // Fallback forced
-      color: "#e76f51"
-    },
-    {
-      id: 4,
-      name: "Marta Kowalski",
-      role: "Marketing Head",
-      relationship: "Client",
-      quote: "The landing page he designed doubled our conversion rate in a week. Professional, fast, and incredibly talented.",
-      image: "", // Fallback forced
-      color: "#2f6a62"
-    },
-    {
-      id: 5,
-      name: "David Chen",
-      role: "Founder",
-      relationship: "Client",
-      quote: "He didn't just design a website; he built a brand identity that perfectly communicates our values.",
-      image: "", // Fallback forced
-      color: "#f8c70c"
+      quote: "I had a great experience working with him and highly recommend him. He is reliable, professional, and a strong team player who consistently delivers quality work.",
+      image: "/shrey.png",
+      linkedin: "https://www.linkedin.com/in/shrey-jariwala-650667220/",
+      color: "#FFECD6" // Cream
     }
   ],
 };

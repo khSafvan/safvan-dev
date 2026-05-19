@@ -17,12 +17,12 @@
     flex-direction: column;
     justify-content: flex-start;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 10px rgba(74, 64, 54, 0.05);
 }
 
 .scroll-progress-fill {
     width: 100%;
-    background-color: #F4D03F;
-    /* Darker Pastel Yellow */
+    background-color: var(--color-secondary);
+    /* Pastel Green */
     border-radius: 20px;
 }

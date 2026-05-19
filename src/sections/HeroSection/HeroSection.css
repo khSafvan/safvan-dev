@@ -18,9 +18,27 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
-  justify-content: center;
-  z-index: 10;
   width: 100%;
+}
+
+/* Notice Pill */
+.notice-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-family: var(--font-family-primary);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.notice-pill strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
 }
 
 .hero-title {
@@ -62,9 +80,9 @@
 /* Row 2: "I'm a" (Light grey), "Product Lead" (Bold Black) */
 .sans-text-light {
   font-family: var(--font-family-primary);
-  font-weight: 400;
-  color: #a0a0a0;
-  /* Light grey */
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  /* Darker grey for accessibility */
 }
 
 .sans-text-bold {
@@ -90,7 +108,7 @@
   height: 120px;
   margin: 0 10px;
   transform: rotate(-5deg);
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 10px 15px rgba(74, 64, 54, 0.15));
   /* Shadow on the SVG shape itself */
 }
 
@@ -196,7 +214,7 @@
 
 .btn-secondary:hover {
   border-color: var(--color-text-primary);
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(74, 64, 54, 0.03);
 }
 
 /* Footer Section */
@@ -207,7 +225,7 @@
   width: 100%;
   padding: 0 var(--spacing-2xl);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-size: 1.25rem;
   /* Increased from 1.125rem */

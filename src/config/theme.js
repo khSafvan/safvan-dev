@@ -86,12 +86,12 @@ export const designConfig = {
 
   // Shadows - Customize shadow effects
   shadows: {
-    sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-    md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-    lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-    xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-    drop: "drop-shadow(4px 6px 12px rgba(0, 0, 0, 0.35))",
-    dropLight: "drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.175))",
+    sm: "0 1px 2px 0 rgba(74, 64, 54, 0.05)",
+    md: "0 4px 6px -1px rgba(74, 64, 54, 0.1), 0 2px 4px -1px rgba(74, 64, 54, 0.06)",
+    lg: "0 10px 15px -3px rgba(74, 64, 54, 0.1), 0 4px 6px -2px rgba(74, 64, 54, 0.05)",
+    xl: "0 20px 25px -5px rgba(74, 64, 54, 0.1), 0 10px 10px -5px rgba(74, 64, 54, 0.04)",
+    drop: "drop-shadow(4px 6px 12px rgba(74, 64, 54, 0.35))",
+    dropLight: "drop-shadow(2px 3px 6px rgba(74, 64, 54, 0.175))",
   },
 
   // Transitions - Animation timing
