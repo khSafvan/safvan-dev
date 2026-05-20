@@ -1,4 +1,3 @@
-/* --- General Section --- */
 .testimonials {
     padding-top: var(--spacing-4xl);
     padding-bottom: var(--spacing-4xl);
@@ -18,11 +17,11 @@
 }
 
 .testimonials-header-main .section-title {
-    /* Inherits global */
+
     margin: 0;
 }
 
-/* --- Avatar Grid --- */
+
 .avatar-grid-wrapper {
     display: flex;
     justify-content: center;
@@ -54,9 +53,9 @@
     filter: grayscale(100%);
 }
 
-/* ... skipped hover/active ... */
 
-/* Pastel Complementary Ring */
+
+
 .avatar-btn.active::after {
     content: "";
     position: absolute;
@@ -66,11 +65,11 @@
     bottom: -4px;
     border-radius: 50%;
     border: 3px solid var(--active-border-color);
-    /* Dynamic pastel color */
+
     z-index: -1;
 }
 
-/* Ensure avatar image stays circle and on top */
+
 .avatar-img {
     width: 100%;
     height: 100%;
@@ -88,17 +87,17 @@
     justify-content: center;
     color: #fff;
     font-weight: 500;
-    /* Clean, Google-like weight */
+
     font-size: 1.5rem;
-    /* Larger, clearer text */
+
     font-family: var(--font-family-primary);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    /* Subtle depth */
+
 }
 
-/* ... (skipping unchanged parts) ... */
 
-/* --- Spotlight Content --- */
+
+
 .spotlight-content {
     text-align: left;
     width: 100%;
@@ -114,24 +113,24 @@
     align-items: center;
     justify-content: flex-start;
     gap: 8px;
-    /* Close spacing */
+
     font-family: var(--font-family-primary);
     font-size: 1rem;
-    /* Unified size */
-    /* Unified size */
+
+
     text-transform: uppercase;
-    /* User: "name and title both should be allcaps" */
+
     letter-spacing: 0.05em;
-    /* Add slight spacing for caps */
+
     color: var(--color-text-primary);
-    /* Strict base styles */
+
     font-weight: 400;
     font-style: normal;
 }
 
 .spotlight-name {
     font-weight: 700;
-    /* Bold */
+
     font-style: normal;
     margin: 0;
 }
@@ -139,23 +138,23 @@
 .spotlight-divider {
     opacity: 0.5;
     font-weight: 400;
-    /* Normal */
+
     font-style: normal;
 }
 
 .spotlight-relationship {
     font-weight: 400;
     font-style: normal;
-    /* Normal (not italic) */
+
     text-transform: uppercase;
-    /* Capital only */
+
     color: var(--color-text-secondary);
 }
 
 .spotlight-quote-wrapper {
     position: relative;
     min-height: 140px;
-    /* Layout stability: accom longest quote */
+
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -168,7 +167,7 @@
 
 .spotlight-quote {
     font-family: var(--font-family-primary);
-    /* or Serif if desired */
+
     font-size: 2rem;
     font-weight: 500;
     line-height: 1.4;
@@ -187,7 +186,7 @@
     }
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .avatar-btn {
         width: 45px;
