@@ -97,18 +97,21 @@
 }
 
 .node-company {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-2xl);
     font-weight: 700;
     margin-bottom: var(--spacing-xs);
+    color: var(--color-text-primary);
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 .node-period {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
     color: var(--color-text-secondary);
 }
 
 .node-role {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--color-text-primary);
