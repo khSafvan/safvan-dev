@@ -36,14 +36,13 @@ export default function Footer() {
             {/* Bottom Bar: Social Pills and Credits */}
             <div className="footer-bottom">
                 <div className="social-pills">
-                    <a href="https://github.com/banjan10" target="_blank" rel="noopener noreferrer" className="social-pill">GITHUB</a>
-                    <a href="https://linkedin.com/in/banjan10" target="_blank" rel="noopener noreferrer" className="social-pill">LINKEDIN</a>
-                    <a href="https://twitter.com/banjan10" target="_blank" rel="noopener noreferrer" className="social-pill">TWITTER</a>
+                    <a href="https://github.com/khSafvan" target="_blank" rel="noopener noreferrer" className="social-pill">GITHUB</a>
+                    <a href="https://www.linkedin.com/in/khalifasafvan/" target="_blank" rel="noopener noreferrer" className="social-pill">LINKEDIN</a>
+                    <a href="https://x.com/kh_safvan" target="_blank" rel="noopener noreferrer" className="social-pill">TWITTER</a>
                 </div>
-
                 <div className="footer-credits">
-                    <p>Design by <span className="credit-name">The Avgxy Design Studio</span></p>
-                    <p>Development by <span className="credit-name">Safvan</span></p>
+                    <p>Design & Development</p>
+                    <p>by <span className="credit-name">Safvan Khalifa</span></p>
                 </div>
             </div>
         </footer>

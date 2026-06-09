@@ -108,11 +108,17 @@ export default function WorksSection() {
                             key={work.id}
                             className={`carousel-item ${index === activeIndex ? "active" : ""}`}
                         >
-                            <img
-                                src={work.image}
-                                alt={work.title}
-                                className="work-image"
-                            />
+                            {work.image ? (
+                                <img
+                                    src={work.image}
+                                    alt={work.title}
+                                    className="work-image"
+                                />
+                            ) : (
+                                <div className="work-image-fallback" style={{ backgroundColor: work.color, width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '2rem', fontWeight: 'bold' }}>
+                                    {work.title}
+                                </div>
+                            )}
                         </div>
                     ))}
 

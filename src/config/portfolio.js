@@ -7,7 +7,7 @@ export const portfolioConfig = {
     name: "Safvan",
     title: "Software Developer",
     email: "khalifasafvan@yahoo.com",
-    location: "India",
+    location: "India (Relocating to Boston Suburbs)",
     phone: "(+91) 8153837262",
   },
 
