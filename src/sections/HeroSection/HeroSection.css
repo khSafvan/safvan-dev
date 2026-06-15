@@ -18,9 +18,27 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
-  justify-content: center;
-  z-index: 10;
   width: 100%;
+}
+
+/* Notice Pill */
+.notice-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-family: var(--font-family-primary);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.notice-pill strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
 }
 
 .hero-title {

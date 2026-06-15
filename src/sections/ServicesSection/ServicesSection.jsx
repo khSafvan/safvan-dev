@@ -1,10 +1,10 @@
 import React from "react";
 import "./ServicesSection.css";
-import { FaReact, FaGitAlt, FaNodeJs } from "react-icons/fa";
+import { FaReact, FaGitAlt, FaNodeJs, FaAws } from "react-icons/fa";
 import {
     SiJavascript, SiTypescript, SiNextdotjs, SiRedux, SiTailwindcss,
     SiGreensock, SiFramer, SiSass, SiBootstrap, SiNestjs, SiExpress,
-    SiMysql, SiPostgresql, SiMongodb, SiPrisma
+    SiMysql, SiPostgresql, SiMongodb, SiPrisma, SiThreedotjs
 } from "react-icons/si";
 
 export default function ServicesSection() {
@@ -17,6 +17,7 @@ export default function ServicesSection() {
                 { name: "React", color: "#61DAFB", icon: <FaReact /> },
                 { name: "Next.js", color: "#000000", icon: <SiNextdotjs /> },
                 { name: "Redux", color: "#764ABC", icon: <SiRedux /> },
+                { name: "Three.js", color: "#000000", icon: <SiThreedotjs /> },
                 { name: "Tailwind CSS", color: "#06B6D4", icon: <SiTailwindcss /> },
                 { name: "GSAP", color: "#88CE02", icon: <SiGreensock /> },
                 { name: "Framer Motion", color: "#0055FF", icon: <SiFramer /> },
@@ -45,6 +46,7 @@ export default function ServicesSection() {
             category: "TOOLS",
             items: [
                 { name: "Git", color: "#F05032", icon: <FaGitAlt /> },
+                { name: "AWS", color: "#FF9900", icon: <FaAws /> },
             ]
         }
     ];

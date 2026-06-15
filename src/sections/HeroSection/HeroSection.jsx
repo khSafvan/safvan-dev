@@ -13,6 +13,10 @@ export default function HeroSection() {
   return (
     <section className="hero section container" id="home">
       <div className="hero-center-content">
+        <div className="notice-pill">
+          <span className="notice-icon">✈️</span>
+          <span><strong>Note:</strong> Currently in India, relocating to the Boston area shortly.</span>
+        </div>
         <h1 className="hero-title">
           {/* Row 1: Hi, I'm [Image] Name! */}
           <div className="title-row">
@@ -53,16 +57,16 @@ export default function HeroSection() {
             <span className="serif-text">{hero.name}!</span>
           </div>
 
-          {/* Row 2: I'm a [Role] at */}
+          {/* Row 2: I'm a [Role] */}
           <div className="title-row">
             <span className="sans-text-light">I'm a</span>
             <span className="sans-text-bold">{hero.title}</span>
-            <span className="sans-text-light">at</span>
           </div>
 
-          {/* Row 3: [Company] [Badge] */}
+          {/* Row 3: [Status] [Badge] */}
           <div className="title-row">
-            <span className="sans-text-colored">Binjan Design.</span>
+            <span className="sans-text-light">on a</span>
+            <span className="sans-text-colored">Career Break.</span>
 
             <div className="status-badge">
               <span className="status-dot"></span>
