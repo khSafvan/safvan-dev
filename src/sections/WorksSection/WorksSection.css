@@ -31,18 +31,14 @@
 .works-split-layout {
     display: flex;
     width: 100%;
-
     height: calc(100vh - 200px);
-
     min-height: 600px;
-    gap: var(--spacing-lg);
     margin: 0 auto;
-
 }
 
 
 .works-info-panel {
-    flex: 0 0 45%;
+    flex: 1 1 100%;
 
 
     background-color: var(--color-surface-dark);
@@ -195,7 +191,7 @@
 
 .carousel-controls {
     position: absolute;
-    right: 24px;
+    right: 40px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -276,15 +272,15 @@
 
 @media (max-width: 900px) {
     .works-split-layout {
-        flex-direction: column;
         height: auto;
     }
 
     .works-info-panel {
-        min-height: 400px;
+        min-height: 450px;
+        padding-right: 20px;
     }
 
-    .works-carousel-panel {
-        height: 400px;
+    .carousel-controls {
+        right: 15px;
     }
 }
