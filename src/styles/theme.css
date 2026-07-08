@@ -1,32 +1,32 @@
 :root {
 
-  --color-primary: #8C7A6B;
-  --color-primary-light: #A9927D;
-  --color-primary-dark: #4A4036;
+  --color-primary: #B57449;
+  --color-primary-light: #D4956A;
+  --color-primary-dark: #5C3A21;
 
-  --color-secondary: #B2D3C2;
-  --color-secondary-light: #D4E6DF;
-  --color-secondary-dark: #5C8067;
+  --color-secondary: #68CBA0;
+  --color-secondary-light: #9CECC5;
+  --color-secondary-dark: #2E8C5D;
 
-  --color-background: #FDFBF7;
+  --color-background: #FFF9F0;
 
   --color-surface: #ffffff;
   --color-surface-translucent: rgba(255, 255, 255, 0.85);
 
-  --color-text-primary: #4A4036;
-  --color-text-secondary: #7A6E62;
-  --color-text-muted: #A69C92;
-  --color-text-light: #F5EBE0;
-  --color-text-accent: #8C7A6B;
+  --color-text-primary: #2D2824; /* Warm Off-Black for bodies */
+  --color-text-secondary: #4A4440; /* Standard Grey */
+  --color-text-muted: #8A817C;
+  --color-text-light: #FFECD6;
+  --color-text-accent: #B57449;
 
-  --color-brand-green: #B2D3C2;
-  --color-brand-yellow: #F5EBE0;
-  --color-brand-orange: #8C7A6B;
+  --color-brand-green: #68CBA0;
+  --color-brand-yellow: #FFECD6;
+  --color-brand-orange: #B57449;
   --color-brand-trustpilot: #00b67a;
 
-  --color-border: rgba(74, 64, 54, 0.1);
+  --color-border: rgba(92, 58, 33, 0.1);
 
-  --color-surface-dark: #D4C5B9;
+  --color-surface-dark: #E2BB9C;
 
 
   --font-family-primary: "Inter", sans-serif;
