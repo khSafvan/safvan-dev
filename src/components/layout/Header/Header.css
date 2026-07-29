@@ -1,11 +1,12 @@
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   padding: var(--spacing-xl) 0;
   z-index: 50;
-  background: transparent;
+  background: var(--color-background);
+  backdrop-filter: blur(10px);
 }
 
 /* Reduced padding on small screens */
@@ -91,6 +92,9 @@
     margin-top: var(--spacing-md);
     overflow-x: auto;
     justify-content: center;
+  }
+  .nav::-webkit-scrollbar {
+    display: none;
   }
 
   .contact-info {

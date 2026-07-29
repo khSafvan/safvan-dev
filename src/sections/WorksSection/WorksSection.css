@@ -31,9 +31,11 @@
 .works-split-layout {
     display: flex;
     width: 100%;
+    max-width: 100%;
     height: calc(100vh - 200px);
     min-height: 600px;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 
@@ -100,6 +102,7 @@
     text-transform: uppercase;
     color: #fff;
     margin: var(--spacing-sm) 0;
+    word-break: break-word;
 }
 
 .info-category {

@@ -219,11 +219,11 @@
 
 /* Footer Section */
 .hero-footer {
-  position: absolute;
-  bottom: 3rem;
-  left: 0;
-  width: 100%;
+  position: relative;
+  margin-top: 3rem;
   padding: 0 var(--spacing-2xl);
+  padding-bottom: 3rem;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -322,8 +322,8 @@
   }
 
   .status-badge {
-    width: 100%;
     justify-content: center;
+    align-self: center;
   }
 
   .hero-footer {
