@@ -1,50 +1,127 @@
 import React from "react";
+import { portfolioConfig } from "../../../config/portfolio";
 import "./Footer.css";
 
 export default function Footer() {
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    };
+  const { personal } = portfolioConfig;
 
-    return (
-        <footer className="footer container">
-            {/* Top Bar: Copyright and Back to Top */}
-            <div className="footer-top">
-                <p className="footer-copyright">© {new Date().getFullYear()}</p>
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
-                <button className="back-to-top" onClick={scrollToTop}>
-                    <span>BACK TO TOP</span>
-                    <div className="arrow-circle">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </div>
-                </button>
+  const navLinks = [
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#works" },
+    { label: "Experience", href: "#experience" },
+    { label: "Methodology", href: "#methodology" },
+    { label: "Contact", href: "#contact" }
+  ];
+
+  return (
+    <footer className="footer hairline-top">
+      <div className="footer-container container">
+        {/* Top Tier: Brand, Status, and Back to Top */}
+        <div className="footer-top-row">
+          <div className="footer-brand-block">
+            <span className="footer-brand-name font-serif">{personal.name}</span>
+            <p className="footer-brand-tagline font-sans">
+              Full Stack Web Developer & Systems Craftsman
+            </p>
+            <div className="footer-status-pill font-mono">
+              <span className="footer-status-dot"></span>
+              <span>Available for US Engineering Roles (Relocating Early 2027)</span>
             </div>
+          </div>
 
-            {/* Center: Massive CTA */}
-            <div className="footer-center">
-                <p className="cta-label">HAVE A PROJECT IN MIND?</p>
-                <div className="cta-heading-wrapper">
-                    <h1 className="cta-heading">LET'S TALK</h1>
-                </div>
-            </div>
+          <button
+            type="button"
+            className="footer-back-top-btn font-mono"
+            onClick={scrollToTop}
+            aria-label="Scroll back to top of page"
+          >
+            <span>BACK TO TOP</span>
+            <span className="back-top-arrow">↑</span>
+          </button>
+        </div>
 
-            {/* Bottom Bar: Social Pills and Credits */}
-            <div className="footer-bottom">
-                <div className="social-pills">
-                    <a href="https://github.com/khSafvan" target="_blank" rel="noopener noreferrer" className="social-pill">GITHUB</a>
-                    <a href="https://www.linkedin.com/in/khalifasafvan/" target="_blank" rel="noopener noreferrer" className="social-pill">LINKEDIN</a>
-                    <a href="https://x.com/kh_safvan" target="_blank" rel="noopener noreferrer" className="social-pill">TWITTER</a>
-                </div>
-                <div className="footer-credits">
-                    <p>Design & Development</p>
-                    <p>by <span className="credit-name">Safvan Khalifa</span></p>
-                </div>
-            </div>
-        </footer>
-    );
+        {/* Middle Tier: Navigation Links & Verified Digital Profiles */}
+        <div className="footer-middle-row hairline-top">
+          <nav className="footer-nav" aria-label="Footer Navigation">
+            <ul className="footer-nav-list">
+              {navLinks.map((link) => (
+                <li key={link.label} className="footer-nav-item">
+                  <a href={link.href} className="footer-nav-link font-sans">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="footer-social-row">
+            <a
+              href={`mailto:${personal.email}`}
+              className="footer-social-pill font-mono"
+              aria-label="Send direct email"
+              title="Open mail client (mailto:)"
+            >
+              Email ↗
+            </a>
+            <a
+              href={`tel:${personal.phone.replace(/[^0-9+]/g, "")}`}
+              className="footer-social-pill font-mono"
+              aria-label="Call direct phone line"
+              title="Click to place phone call (tel:)"
+            >
+              Call ↗
+            </a>
+            <a
+              href={personal.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-pill font-mono"
+            >
+              GitHub ↗
+            </a>
+            <a
+              href={personal.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-pill font-mono"
+            >
+              LinkedIn ↗
+            </a>
+            <a
+              href={personal.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-pill font-mono footer-social-pill--accent"
+              download
+            >
+              Resume PDF ↓
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom Tier: Colophon, Copyright & Terminal Metadata Stamp */}
+        <div className="footer-bottom-row hairline-top">
+          <div className="footer-copyright font-sans">
+            © {new Date().getFullYear()} {personal.name}. All rights reserved.
+          </div>
+
+          <div className="footer-colophon font-sans">
+            Crafted with React 19, Vite, GSAP ScrollTrigger & Lenis.
+          </div>
+
+          <div className="footer-system-stamp font-mono">
+            Host: ghost | System: Ryoku Dev (Arch/CachyOS) | Shell: fish
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

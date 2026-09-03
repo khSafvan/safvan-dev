@@ -1,0 +1,155 @@
+/* About Section Styles */
+/* Architectural Blueprint & Crafted Editorial */
+
+.about {
+  padding-top: var(--spacing-4xl);
+  padding-bottom: var(--spacing-4xl);
+}
+
+
+/* 2-Column Grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: var(--spacing-2xl);
+  align-items: start;
+}
+
+/* Left Column: Narrative */
+.about-narrative {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.about-paragraph {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Callout Box */
+.about-callout {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-sm);
+  margin-top: var(--spacing-sm);
+}
+
+.callout-icon {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.callout-text {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  line-height: 1.65;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.callout-text strong {
+  color: var(--color-primary-dark);
+}
+
+/* Right Column: Architectural Blueprint Card */
+.about-sidebar {
+  position: sticky;
+  top: calc(var(--header-height, 76px) + var(--spacing-xl));
+}
+
+.blueprint-card {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+}
+
+.blueprint-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md-sm) var(--spacing-md-lg);
+  background-color: var(--color-surface-cream);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+.blueprint-status {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.blueprint-specs-list {
+  padding: 0 var(--spacing-md-lg);
+}
+
+.spec-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md-sm) 0;
+}
+
+.spec-key {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.spec-value {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  line-height: 1.45;
+}
+
+.spec-highlight-sage {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.spec-highlight-terracotta {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.blueprint-card-footer {
+  padding: var(--spacing-sm) var(--spacing-md-lg);
+  background-color: var(--color-card-dark);
+}
+
+.blueprint-terminal-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  padding: var(--spacing-xs) 0;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.blueprint-terminal-btn:hover {
+  opacity: 0.85;
+}
+
+/* Responsive Styles */
+@media (max-width: 968px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .about-sidebar {
+    position: static;
+  }
+}
