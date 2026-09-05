@@ -1,0 +1,72 @@
+/* Custom Cursor Styles */
+/* Architectural Blueprint & Crafted Editorial */
+
+.custom-cursor-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999999;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.custom-cursor-wrap--visible {
+  opacity: 1;
+}
+
+/* Outer Tracking Ring */
+.custom-cursor-ring {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-primary);
+  pointer-events: none;
+  will-change: transform;
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              top 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              left 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Inner Tracking Dot */
+.custom-cursor-dot {
+  position: absolute;
+  top: -2.5px;
+  left: -2.5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+/* Hovering Interactive Element State */
+.custom-cursor-wrap--hovered .custom-cursor-ring {
+  top: -24px;
+  left: -24px;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-primary-subtle);
+  border-color: var(--color-primary);
+}
+
+.custom-cursor-wrap--hovered .custom-cursor-dot {
+  background-color: var(--color-primary);
+}
+
+/* Completely Disable on Touch Devices */
+@media (pointer: coarse), (max-width: 768px) {
+  .custom-cursor-wrap {
+    display: none !important;
+  }
+}

@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+@import "@fontsource-variable/fraunces/full.css";
+@import "@fontsource-variable/plus-jakarta-sans/index.css";
+@import "@fontsource-variable/jetbrains-mono/index.css";
 @import "./theme.css";
 
 
@@ -38,6 +40,23 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+/* Tactile Paper Film Grain Overlay (Option A Signature Effect) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  transform: translateZ(0);
+}
+
 
 
 
@@ -48,10 +67,11 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-normal);
+  font-family: var(--font-family-serif);
+  font-optical-sizing: auto;
+  font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  color: var(--color-primary-dark);
+  color: var(--color-primary);
 }
 
 p {
@@ -89,7 +109,7 @@ button {
 
 ::selection {
   background-color: var(--color-primary);
-  color: var(--color-text-primary);
+  color: #FFFFFF;
 }
 
 
@@ -118,43 +138,98 @@ button {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
+  justify-content: flex-start;
   padding: var(--spacing-4xl) 0;
-
   position: relative;
   box-sizing: border-box;
 }
 
+/* Unified Section Header Architecture */
+.section-header-block {
+  margin-bottom: var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.section-structural-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xs);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.structural-tag {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.structural-status {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-primary);
+  background-color: rgba(31, 107, 79, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--border-radius-xs);
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.section-tag {
+  display: block;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
 
 .section-title {
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-3xl);
+  font-family: var(--font-family-serif);
+  font-optical-sizing: auto;
+  font-size: clamp(2.15rem, 3.8vw, 2.85rem);
   font-weight: 700;
-  color: var(--color-primary-dark);
+  line-height: 1.15;
+  color: var(--color-primary);
   text-align: left;
-  margin-bottom: var(--spacing-xl);
-  width: 100%;
-  max-width: var(--container-max-width);
-  margin-left: auto;
-  margin-right: auto;
-
-  text-transform: uppercase;
-
-
-
-  text-transform: none;
+  margin: 0;
+  max-width: 920px;
+  letter-spacing: var(--letter-spacing-tight);
 }
 
-
-#experience {
-  height: auto;
-
-  min-height: 100vh;
-  padding: 0;
-
+.section-subtitle {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  max-width: 680px;
+  margin: 0;
 }
 
+@media (max-width: 768px) {
+  .section,
+  .about,
+  .skills-matrix,
+  .works-wrapper,
+  .experience,
+  .methodology,
+  .testimonials,
+  .contact {
+    padding-top: var(--spacing-2xl) !important;
+    padding-bottom: var(--spacing-2xl) !important;
+  }
+}
 
 .visually-hidden {
   position: absolute;

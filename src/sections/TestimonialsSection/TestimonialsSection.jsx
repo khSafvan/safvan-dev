@@ -3,97 +3,73 @@ import { portfolioConfig } from "../../config/portfolio";
 import "./TestimonialsSection.css";
 
 export default function TestimonialsSection() {
-    const { testimonials } = portfolioConfig;
-    const [activeIndex, setActiveIndex] = React.useState(0);
-    const colors = ["#e57373", "#81c784", "#64b5f6", "#ffb74d", "#ba68c8"];
-    const borderColors = ["#b3e5fc", "#f8bbd0", "#fff9c4", "#e1bee7", "#c8e6c9"]; // Pastel complements
-    const getRandomColor = (id) => colors[id % colors.length];
-    const getBorderColor = (id) => borderColors[id % borderColors.length];
+  const { testimonials } = portfolioConfig;
 
-    const [isPaused, setIsPaused] = React.useState(false);
+  return (
+    <section className="testimonials section container" id="testimonials">
+      {/* Section Header */}
+      <div className="section-header-block">
+        <div className="section-structural-meta font-mono">
+          <span className="structural-tag">[ 06 / RECOMMENDATIONS: MANAGERS & PEERS ]</span>
+          <span className="structural-status">VERIFIED ATTESTATIONS</span>
+        </div>
+        <h2 className="section-title font-serif">Endorsements from Managers & Engineering Peers</h2>
+        <p className="section-subtitle font-sans">
+          Direct, verified feedback from colleagues and managers who collaborated closely with me at La Net Team Software Solution.
+        </p>
+      </div>
 
-    // Auto-cycle logic
-    React.useEffect(() => {
-        if (isPaused) return; // Stop cycling if paused
-
-        const interval = setInterval(() => {
-            setActiveIndex((prev) => (prev + 1) % testimonials.length);
-        }, 3000);
-        return () => clearInterval(interval);
-    }, [testimonials.length, isPaused]);
-
-    const activeItem = testimonials[activeIndex];
-
-    return (
-        <section
-            className="testimonials section container"
-            id="testimonials"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-        >
-            <div className="testimonials-header-main text-center">
-                <h2 className="section-title">References of colleagues <br />and clients</h2>
-            </div>
-
-            {/* Avatar Grid */}
-            <div className="avatar-grid-wrapper">
-                <div className="avatar-grid">
-                    {testimonials.map((item, index) => (
-                        <div key={item.id} className="avatar-container">
-                            <button
-                                className={`avatar-btn ${index === activeIndex ? "active" : ""}`}
-                                onClick={() => setActiveIndex(index)}
-                                aria-label={`View testimonial from ${item.name}`}
-                                style={{ "--active-border-color": getBorderColor(item.id) }}
-                            >
-                                {item.image ? (
-                                    <div
-                                        className="avatar-img"
-                                        style={{ backgroundImage: `url(${item.image})` }}
-                                    ></div>
-                                ) : (
-                                    <div
-                                        className="avatar-img avatar-initials"
-                                        style={{ backgroundColor: getRandomColor(item.id) }}
-                                    >
-                                        {item.name
-                                            .split(" ")
-                                            .map((n) => n[0])
-                                            .join("")
-                                            .substring(0, 2)
-                                            .toUpperCase()}
-                                    </div>
-                                )}
-                            </button>
-
-                            {/* Active Ring (handled via CSS) */}
-                        </div>
-                    ))}
+      {/* Recommendations Architectural Grid */}
+      <div className="testimonials-grid">
+        {testimonials.map((item) => (
+          <div key={item.id} className="testimonial-card has-crosshairs hairline-border">
+            {/* Card Header with Avatar & Details */}
+            <div className="testimonial-card-header hairline-bottom">
+              <div className="testimonial-profile">
+                <div className="avatar-frame hairline-border">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="testimonial-avatar-img"
+                    loading="lazy"
+                  />
                 </div>
-            </div>
-
-            {/* Spotlight Content */}
-            <div className="spotlight-content">
-                <div key={activeItem.id} className="fade-wrapper">
-                    <div className="spotlight-info">
-                        {activeItem.linkedin ? (
-                            <a href={activeItem.linkedin} target="_blank" rel="noopener noreferrer" className="spotlight-name spotlight-link">
-                                {activeItem.name}
-                            </a>
-                        ) : (
-                            <span className="spotlight-name">{activeItem.name}</span>
-                        )}
-                        <span className="spotlight-divider">|</span>
-                        <span className="spotlight-relationship">{activeItem.relationship}</span>
-                    </div>
-
-                    <div className="spotlight-quote-wrapper">
-                        <p className="spotlight-quote">
-                            “{activeItem.quote}”
-                        </p>
-                    </div>
+                <div className="profile-info">
+                  <h3 className="testimonial-name font-serif">{item.name}</h3>
+                  <div className="testimonial-role font-mono">{item.role}</div>
+                  <span className="relationship-tag font-mono">{item.relationship}</span>
                 </div>
+              </div>
+
+              {item.linkedin && (
+                <a
+                  href={item.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="linkedin-link-btn font-mono"
+                  aria-label={`View ${item.name}'s verified LinkedIn profile`}
+                >
+                  <span>in</span>
+                  <span className="link-icon">↗</span>
+                </a>
+              )}
             </div>
-        </section>
-    );
+
+            {/* Card Quote Body */}
+            <div className="testimonial-card-body">
+              <p className="testimonial-quote font-sans">
+                “{item.quote}”
+              </p>
+            </div>
+
+            {/* Card Footer Stamp */}
+            <div className="testimonial-card-footer hairline-top">
+              <span className="testimonial-stamp font-mono">ENDORSEMENT // LA NET TEAM</span>
+              <span className="testimonial-verified font-mono">VERIFIED PEER</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }

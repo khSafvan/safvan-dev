@@ -1,0 +1,190 @@
+/* Terminal Drawer Styles — Pure Flat Architectural Design */
+
+.terminal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(18, 16, 14, 0.75);
+  z-index: 2000;
+  display: flex;
+  justify-content: flex-end;
+  animation: fadeInOverlay 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.terminal-drawer {
+  width: 560px;
+  max-width: 95vw;
+  height: 100vh;
+  background-color: #1A1715;
+  border-left: 1px solid rgba(255, 249, 240, 0.12);
+  display: flex;
+  flex-direction: column;
+  animation: slideInDrawer 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInDrawer {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* Terminal Title Bar */
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md-sm) var(--spacing-md-lg);
+  background-color: #12100E;
+  border-bottom: 1px solid rgba(255, 249, 240, 0.1);
+}
+
+.terminal-title-text {
+  font-size: var(--font-size-xs);
+  color: #8A817C;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.terminal-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.terminal-header-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 249, 240, 0.15);
+  color: #8A817C;
+  font-size: var(--font-size-2xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+  border-radius: 0;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.terminal-header-btn:hover {
+  color: #F2F0EA;
+  border-color: rgba(242, 240, 234, 0.4);
+  background-color: rgba(242, 240, 234, 0.05);
+}
+
+.terminal-header-btn--close {
+  color: var(--color-primary);
+  border-color: rgba(31, 107, 79, 0.35);
+}
+
+.terminal-header-btn--close:hover {
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+}
+
+/* Terminal Content Buffer */
+.terminal-buffer {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-md-lg);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  background-color: #141414;
+}
+
+.terminal-buffer::-webkit-scrollbar {
+  width: 5px;
+}
+
+.terminal-buffer::-webkit-scrollbar-thumb {
+  background-color: rgba(242, 240, 234, 0.15);
+  border-radius: 0;
+}
+
+.terminal-pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+}
+
+.terminal-line--system {
+  color: #767676;
+  border-bottom: 1px solid rgba(242, 240, 234, 0.08);
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.terminal-line--command {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.terminal-line--prompt {
+  color: var(--color-primary);
+}
+
+.terminal-line--error {
+  color: #E06C75;
+}
+
+.terminal-line--output {
+  color: #F2F0EA;
+  padding-left: var(--spacing-sm);
+  border-left: 1px solid rgba(31, 107, 79, 0.6);
+}
+
+/* Command Form & Input */
+.terminal-form {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md-sm) var(--spacing-md-lg);
+  background-color: #0E0E0E;
+  border-top: 1px solid rgba(242, 240, 234, 0.1);
+  gap: var(--spacing-sm);
+}
+
+.terminal-form-prompt {
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.terminal-form-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none !important;
+  color: #F2F0EA;
+  font-size: var(--font-size-sm);
+  caret-color: var(--color-primary);
+}
+
+.terminal-form-input::placeholder {
+  color: rgba(138, 129, 124, 0.5);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .terminal-overlay {
+    align-items: flex-end;
+  }
+
+  .terminal-drawer {
+    width: 100%;
+    height: 85vh;
+    border-left: none;
+    border-top: 1px solid rgba(255, 249, 240, 0.15);
+    border-radius: 0;
+    animation: slideUpDrawer 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUpDrawer {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+}

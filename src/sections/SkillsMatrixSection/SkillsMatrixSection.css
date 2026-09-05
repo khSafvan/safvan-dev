@@ -1,0 +1,163 @@
+/* Skills Matrix Comparative Ledger Styles */
+/* Architectural Blueprint & Crafted Editorial */
+
+.skills-matrix {
+  padding-top: var(--spacing-4xl);
+  padding-bottom: var(--spacing-4xl);
+}
+
+/* Comparative Ledger Grid */
+.comparative-ledger-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  align-items: stretch;
+}
+
+.ledger-panel {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Panel Header */
+.ledger-panel-header {
+  padding: var(--spacing-xl);
+  background-color: var(--color-surface-cream);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  min-height: 140px;
+}
+
+.panel-badge-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.panel-verification-tag {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.panel-title {
+  font-size: clamp(1.5rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.panel-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Panel Body & Groups */
+.ledger-panel-body {
+  padding: var(--spacing-md) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.skill-group-block {
+  padding: var(--spacing-md) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.skill-group-block:last-child {
+  border-bottom: none;
+}
+
+.group-title {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.skill-tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+/* Base Skill Tag */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  cursor: default;
+}
+
+/* MERN Panel Tags */
+.skill-tag--mern {
+  background-color: var(--color-primary-subtle);
+  color: var(--color-primary);
+  border: 1px solid rgba(31, 107, 79, 0.22);
+}
+
+.skill-tag--mern:hover {
+  background-color: rgba(31, 107, 79, 0.14);
+}
+
+.skill-tag--annotated {
+  background-color: rgba(31, 107, 79, 0.14);
+  border: 1px solid rgba(31, 107, 79, 0.35);
+  font-weight: 600;
+}
+
+.skill-annotation {
+  font-size: 0.65rem;
+  color: var(--color-primary);
+  opacity: 0.85;
+}
+
+/* AI Panel Tags */
+.skill-tag--ai {
+  background-color: rgba(31, 107, 79, 0.05);
+  color: var(--color-text-primary);
+  border: 1px solid rgba(31, 107, 79, 0.18);
+}
+
+.skill-tag--ai:hover {
+  background-color: rgba(31, 107, 79, 0.12);
+}
+
+/* Responsive Styles */
+@media (max-width: 968px) {
+  .comparative-ledger-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .ledger-panel-header {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .ledger-panel-header {
+    padding: var(--spacing-md);
+  }
+
+  .ledger-panel-body {
+    padding: var(--spacing-md);
+  }
+}
