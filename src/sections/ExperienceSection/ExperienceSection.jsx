@@ -1,70 +1,84 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from "react";
 import { portfolioConfig } from "../../config/portfolio";
-import ExperienceNode from "./ExperienceNode";
 import "./ExperienceSection.css";
 
-// Register GSAP ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
-
 export default function ExperienceSection() {
-    const { experience } = portfolioConfig;
-    const sectionRef = useRef(null);
-    const triggerRef = useRef(null);
+  const { experience, education } = portfolioConfig;
 
-    useEffect(() => {
-        const section = sectionRef.current;
-        const trigger = triggerRef.current;
+  return (
+    <section className="experience section container" id="experience">
+      {/* Section Header */}
+      <div className="section-header-block">
+        <div className="section-structural-meta font-mono">
+          <span className="structural-tag">[ 04 / COMMERCIAL WORK HISTORY & CREDENTIALS ]</span>
+          <span className="structural-status">VERIFIED RESUME DATA</span>
+        </div>
+        <h2 className="section-title font-serif">Commercial Work History & Technical Background</h2>
+        <p className="section-subtitle font-sans">
+          Three years of commercial full-stack web development, database optimization, and academic background.
+        </p>
+      </div>
 
-        // Safety check to ensure refs are available
-        if (!section || !trigger) return;
+      <div className="experience-layout">
+        {/* Left / Main: Vertical Timeline */}
+        <div className="timeline-container">
+          <div className="timeline-spine"></div>
 
-        const ctx = gsap.context(() => {
-            gsap.to(section, {
-                x: () => -(section.scrollWidth - window.innerWidth),
-                ease: "none",
-                scrollTrigger: {
-                    trigger: trigger,
-                    start: "top top",
-                    end: () => {
-                        const dist = section.scrollWidth - window.innerWidth;
-                        const ratio = dist > 0 ? dist / window.innerWidth : 0;
-                        return "+=" + Math.max(window.innerHeight * 1.5, window.innerHeight * ratio);
-                    },
-                    scrub: 1, // Smooth scrubbing
-                    pin: true, // Pin the section while scrolling horizontally
-                    invalidateOnRefresh: true, // Recalculate on window resize
-                }
-            });
-        }, trigger);
+          {experience.map((exp, index) => (
+            <div key={exp.id} className="timeline-item">
+              {/* Timeline Marker Dot */}
+              <div className="timeline-marker">
+                <span className="marker-index font-mono">0{index + 1}</span>
+              </div>
 
-        return () => ctx.revert(); // Cleanup GSAP matchMedia/context on unmount
-    }, [experience]); // Re-run when experience data changes
-
-    return (
-        <section className="experience-wrapper" ref={triggerRef} id="experience">
-            <div className="pinned-content">
-                <h2 className="section-title sticky-title">My Work Experience</h2>
-
-                <div className="horizontal-container">
-                    <div className="experience-track card-track" ref={sectionRef}>
-                        {/* Horizontal Dashed Line Background */}
-                        <div className="track-line"></div>
-
-                        {experience.map((exp) => (
-                            <ExperienceNode
-                                key={exp.id}
-                                company={exp.company}
-                                period={exp.period}
-                                role={exp.role}
-                                description={exp.description}
-                                color={exp.color}
-                            />
-                        ))}
-                    </div>
+              {/* Timeline Content Card */}
+              <div className="timeline-card has-crosshairs hairline-border">
+                <div className="timeline-card-header hairline-bottom">
+                  <div className="card-company-wrap">
+                    <h3 className="timeline-company font-serif">{exp.company}</h3>
+                    <span className="timeline-location font-mono">{exp.location}</span>
+                  </div>
+                  <span className="timeline-period font-mono">{exp.period}</span>
                 </div>
+
+                <div className="timeline-card-body">
+                  <div className="timeline-role-row">
+                    <h4 className="timeline-role font-sans">{exp.role}</h4>
+                    {exp.badge && (
+                      <span className="timeline-badge font-mono">{exp.badge}</span>
+                    )}
+                  </div>
+                  <p className="timeline-description font-sans">{exp.description}</p>
+                </div>
+              </div>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+
+        {/* Right / Secondary: Education & Verified Credentials */}
+        <div className="credentials-sidebar">
+          <div className="credentials-card has-crosshairs hairline-border">
+            <div className="credentials-header hairline-bottom">
+              <span className="credentials-tag font-mono">EDUCATION & CREDENTIALS</span>
+              <span className="credentials-status font-mono">ACCREDITED</span>
+            </div>
+
+            <div className="credentials-list">
+              {education.map((edu) => (
+                <div key={edu.id} className="credential-item hairline-bottom">
+                  <div className="credential-top">
+                    <h4 className="credential-degree font-serif">{edu.degree}</h4>
+                    <span className="credential-score font-mono">{edu.score}</span>
+                  </div>
+                  <div className="credential-institution font-mono">{edu.institution}</div>
+                  <div className="credential-period font-mono">{edu.period}</div>
+                  <p className="credential-details font-sans">{edu.details}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
