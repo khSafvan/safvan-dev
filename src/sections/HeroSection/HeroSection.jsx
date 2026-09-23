@@ -3,95 +3,146 @@ import { portfolioConfig } from "../../config/portfolio";
 import "./HeroSection.css";
 
 export default function HeroSection() {
-  const { hero } = portfolioConfig;
+  const { hero, personal } = portfolioConfig;
 
-  // Layout:
-  // "Hi, I'm [Image] Binjan!"
-  // "I'm a UI/UX Designer at"
-  // "Global Solutions. [Badge]" (Using dummy company since config doesn't have one, or just "Freelance.")
+  const handleOpenTerminal = () => {
+    window.dispatchEvent(new CustomEvent("toggle-terminal"));
+  };
 
   return (
     <section className="hero section container" id="home">
-      <div className="hero-center-content">
-        <div className="notice-pill">
-          <span className="notice-icon">✈️</span>
-          <span><strong>Note:</strong> Currently in India, relocating to the Boston area shortly.</span>
+      {/* Editorial Meta Bar: Relocation Notice & Category Micro-label */}
+      <div className="hero-meta-bar">
+        <div className="hero-relocation-pill">
+          <span className="pill-dot"></span>
+          <span className="pill-text font-mono">{hero.relocationNotice}</span>
         </div>
-        <h1 className="hero-title">
-          {/* Row 1: Hi, I'm [Image] Name! */}
-          <div className="title-row">
-            <span className="serif-text">Hi, I'm</span>
-            <div className="floating-image-wrapper svg-shape">
-              <svg viewBox="0 0 200 200" className="cookie-svg">
-                <defs>
-                  {/* Squircle Shape Path */}
-                  <path id="squircle-shape" d="M 100,0 
-                    C 20,0 0,20 0,100 
-                    C 0,180 20,200 100,200 
-                    C 180,200 200,180 200,100 
-                    C 200,20 180,0 100,0 Z" />
-
-                  {/* Gradient for Border: Warm Cream to Vibrant Mint Green */}
-                  <linearGradient id="border-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="200" y2="200">
-                    <stop offset="0%" stopColor="#FFECD6" /> {/* Warm Cream */}
-                    <stop offset="100%" stopColor="#68CBA0" /> {/* Vibrant Mint Green */}
-                  </linearGradient>
-                </defs>
-                <clipPath id="cookie-clip">
-                  <use href="#squircle-shape" className="spin-shape" />
-                </clipPath>
-
-                {/* Border (Stroke) with Gradient */}
-                <use href="#squircle-shape" className="spin-shape" stroke="url(#border-gradient)" strokeWidth="6" fill="none" />
-
-                {/* Image */}
-                <image
-                  href={hero.image}
-                  width="100%"
-                  height="100%"
-                  preserveAspectRatio="xMidYMid slice"
-                  clipPath="url(#cookie-clip)"
-                />
-              </svg>
-            </div>
-            <span className="serif-text">{hero.name}!</span>
-          </div>
-
-          {/* Row 2: I'm a [Role] */}
-          <div className="title-row">
-            <span className="sans-text-light">I'm a</span>
-            <span className="sans-text-bold">{hero.title}</span>
-          </div>
-
-          {/* Row 3: [Status] [Badge] */}
-          <div className="title-row">
-            <span className="sans-text-light">on a</span>
-            <span className="sans-text-colored">Career Break.</span>
-
-            <div className="status-badge">
-              <span className="status-dot"></span>
-              <span className="status-text">Open to work</span>
-            </div>
-          </div>
-        </h1>
-
-        <p className="hero-description">
-          {hero.description}
-        </p>
-
-        <div className="hero-actions">
-          <a href={`mailto:${portfolioConfig.personal.email}`} className="btn-primary" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>Let's Connect</a>
-          <a href="#works" className="btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>View Work</a>
+        <div className="hero-structural-tag font-mono">
+          <span className="tag-bracket">[</span>
+          <span className="tag-number">00</span>
+          <span className="tag-divider">/</span>
+          <span className="tag-name">PROLOGUE: FULL STACK & SYSTEMS</span>
+          <span className="tag-bracket">]</span>
         </div>
       </div>
 
-      <div className="hero-footer">
-        <a href="#works" className="discover-more" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <span>Discover</span>
-          <svg className="arrow-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <path d="M12 5v14M19 12l-7 7-7-7" />
-          </svg>
-        </a>
+      {/* Main Editorial Stage: Oversized Typography Interacting with Visual */}
+      <div className="hero-editorial-stage">
+        {/* Left Column: Eyebrow, Giant Editorial Headline, Description, Actions */}
+        <div className="hero-content-column">
+          <div className="hero-headline-group">
+            <div className="hero-eyebrow font-mono">
+              <span className="eyebrow-arrow font-mono">↳</span>
+              <span className="eyebrow-text">ENGINEERING PORTFOLIO</span>
+            </div>
+
+            <h1 className="hero-display-name font-serif">
+              <span className="name-line name-line--first">Safvan</span>
+              <span className="name-line name-line--second">Khalifa</span>
+            </h1>
+
+            <p className="hero-editorial-lead font-sans">
+              {hero.description}
+            </p>
+          </div>
+
+          {/* Primary Call-to-Actions */}
+          <div className="hero-actions">
+            <a href="#works" className="btn-primary hero-btn">
+              <span>{hero.ctaText}</span>
+              <span className="btn-arrow font-mono">→</span>
+            </a>
+            <a href="#contact" className="btn-outline hero-btn">
+              <span>{hero.ctaSecondary}</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Right Column: Visual Stage with Geometric Swoop & Interacting Blueprint Card */}
+        <div className="hero-visual-stage">
+          {/* Subtle Decorative Geometric Swoop (Forest Green #1F6B4F) */}
+          <div className="hero-swoop-wrapper" aria-hidden="true">
+            <svg
+              className="hero-swoop-svg"
+              viewBox="0 0 460 460"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Dynamic primary swoop curve */}
+              <path
+                d="M 35 430 C 50 200, 210 50, 435 65"
+                stroke="var(--color-primary)"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+              />
+              {/* Secondary precision dashed arc */}
+              <path
+                d="M 75 450 C 95 245, 245 95, 455 110"
+                stroke="var(--color-primary)"
+                strokeWidth="1.25"
+                strokeDasharray="4 6"
+                opacity="0.45"
+              />
+              {/* Subtle inner geometric circle guide */}
+              <circle
+                cx="250"
+                cy="230"
+                r="190"
+                stroke="var(--color-primary)"
+                strokeWidth="1"
+                opacity="0.12"
+              />
+              {/* Precision Crosshair Accent */}
+              <path
+                d="M 425 65 L 445 65 M 435 55 L 435 75"
+                stroke="var(--color-primary)"
+                strokeWidth="1.5"
+              />
+              <circle cx="35" cy="430" r="4" fill="var(--color-primary)" />
+            </svg>
+          </div>
+
+          {/* Overlapping Architectural Blueprint Card */}
+          <div className="avatar-blueprint-card has-crosshairs hairline-border">
+            <div className="avatar-header hairline-bottom">
+              <span className="avatar-tag font-mono">FIG 01. CORE DEVELOPER</span>
+              <span className="avatar-status font-mono">ACTIVE [60 FPS]</span>
+            </div>
+
+            <div className="avatar-image-container">
+              <img
+                src={hero.image}
+                alt={`${hero.name} 8-bit developer avatar`}
+                className="avatar-image"
+                loading="eager"
+              />
+            </div>
+
+            {/* Interactive Terminal Trigger Button */}
+            <button
+              type="button"
+              className="terminal-trigger-btn hairline-top font-mono"
+              onClick={handleOpenTerminal}
+              title="Click or press Ctrl+K to open interactive terminal drawer"
+              aria-label="Open developer terminal drawer"
+            >
+              <span className="terminal-prefix">{personal.terminalPrompt}</span>
+              <span className="terminal-cursor">_</span>
+              <span className="terminal-hotkey-badge">Ctrl+K</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Verified Metrics Blueprint Strip */}
+      <div className="hero-metrics-strip hairline-border">
+        {hero.metrics.map((metric, index) => (
+          <div key={metric.label} className="metric-item">
+            <div className="metric-value font-serif">{metric.value}</div>
+            <div className="metric-label font-mono">{metric.label}</div>
+            {index < hero.metrics.length - 1 && <span className="metric-divider"></span>}
+          </div>
+        ))}
       </div>
     </section>
   );
