@@ -1,95 +1,171 @@
+/* Theme Tokens: Safvan Khalifa (safvan-dev) */
+/* Option A: Architectural Blueprint & Crafted Editorial */
+
 :root {
+  /* -------------------------------------------------------------
+     1. COLOR PALETTE: Strict Two-Tone System (Forest Green & Warm Cream)
+     ------------------------------------------------------------- */
+  /* Dominant Accent: Deep Muted Forest Green */
+  --color-primary: #1F6B4F;
+  --color-primary-light: #1F6B4F;
+  --color-primary-dark: #1F6B4F;
+  --color-accent: #1F6B4F;
 
-  --color-primary: #B57449;
-  --color-primary-light: #D4956A;
-  --color-primary-dark: #5C3A21;
+  /* Accent Washes (Exact same green #1F6B4F, only varying opacity) */
+  --color-primary-subtle: rgba(31, 107, 79, 0.08);
+  --color-accent-wash: rgba(31, 107, 79, 0.05);
+  --color-accent-muted: rgba(31, 107, 79, 0.12);
+  --color-accent-strong: rgba(31, 107, 79, 0.22);
 
-  --color-secondary: #68CBA0;
-  --color-secondary-light: #9CECC5;
-  --color-secondary-dark: #2E8C5D;
+  /* Secondary mapped strictly to primary (no third color) */
+  --color-secondary: #1F6B4F;
+  --color-secondary-light: #1F6B4F;
+  --color-secondary-dark: #1F6B4F;
+  --color-secondary-subtle: rgba(31, 107, 79, 0.08);
 
-  --color-background: #FFF9F0;
+  /* Base Neutral: Warm Off-White / Cream Canvas & Surfaces */
+  --color-background: #F2F0EA;
+  --color-surface: #FAF9F6;
+  --color-surface-cream: #E8E5DC;
+  --color-surface-translucent: rgba(242, 240, 234, 0.90);
 
-  --color-surface: #ffffff;
-  --color-surface-translucent: rgba(255, 255, 255, 0.85);
+  /* Deep Contrast (for terminal buffer & dark accents) */
+  --color-espresso: #141414;
+  --color-card-dark: #141414;
+  --color-card-dark-translucent: rgba(20, 20, 20, 0.92);
 
-  --color-text-primary: #2D2824; /* Warm Off-Black for bodies */
-  --color-text-secondary: #4A4440; /* Standard Grey */
-  --color-text-muted: #8A817C;
-  --color-text-light: #FFECD6;
-  --color-text-accent: #B57449;
+  /* Typography Colors: Near-Black & Neutral Tones */
+  --color-text-primary: #141414;       /* Near-black for maximum contrast & crisp editorial feel */
+  --color-text-secondary: #4A4A4A;     /* Neutral mid-tone for body paragraphs */
+  --color-text-muted: #767676;         /* Neutral grey for captions & metadata */
+  --color-text-light: #F2F0EA;         /* Off-white text on solid accent backgrounds */
+  --color-text-accent: #1F6B4F;        /* Forest green accent text */
 
-  --color-brand-green: #68CBA0;
-  --color-brand-yellow: #FFECD6;
-  --color-brand-orange: #B57449;
-  --color-brand-trustpilot: #00b67a;
+  /* Architectural Hairlines & Grid Crosshairs */
+  --color-hairline: rgba(20, 20, 20, 0.10);
+  --color-hairline-light: rgba(242, 240, 234, 0.20);
+  --color-hairline-accent: rgba(31, 107, 79, 0.25);
+  --crosshair-size: 11px;
+  --crosshair-color: #1F6B4F;
 
-  --color-border: rgba(92, 58, 33, 0.1);
+  /* -------------------------------------------------------------
+     2. TYPOGRAPHY SYSTEM (Option B: Crafted Editorial)
+     ------------------------------------------------------------- */
+  --font-family-serif: "Fraunces Variable", "Fraunces", Georgia, serif;
+  --font-family-primary: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-mono: "JetBrains Mono Variable", "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  --font-family-body: var(--font-family-primary);
 
-  --color-surface-dark: #E2BB9C;
+  /* Font Sizes — Mathematical 8pt Rhythm */
+  --font-size-2xs: 0.6875rem; /* 11px */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.5rem;     /* 24px */
+  --font-size-2xl: 2.0rem;    /* 32px */
+  --font-size-3xl: 2.75rem;   /* 44px */
+  --font-size-4xl: 3.5rem;    /* 56px */
+  --font-size-5xl: 4.75rem;   /* 76px */
 
-
-  --font-family-primary: "Inter", sans-serif;
-
-  --font-family-serif: "Instrument Serif", "Playfair Display", serif;
-
-  --font-family-script: "Caveat", cursive;
-
-
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2rem;
-  --font-size-3xl: 3rem;
-  --font-size-4xl: 4.5rem;
-  --font-size-5xl: 6rem;
-
+  /* Font Weights */
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
 
-  --line-height-tight: 1.1;
+  /* Line Heights */
+  --line-height-tight: 1.15;
+  --line-height-snug: 1.35;
   --line-height-normal: 1.6;
   --line-height-relaxed: 1.8;
 
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.05em;
+  --letter-spacing-mono: 0.04em;
 
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-  --spacing-3xl: 5rem;
-  --spacing-4xl: 8rem;
-
+  /* -------------------------------------------------------------
+     3. SPACING & CONTAINER SYSTEM (8pt Rhythm)
+     ------------------------------------------------------------- */
+  --spacing-2xs: 0.125rem;  /* 2px  */
+  --spacing-xs: 0.25rem;    /* 4px  */
+  --spacing-sm: 0.5rem;     /* 8px  */
+  --spacing-md-sm: 0.75rem; /* 12px */
+  --spacing-md: 1.0rem;     /* 16px */
+  --spacing-md-lg: 1.25rem; /* 20px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2.0rem;     /* 32px */
+  --spacing-2xl: 3.0rem;    /* 48px */
+  --spacing-3xl: 4.0rem;    /* 64px */
+  --spacing-4xl: 6.0rem;    /* 96px */
 
   --container-max-width: 1400px;
-
-  --header-height: 80px;
+  --header-height: 76px;
   --section-padding: var(--spacing-4xl);
 
-
+  /* Border Radii: Strict Flat & Geometric Architectural Scale */
+  --border-radius-xs: 2px;
   --border-radius-sm: 4px;
-  --border-radius-md: 8px;
-  --border-radius-lg: 16px;
-  --border-radius-xl: 24px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 6px;
+  --border-radius-xl: 6px;
   --border-radius-full: 9999px;
 
+  /* Shadows: Disabled for Flat Design Aesthetic */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-inset: none;
 
-  --shadow-sm: 0 2px 4px rgba(74, 64, 54, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(74, 64, 54, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(74, 64, 54, 0.1);
-  --drop-shadow: drop-shadow(0 10px 20px rgba(74, 64, 54, 0.15));
-
-
-  --transition-normal: 0.3s ease;
+  /* Transitions */
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-spring: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* -------------------------------------------------------------
+   4. ARCHITECTURAL BLUEPRINT UTILITY CLASSES
+   ------------------------------------------------------------- */
+
+/* Hairline Grid Borders */
+.hairline-border {
+  border: 1px solid var(--color-hairline);
+}
+
+.hairline-top {
+  border-top: 1px solid var(--color-hairline);
+}
+
+.hairline-bottom {
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.hairline-left {
+  border-left: 1px solid var(--color-hairline);
+}
+
+.hairline-right {
+  border-right: 1px solid var(--color-hairline);
+}
+
+/* Typographic & Mono Utilities */
+.font-serif {
+  font-family: var(--font-family-serif);
+  font-optical-sizing: auto;
+}
+
+.font-mono {
+  font-family: var(--font-family-mono);
+  letter-spacing: var(--letter-spacing-mono);
+}
+
+.font-sans {
+  font-family: var(--font-family-primary);
+}
 
 .text-primary {
   color: var(--color-text-primary);
@@ -99,34 +175,162 @@
   color: var(--color-text-secondary);
 }
 
+.text-muted {
+  color: var(--color-text-muted);
+}
+
 .text-accent {
-  color: var(--color-secondary);
+  color: var(--color-primary);
 }
 
-.bg-primary {
+.text-terracotta {
+  color: var(--color-primary);
+}
+
+.text-sage {
+  color: var(--color-primary);
+}
+
+/* Tech Category Badges */
+.badge-mern {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-primary-subtle);
+  color: var(--color-primary);
+  border: 1px solid rgba(31, 107, 79, 0.25);
+  border-radius: var(--border-radius-xs);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.02em;
+}
+
+.badge-ai {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-primary-subtle);
+  color: var(--color-primary);
+  border: 1px solid rgba(31, 107, 79, 0.25);
+  border-radius: var(--border-radius-xs);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.02em;
+}
+
+.badge-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--border-radius-xs);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+}
+
+/* Blueprint Crosshairs */
+.has-crosshairs {
+  position: relative;
+}
+
+.has-crosshairs::before,
+.has-crosshairs::after {
+  content: "+";
+  position: absolute;
+  font-family: var(--font-family-mono);
+  font-size: var(--crosshair-size);
+  color: var(--crosshair-color);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.55;
+}
+
+.has-crosshairs::before {
+  top: -5px;
+  left: -5px;
+}
+
+.has-crosshairs::after {
+  bottom: -5px;
+  right: -5px;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
   background-color: var(--color-primary);
-  color: white;
+  color: #FFFFFF !important;
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-md-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
 }
 
-.bg-secondary {
-  background-color: var(--color-secondary);
-  color: white;
+.btn-primary:hover {
+  opacity: 0.92;
+  background-color: var(--color-primary);
 }
 
-.bg-background {
-  background-color: var(--color-background);
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  background-color: transparent;
+  color: var(--color-primary) !important;
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-md-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  border: 1.5px solid var(--color-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
+.btn-outline:hover {
+  background-color: var(--color-primary-subtle);
+  color: var(--color-primary) !important;
+}
+
+/* -------------------------------------------------------------
+   5. RESPONSIVE MEDIA QUERIES
+   ------------------------------------------------------------- */
+@media (max-width: 992px) {
+  :root {
+    --font-size-4xl: 2.75rem;
+    --font-size-5xl: 3.75rem;
+    --section-padding: var(--spacing-3xl);
+  }
+}
 
 @media (max-width: 768px) {
   :root {
-    --font-size-3xl: 2rem;
-    --font-size-4xl: 2.5rem;
-    --font-size-5xl: 3.5rem;
+    --font-size-3xl: 1.85rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
 
     --spacing-xl: 1.5rem;
     --spacing-2xl: 2rem;
-    --spacing-3xl: 3rem;
-    --spacing-4xl: 4rem;
+    --spacing-3xl: 2.75rem;
+    --spacing-4xl: 3.5rem;
+    --section-padding: var(--spacing-2xl);
   }
 }

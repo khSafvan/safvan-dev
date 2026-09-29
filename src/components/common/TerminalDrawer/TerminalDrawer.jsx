@@ -131,7 +131,7 @@ export default function TerminalDrawer() {
         {/* Terminal Title Bar */}
         <div className="terminal-titlebar">
           <div className="terminal-title-text font-mono">
-            // TERMINAL: {personal.terminalPrompt.replace("$", "")} (~/portfolio)
+            // TERMINAL: {personal.terminalPrompt.replace(/\$/g, "")} (~/portfolio)
           </div>
 
           <div className="terminal-header-actions">
