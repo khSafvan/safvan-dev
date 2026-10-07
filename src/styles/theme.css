@@ -207,7 +207,8 @@
   letter-spacing: 0.02em;
 }
 
-.badge-ai {
+.badge-ai,
+.badge-systems {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);

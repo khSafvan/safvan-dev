@@ -1,4 +1,4 @@
-/* Custom Cursor Styles */
+/* Custom Cursor Styles (Ideology 3: Tactile Precision Reticle) */
 /* Architectural Blueprint & Crafted Editorial */
 
 .custom-cursor-wrap {
@@ -17,55 +17,106 @@
   opacity: 1;
 }
 
-/* Outer Tracking Ring */
+/* Outer Tracking Reticle */
 .custom-cursor-ring {
   position: absolute;
-  top: -16px;
-  left: -16px;
-  width: 32px;
-  height: 32px;
+  top: -14px;
+  left: -14px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 1.5px solid var(--color-primary);
+  border: 1px solid rgba(31, 107, 79, 0.45);
   pointer-events: none;
   will-change: transform;
-  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              top 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              left 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              top 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              left 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.08s linear;
 }
 
-/* Inner Tracking Dot */
+/* Architectural Reticle Micro-Ticks */
+.reticle-tick {
+  position: absolute;
+  background-color: var(--color-primary);
+  opacity: 0.55;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.reticle-tick--top {
+  top: -4px;
+  left: 50%;
+  width: 1px;
+  height: 4px;
+  transform: translateX(-50%);
+}
+
+.reticle-tick--bottom {
+  bottom: -4px;
+  left: 50%;
+  width: 1px;
+  height: 4px;
+  transform: translateX(-50%);
+}
+
+.reticle-tick--left {
+  top: 50%;
+  left: -4px;
+  width: 4px;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.reticle-tick--right {
+  top: 50%;
+  right: -4px;
+  width: 4px;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+/* Inner Tracking Precision Micro-Dot */
 .custom-cursor-dot {
   position: absolute;
-  top: -2.5px;
-  left: -2.5px;
-  width: 5px;
-  height: 5px;
+  top: -2px;
+  left: -2px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   background-color: var(--color-primary);
   pointer-events: none;
   will-change: transform;
-  transition: transform 0.05s linear;
+  opacity: 0.85;
 }
 
-/* Hovering Interactive Element State */
+/* Interactive Hover State (Expands into Tactile Halo) */
 .custom-cursor-wrap--hovered .custom-cursor-ring {
   top: -24px;
   left: -24px;
   width: 48px;
   height: 48px;
-  background-color: var(--color-primary-subtle);
+  background-color: rgba(31, 107, 79, 0.07);
   border-color: var(--color-primary);
 }
 
-.custom-cursor-wrap--hovered .custom-cursor-dot {
-  background-color: var(--color-primary);
+.custom-cursor-wrap--hovered .reticle-tick {
+  opacity: 0.85;
 }
 
-/* Completely Disable on Touch Devices */
-@media (pointer: coarse), (max-width: 768px) {
+.custom-cursor-wrap--hovered .custom-cursor-dot {
+  opacity: 0.4;
+}
+
+/* Accessibility & Device Fallbacks */
+@media (pointer: coarse), (max-width: 1023px) {
+  .custom-cursor-wrap {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
   .custom-cursor-wrap {
     display: none !important;
   }

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Lenis from "lenis";
+import Snap from "lenis/snap";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -28,7 +29,7 @@ function App() {
     if (prefersReducedMotion) return;
 
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
@@ -48,7 +49,30 @@ function App() {
     gsap.ticker.add(onTick);
     gsap.ticker.lagSmoothing(0);
 
+    // Expose lenis for topbar and link navigation
+    window.lenis = lenis;
+
+    // Presentation Deck (Ideology 1): Gentle proximity snap strictly on desktop slides (disabled on mobile/tablet touch)
+    let snap = null;
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+    if (isDesktop) {
+      snap = new Snap(lenis, {
+        type: "proximity",
+        velocityThreshold: 1.2,
+        debounce: 350,
+        duration: 0.65,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+
+      const sections = gsap.utils.toArray(".section");
+      sections.forEach((sec) => {
+        snap.addElement(sec, { align: ["start", "end"] });
+      });
+    }
+
     return () => {
+      if (snap) snap.destroy();
+      delete window.lenis;
       gsap.ticker.remove(onTick);
       lenis.destroy();
     };
@@ -56,13 +80,12 @@ function App() {
 
   return (
     <div className="app-container">
-      <CustomCursor />
       <Header />
-      <main>
+      <main id="main-content">
         <HeroSection />
-        <AboutSection />
-        <SkillsMatrixSection />
         <WorksSection />
+        <SkillsMatrixSection />
+        <AboutSection />
         <ExperienceSection />
         <MethodologySection />
         <TestimonialsSection />
@@ -70,6 +93,7 @@ function App() {
       </main>
       <Footer />
       <TerminalDrawer />
+      <CustomCursor />
       <Toaster
         theme="dark"
         position="bottom-right"
