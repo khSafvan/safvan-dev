@@ -2,17 +2,22 @@
 /* Architectural Blueprint & Crafted Editorial */
 
 .about {
-  padding-top: var(--spacing-4xl);
-  padding-bottom: var(--spacing-4xl);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
 }
-
 
 /* 2-Column Grid */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.25fr 0.95fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: var(--spacing-2xl);
-  align-items: start;
+  align-items: center;
+  width: 100%;
 }
 
 /* Left Column: Narrative */
@@ -24,8 +29,8 @@
 
 .about-paragraph {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-base);
-  line-height: 1.8;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.75;
   color: var(--color-text-secondary);
   margin: 0;
 }
@@ -61,8 +66,8 @@
 
 /* Right Column: Architectural Blueprint Card */
 .about-sidebar {
-  position: sticky;
-  top: calc(var(--header-height, 76px) + var(--spacing-xl));
+  display: flex;
+  flex-direction: column;
 }
 
 .blueprint-card {
@@ -75,7 +80,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-md-sm) var(--spacing-md-lg);
+  padding: 0.5rem var(--spacing-lg);
   background-color: var(--color-surface-cream);
   font-size: var(--font-size-2xs);
   color: var(--color-text-muted);
@@ -87,40 +92,35 @@
 }
 
 .blueprint-specs-list {
-  padding: 0 var(--spacing-md-lg);
+  padding: 0 var(--spacing-lg);
 }
 
 .spec-row {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
-  padding: var(--spacing-md-sm) 0;
+  gap: 2px;
+  padding: 0.45rem 0;
 }
 
 .spec-key {
-  font-size: var(--font-size-2xs);
+  font-size: 0.625rem;
   color: var(--color-text-muted);
   letter-spacing: 0.05em;
 }
 
 .spec-value {
-  font-size: var(--font-size-sm);
+  font-size: 0.85rem;
   color: var(--color-text-primary);
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
-.spec-highlight-sage {
+.spec-highlight-accent {
   color: var(--color-primary);
-  font-weight: 500;
-}
-
-.spec-highlight-terracotta {
-  color: var(--color-primary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .blueprint-card-footer {
-  padding: var(--spacing-sm) var(--spacing-md-lg);
+  padding: 0.4rem var(--spacing-lg);
   background-color: var(--color-card-dark);
 }
 
@@ -133,7 +133,7 @@
   border: none;
   color: var(--color-primary);
   font-size: var(--font-size-xs);
-  padding: var(--spacing-xs) 0;
+  padding: 0.25rem 0;
   cursor: pointer;
   transition: opacity var(--transition-fast);
 }
@@ -143,13 +143,15 @@
 }
 
 /* Responsive Styles */
-@media (max-width: 968px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-2xl);
+@media (max-width: 1023px) {
+  .about {
+    height: auto;
+    max-height: none;
+    overflow: visible;
   }
 
-  .about-sidebar {
-    position: static;
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
   }
 }

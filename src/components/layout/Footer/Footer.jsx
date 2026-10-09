@@ -1,23 +1,39 @@
 import React from "react";
 import { portfolioConfig } from "../../../config/portfolio";
+import Magnetic from "../../common/Magnetic";
 import "./Footer.css";
 
 export default function Footer() {
   const { personal } = portfolioConfig;
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { duration: 1.0 });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  const handleNavClick = (e, href) => {
+    if (window.lenis && href && href.startsWith("#")) {
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if (el) {
+        window.lenis.scrollTo(el, { duration: 0.85 });
+      }
+    }
   };
 
   const navLinks = [
+    { label: "Works", href: "#works" },
+    { label: "Capabilities", href: "#skills" },
     { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#works" },
     { label: "Experience", href: "#experience" },
-    { label: "Methodology", href: "#methodology" },
+    { label: "Ethos", href: "#methodology" },
+    { label: "Recommendations", href: "#testimonials" },
     { label: "Contact", href: "#contact" }
   ];
 
@@ -29,7 +45,7 @@ export default function Footer() {
           <div className="footer-brand-block">
             <span className="footer-brand-name font-serif">{personal.name}</span>
             <p className="footer-brand-tagline font-sans">
-              Full Stack Web Developer & Systems Craftsman
+              Full Stack Developer (MERN Stack)
             </p>
             <div className="footer-status-pill font-mono">
               <span className="footer-status-dot"></span>
@@ -37,15 +53,17 @@ export default function Footer() {
             </div>
           </div>
 
-          <button
-            type="button"
-            className="footer-back-top-btn font-mono"
-            onClick={scrollToTop}
-            aria-label="Scroll back to top of page"
-          >
-            <span>BACK TO TOP</span>
-            <span className="back-top-arrow">↑</span>
-          </button>
+          <Magnetic strength={0.28}>
+            <button
+              type="button"
+              className="footer-back-top-btn font-mono"
+              onClick={scrollToTop}
+              aria-label="Scroll back to top of page"
+            >
+              <span>BACK TO TOP</span>
+              <span className="back-top-arrow">↑</span>
+            </button>
+          </Magnetic>
         </div>
 
         {/* Middle Tier: Navigation Links & Verified Digital Profiles */}
@@ -54,7 +72,11 @@ export default function Footer() {
             <ul className="footer-nav-list">
               {navLinks.map((link) => (
                 <li key={link.label} className="footer-nav-item">
-                  <a href={link.href} className="footer-nav-link font-sans">
+                  <a
+                    href={link.href}
+                    className="footer-nav-link font-sans"
+                    onClick={(e) => handleNavClick(e, link.href)}
+                  >
                     {link.label}
                   </a>
                 </li>
