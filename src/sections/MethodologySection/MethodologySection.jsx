@@ -13,9 +13,9 @@ export default function MethodologySection() {
           <span className="structural-tag">[ 05 / ENGINEERING ETHOS: METHODOLOGY & PILLARS ]</span>
           <span className="structural-status">PRACTICAL STANDARDS</span>
         </div>
-        <h2 className="section-title font-serif">How I Work: Practical Standards & Verification</h2>
+        <h2 className="section-title font-serif">Engineering Ethos</h2>
         <p className="section-subtitle font-sans">
-          Principles that guide my daily work across web development and systems programming.
+          Practical engineering standards applied to every commit.
         </p>
       </div>
 

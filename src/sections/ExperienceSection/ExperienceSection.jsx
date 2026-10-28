@@ -13,9 +13,9 @@ export default function ExperienceSection() {
           <span className="structural-tag">[ 04 / COMMERCIAL WORK HISTORY & CREDENTIALS ]</span>
           <span className="structural-status">VERIFIED RESUME DATA</span>
         </div>
-        <h2 className="section-title font-serif">Commercial Work History & Technical Background</h2>
+        <h2 className="section-title font-serif">Commercial History & Credentials</h2>
         <p className="section-subtitle font-sans">
-          Three years of commercial full-stack web development, database optimization, and academic background.
+          Employment history, promotions, and accredited qualifications.
         </p>
       </div>
 

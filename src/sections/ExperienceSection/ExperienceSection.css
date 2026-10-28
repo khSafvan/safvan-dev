@@ -2,15 +2,21 @@
 /* Architectural Blueprint & Vertical Timeline */
 
 .experience {
-  padding-top: var(--spacing-4xl);
-  padding-bottom: var(--spacing-4xl);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
 }
 
 .experience-layout {
   display: grid;
-  grid-template-columns: 1.35fr 0.9fr;
+  grid-template-columns: 1.3fr 0.9fr;
   gap: var(--spacing-2xl);
   align-items: start;
+  width: 100%;
 }
 
 /* Vertical Timeline Container */
@@ -18,16 +24,16 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xl);
-  padding-left: var(--spacing-2xl);
+  gap: var(--spacing-lg);
+  padding-left: 28px;
 }
 
 /* Hairline Timeline Spine Track */
 .timeline-spine {
   position: absolute;
-  top: 16px;
-  bottom: 16px;
-  left: 17px;
+  top: 12px;
+  bottom: 12px;
+  left: 11px;
   width: 1px;
   background-color: var(--color-hairline);
 }
@@ -42,10 +48,10 @@
 /* Marker Dot on Spine */
 .timeline-marker {
   position: absolute;
-  top: 18px;
-  left: calc(-1 * var(--spacing-2xl) + 2px);
-  width: 32px;
-  height: 32px;
+  top: 10px;
+  left: -28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   border: 2px solid var(--color-primary);
   background-color: var(--color-primary);
@@ -53,11 +59,11 @@
   align-items: center;
   justify-content: center;
   z-index: 2;
-  outline: 3px solid var(--color-background);
+  outline: 2px solid var(--color-background);
 }
 
 .marker-index {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: #FFFFFF;
   line-height: 1;
@@ -66,7 +72,7 @@
 /* Timeline Card */
 .timeline-card {
   background-color: var(--color-surface);
-  border-radius: var(--border-radius-md);
+  border-radius: var(--border-radius-xs);
   overflow: hidden;
   transition: border-color var(--transition-fast);
 }
@@ -77,23 +83,23 @@
 
 /* Card Header */
 .timeline-card-header {
-  padding: var(--spacing-md-sm) var(--spacing-md-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
   background-color: var(--color-surface-cream);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   flex-wrap: wrap;
 }
 
 .card-company-wrap {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xs);
+  gap: 1px;
 }
 
 .timeline-company {
-  font-size: 1.25rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-primary);
   margin: 0;
@@ -101,19 +107,19 @@
 }
 
 .timeline-location {
-  font-size: var(--font-size-2xs);
+  font-size: 0.625rem;
   color: var(--color-text-muted);
 }
 
 .timeline-period {
-  font-size: var(--font-size-xs);
+  font-size: 0.68rem;
   color: var(--color-primary);
   font-weight: 600;
 }
 
 /* Card Body */
 .timeline-card-body {
-  padding: var(--spacing-md) var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
@@ -122,146 +128,151 @@
 .timeline-role-row {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  justify-content: space-between;
   flex-wrap: wrap;
+  gap: var(--spacing-xs);
 }
 
 .timeline-role {
-  font-size: var(--font-size-base);
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-text-primary);
   margin: 0;
 }
 
 .timeline-badge {
-  font-size: var(--font-size-2xs);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  background-color: var(--color-primary-subtle);
+  font-size: 0.6rem;
   color: var(--color-primary);
-  border: 1px solid rgba(31, 107, 79, 0.22);
+  background-color: rgba(31, 107, 79, 0.08);
+  padding: 1px 6px;
   border-radius: var(--border-radius-xs);
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
 .timeline-description {
-  font-size: var(--font-size-sm);
-  line-height: 1.7;
+  font-size: 0.72rem;
+  line-height: 1.55;
   color: var(--color-text-secondary);
   margin: 0;
 }
 
-/* Right Sidebar: Credentials */
+/* Credentials Sidebar */
 .credentials-sidebar {
-  position: sticky;
-  top: calc(var(--header-height, 76px) + var(--spacing-xl));
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
 }
 
 .credentials-card {
   background-color: var(--color-surface);
-  border-radius: var(--border-radius-md);
+  border-radius: var(--border-radius-xs);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .credentials-header {
-  padding: var(--spacing-md-sm) var(--spacing-md-lg);
+  padding: 0.4rem var(--spacing-md);
   background-color: var(--color-surface-cream);
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  font-size: var(--font-size-2xs);
-  color: var(--color-text-muted);
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  flex-shrink: 0;
 }
 
 .credentials-status {
   color: var(--color-primary);
-  font-weight: 600;
 }
 
 .credentials-list {
-  padding: 0 var(--spacing-md-lg);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  overflow-y: auto;
+  flex: 1;
 }
 
 .credential-item {
-  padding: var(--spacing-md) 0;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: 3px;
+  padding-bottom: var(--spacing-sm);
 }
 
 .credential-item:last-child {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
 .credential-top {
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
-  gap: 0.5rem;
+  align-items: baseline;
+  gap: var(--spacing-xs);
 }
 
 .credential-degree {
-  font-size: 1.15rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-primary);
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .credential-score {
-  font-size: var(--font-size-xs);
+  font-size: 0.68rem;
   color: var(--color-primary);
-  font-weight: 600;
-  white-space: nowrap;
+  font-weight: 700;
+  background-color: var(--color-primary-subtle);
+  padding: 1px 5px;
+  border-radius: var(--border-radius-xs);
 }
 
 .credential-institution {
-  font-size: var(--font-size-xs);
+  font-size: 0.68rem;
   color: var(--color-text-secondary);
-  font-weight: 500;
 }
 
 .credential-period {
-  font-size: var(--font-size-2xs);
+  font-size: 0.625rem;
   color: var(--color-text-muted);
 }
 
 .credential-details {
-  font-size: var(--font-size-xs);
-  line-height: 1.6;
+  font-size: 0.72rem;
+  line-height: 1.5;
   color: var(--color-text-secondary);
   margin: 0;
-  margin-top: 0.25rem;
 }
 
 /* Responsive Styles */
-@media (max-width: 968px) {
+@media (max-width: 1023px) {
+  .experience {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
   .experience-layout {
     grid-template-columns: 1fr;
-    gap: var(--spacing-2xl);
+    gap: var(--spacing-lg);
+    height: auto;
+    max-height: none;
   }
 
-  .credentials-sidebar {
-    position: static;
-  }
-}
-
-@media (max-width: 768px) {
-  .timeline-card-body {
-    padding: var(--spacing-md);
-  }
-}
-
-@media (max-width: 600px) {
   .timeline-container {
-    padding-left: var(--spacing-xl);
+    overflow-y: visible;
   }
 
-  .timeline-spine {
-    left: 8px;
-  }
-
-  .timeline-marker {
-    left: calc(-1 * var(--spacing-xl) - 7px);
-    width: 28px;
-    height: 28px;
+  .credentials-list {
+    overflow-y: visible;
   }
 }

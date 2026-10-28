@@ -14,10 +14,11 @@ export default function AboutSection() {
       {/* Section Header */}
       <div className="section-header-block">
         <div className="section-structural-meta font-mono">
-          <span className="structural-tag">[ 01 / BIOGRAPHY & SPECIFICATIONS ]</span>
+          <span className="structural-tag">[ 03 / BIOGRAPHY & ARCHITECTURAL SPECS ]</span>
           <span className="structural-status">PROFILE VERIFIED</span>
         </div>
         <h2 className="section-title font-serif">{about.title}</h2>
+        <p className="section-subtitle font-sans">{about.subtitle}</p>
       </div>
 
       <div className="about-grid">
@@ -28,8 +29,6 @@ export default function AboutSection() {
               {paragraph}
             </p>
           ))}
-
-
         </div>
 
         {/* Right Column: Architectural Blueprint Card */}
@@ -53,12 +52,12 @@ export default function AboutSection() {
 
               <div className="spec-row hairline-bottom">
                 <span className="spec-key font-mono">CORE WEB STACK</span>
-                <span className="spec-value font-mono spec-highlight-sage">{about.blueprint.nativeDomain}</span>
+                <span className="spec-value font-mono spec-highlight-accent">{about.blueprint.nativeDomain}</span>
               </div>
 
               <div className="spec-row hairline-bottom">
-                <span className="spec-key font-mono">ADDITIONAL SYSTEMS</span>
-                <span className="spec-value font-mono spec-highlight-terracotta">{about.blueprint.systemsDomain}</span>
+                <span className="spec-key font-mono">SYSTEMS & TOOLING</span>
+                <span className="spec-value font-mono spec-highlight-accent">{about.blueprint.systemsDomain}</span>
               </div>
 
               <div className="spec-row hairline-bottom">

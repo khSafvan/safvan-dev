@@ -1,5 +1,6 @@
 import React from "react";
 import { portfolioConfig } from "../../config/portfolio";
+import Magnetic from "../../components/common/Magnetic";
 import "./HeroSection.css";
 
 export default function HeroSection() {
@@ -21,7 +22,7 @@ export default function HeroSection() {
           <span className="tag-bracket">[</span>
           <span className="tag-number">00</span>
           <span className="tag-divider">/</span>
-          <span className="tag-name">PROLOGUE: FULL STACK & SYSTEMS</span>
+          <span className="tag-name">PROLOGUE: FULL STACK MERN DEVELOPER</span>
           <span className="tag-bracket">]</span>
         </div>
       </div>
@@ -33,7 +34,7 @@ export default function HeroSection() {
           <div className="hero-headline-group">
             <div className="hero-eyebrow font-mono">
               <span className="eyebrow-arrow font-mono">↳</span>
-              <span className="eyebrow-text">ENGINEERING PORTFOLIO</span>
+              <span className="eyebrow-text">ENGINEERING PORTFOLIO // FULL STACK MERN DEVELOPER</span>
             </div>
 
             <h1 className="hero-display-name font-serif">
@@ -48,13 +49,17 @@ export default function HeroSection() {
 
           {/* Primary Call-to-Actions */}
           <div className="hero-actions">
-            <a href="#works" className="btn-primary hero-btn">
-              <span>{hero.ctaText}</span>
-              <span className="btn-arrow font-mono">→</span>
-            </a>
-            <a href="#contact" className="btn-outline hero-btn">
-              <span>{hero.ctaSecondary}</span>
-            </a>
+            <Magnetic strength={0.25}>
+              <a href="#works" className="btn-primary hero-btn">
+                <span>{hero.ctaText}</span>
+                <span className="btn-arrow font-mono">→</span>
+              </a>
+            </Magnetic>
+            <Magnetic strength={0.22}>
+              <a href="#contact" className="btn-outline hero-btn">
+                <span>{hero.ctaSecondary}</span>
+              </a>
+            </Magnetic>
           </div>
         </div>
 

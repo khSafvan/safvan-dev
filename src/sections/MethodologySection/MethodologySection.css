@@ -2,8 +2,13 @@
 /* Architectural Blueprint & Crafted Editorial */
 
 .methodology {
-  padding-top: var(--spacing-4xl);
-  padding-bottom: var(--spacing-4xl);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
 }
 
 .methodology-grid {
@@ -11,6 +16,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-xl);
   align-items: stretch;
+  width: 100%;
 }
 
 .methodology-card {
@@ -18,6 +24,7 @@
   border-radius: var(--border-radius-md);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   transition: border-color var(--transition-fast);
 }
 
@@ -27,24 +34,24 @@
 
 /* Card Header */
 .methodology-card-header {
-  padding: var(--spacing-md-sm) var(--spacing-md-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
   background-color: var(--color-surface-cream);
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: var(--spacing-sm);
-  min-height: 76px;
+  flex-shrink: 0;
 }
 
 .pillar-number {
-  font-size: 2.25rem;
+  font-size: 1.85rem;
   font-weight: 700;
   color: var(--color-primary);
   line-height: 1;
 }
 
 .pillar-tagline {
-  font-size: var(--font-size-2xs);
+  font-size: 0.625rem;
   color: var(--color-text-muted);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -53,7 +60,7 @@
 
 /* Card Body */
 .methodology-card-body {
-  padding: var(--spacing-xl);
+  padding: var(--spacing-lg);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
@@ -61,7 +68,7 @@
 }
 
 .pillar-title {
-  font-size: 1.45rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-primary);
   line-height: 1.25;
@@ -69,21 +76,22 @@
 }
 
 .pillar-description {
-  font-size: var(--font-size-sm);
-  line-height: 1.75;
+  font-size: 0.825rem;
+  line-height: 1.65;
   color: var(--color-text-secondary);
   margin: 0;
 }
 
 /* Card Footer */
 .methodology-card-footer {
-  padding: var(--spacing-md-sm) var(--spacing-md-lg);
+  padding: 0.4rem var(--spacing-lg);
   background-color: rgba(31, 107, 79, 0.04);
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: var(--font-size-2xs);
   color: var(--color-text-muted);
+  flex-shrink: 0;
 }
 
 .pillar-status {
@@ -92,19 +100,21 @@
 }
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
+  .methodology {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
   .methodology-grid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-md);
+    height: auto;
+    max-height: none;
   }
 
   .methodology-card-header {
     min-height: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .methodology-card-body {
-    padding: var(--spacing-md);
   }
 }
