@@ -5,7 +5,8 @@ import "./ContactSection.css";
 
 export default function ContactSection() {
   const { personal } = portfolioConfig;
-  const [copied, setCopied] = useState(false);
+  const [copiedPrimary, setCopiedPrimary] = useState(false);
+  const [copiedAlt, setCopiedAlt] = useState(false);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -14,17 +15,29 @@ export default function ContactSection() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleCopyEmail = async () => {
+  const handleCopyEmail = async (email, isPrimary = true) => {
     try {
-      await navigator.clipboard.writeText(personal.email);
-      setCopied(true);
-      toast.success("Copied email address to clipboard.");
-      setTimeout(() => setCopied(false), 2400);
+      await navigator.clipboard.writeText(email);
+      if (isPrimary) {
+        setCopiedPrimary(true);
+        toast.success("Copied primary email to clipboard.");
+        setTimeout(() => setCopiedPrimary(false), 2400);
+      } else {
+        setCopiedAlt(true);
+        toast.success("Copied backup email to clipboard.");
+        setTimeout(() => setCopiedAlt(false), 2400);
+      }
     } catch {
       // Fallback
-      setCopied(true);
-      toast.success("Copied email address to clipboard.");
-      setTimeout(() => setCopied(false), 2400);
+      if (isPrimary) {
+        setCopiedPrimary(true);
+        toast.success("Copied primary email to clipboard.");
+        setTimeout(() => setCopiedPrimary(false), 2400);
+      } else {
+        setCopiedAlt(true);
+        toast.success("Copied backup email to clipboard.");
+        setTimeout(() => setCopiedAlt(false), 2400);
+      }
     }
   };
 
@@ -37,7 +50,7 @@ export default function ContactSection() {
     e.preventDefault();
     if (!formState.name || !formState.email || !formState.message) return;
     setSubmitted(true);
-    toast.success("Inquiry transmitted successfully. I'll be in touch shortly!");
+    toast.success("Inquiry transmitted successfully. I will be in touch shortly!");
   };
 
   return (
@@ -48,14 +61,14 @@ export default function ContactSection() {
           <span className="structural-tag">[ 07 / TRANSMISSION: GET IN TOUCH ]</span>
           <span className="structural-status">OPEN FOR OPPORTUNITIES</span>
         </div>
-        <h2 className="section-title font-serif">Get in Touch</h2>
+        <h2 className="section-title font-serif">Get In Touch</h2>
         <p className="section-subtitle font-sans">
-          Open to full-time engineering roles and contract work ahead of my relocation to the Boston area in early 2027.
+          Direct channels for employment inquiries and technical collaboration.
         </p>
       </div>
 
       <div className="contact-grid">
-        {/* Left Column: Direct Pitch & Contact Details */}
+        {/* Left Column: Direct Opportunity Pitch & Contact Details */}
         <div className="contact-details-panel has-crosshairs hairline-border">
           <div className="panel-header hairline-bottom">
             <span className="panel-tag font-mono">DIRECT CHANNELS</span>
@@ -63,16 +76,19 @@ export default function ContactSection() {
           </div>
 
           <div className="panel-body">
-            <h3 className="contact-pitch-title font-serif">Direct Communication</h3>
+            <h3 className="contact-pitch-title font-serif">Employment & Contract Inquiries</h3>
             <p className="contact-pitch-desc font-sans">
-              Reach out to discuss full-stack roles, web projects, or systems and tooling.
+              Available for full-time software engineering roles and technical contract engagements ahead of my relocation to the Boston area in early 2027. Reach out directly via email or phone.
             </p>
 
-            {/* Email Action Box (Replaces raw text email) */}
+            {/* Primary Email Action Box */}
             <div className="email-action-box hairline-border">
               <div className="channel-meta">
-                <span className="channel-label font-mono">PRIMARY INBOX</span>
-                <span className="channel-hint font-mono">// Direct messaging & inquiries</span>
+                <div className="channel-topline">
+                  <span className="channel-label font-mono">PRIMARY INBOX</span>
+                  <span className="channel-address font-mono">{personal.email}</span>
+                </div>
+                <span className="channel-hint font-mono">// Direct messaging & interview scheduling</span>
               </div>
               <div className="channel-actions">
                 <a
@@ -90,29 +106,66 @@ export default function ContactSection() {
                 </a>
                 <button
                   type="button"
-                  className={`channel-btn channel-btn--secondary font-mono ${copied ? "channel-btn--copied" : ""}`}
-                  onClick={handleCopyEmail}
-                  aria-label="Copy email address to clipboard"
+                  className={`channel-btn channel-btn--secondary font-mono ${copiedPrimary ? "channel-btn--copied" : ""}`}
+                  onClick={() => handleCopyEmail(personal.email, true)}
+                  aria-label="Copy primary email to clipboard"
                   title="Copy email to clipboard"
                 >
                   <svg className="contact-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
                   </svg>
-                  <span>{copied ? "✓ Copied" : "Copy"}</span>
+                  <span>{copiedPrimary ? "✓ Copied" : "Copy"}</span>
                 </button>
               </div>
             </div>
 
+            {/* Alternative Email Action Box */}
+            {personal.altEmail && (
+              <div className="email-action-box email-action-box--secondary hairline-border">
+                <div className="channel-meta">
+                  <div className="channel-topline">
+                    <span className="channel-label font-mono">BACKUP INBOX</span>
+                    <span className="channel-address font-mono">{personal.altEmail}</span>
+                  </div>
+                  <span className="channel-hint font-mono">// Secondary technical channel</span>
+                </div>
+                <div className="channel-actions">
+                  <a
+                    href={`mailto:${personal.altEmail}`}
+                    className="channel-btn channel-btn--secondary font-mono"
+                    aria-label="Send email to backup inbox"
+                    title="Open mail client for backup inbox"
+                  >
+                    <span>Email</span>
+                    <span className="action-arrow">↗</span>
+                  </a>
+                  <button
+                    type="button"
+                    className={`channel-btn channel-btn--secondary font-mono ${copiedAlt ? "channel-btn--copied" : ""}`}
+                    onClick={() => handleCopyEmail(personal.altEmail, false)}
+                    aria-label="Copy backup email to clipboard"
+                    title="Copy backup email to clipboard"
+                  >
+                    <span>{copiedAlt ? "✓ Copied" : "Copy"}</span>
+                  </button>
+                </div>
+              </div>
+            )}
+
             {/* Contact Specs Ledger */}
             <div className="contact-specs-ledger hairline-top">
-              {/* Voice Call (Replaces raw phone text) */}
+              {/* Voice Call */}
               <div className="contact-spec-row hairline-bottom">
-                <span className="spec-label font-mono">VOICE CALL</span>
-                <div className="spec-interactive-wrapper">
+                <span className="spec-label font-mono">DIRECT VOICE / TELEPHONE</span>
+                <div className="phone-interactive-box hairline-border">
+                  <div className="phone-meta font-mono">
+                    <span className="phone-number">{personal.phone}</span>
+                    <span className="phone-note">// Voice calls & WhatsApp</span>
+                  </div>
                   <a
                     href={`tel:${personal.phone.replace(/[^0-9+]/g, "")}`}
-                    className="contact-spec-pill font-mono"
+                    className="channel-btn channel-btn--secondary font-mono"
                     aria-label="Call direct phone line"
                     title="Click to place phone call (tel:)"
                   >
@@ -127,7 +180,7 @@ export default function ContactSection() {
 
               {/* Location & Relocation Hubs — Always-Visible Static Blueprint Ledger */}
               <div className="contact-spec-row hairline-bottom">
-                <span className="spec-label font-mono">LOCATION & RELOCATION</span>
+                <span className="spec-label font-mono">LOCATION & RELOCATION SPECIFICATION</span>
                 <div className="location-static-ledger font-mono hairline-border">
                   <div className="location-ledger-row hairline-bottom">
                     <div className="location-ledger-title">
@@ -149,24 +202,42 @@ export default function ContactSection() {
                 </div>
               </div>
 
+              {/* Verified Digital Channels */}
               <div className="contact-spec-row">
-                <span className="spec-label font-mono">PROFILES</span>
+                <span className="spec-label font-mono">VERIFIED DIGITAL CHANNELS</span>
                 <div className="spec-links-row">
-                  <a
-                    href={personal.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="profile-link font-mono"
-                  >
-                    LinkedIn ↗
-                  </a>
                   <a
                     href={personal.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="profile-link font-mono"
+                    className="profile-link font-mono hairline-border"
                   >
                     GitHub ↗
+                  </a>
+                  <a
+                    href={personal.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="profile-link font-mono hairline-border"
+                  >
+                    LinkedIn ↗
+                  </a>
+                  <a
+                    href={personal.portfolioUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="profile-link font-mono hairline-border"
+                  >
+                    Portfolio ↗
+                  </a>
+                  <a
+                    href={personal.resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="profile-link profile-link--accent font-mono hairline-border"
+                    download
+                  >
+                    Resume PDF ↓
                   </a>
                 </div>
               </div>
@@ -191,13 +262,14 @@ export default function ContactSection() {
                 </p>
                 <button
                   type="button"
-                  className="btn-primary"
+                  className="btn-primary form-reset-btn font-mono"
                   onClick={() => {
                     setSubmitted(false);
                     setFormState({ name: "", email: "", subject: "", message: "" });
                   }}
                 >
-                  Send Another Message
+                  <span>Send Another Message</span>
+                  <span className="submit-arrow">↻</span>
                 </button>
               </div>
             ) : (
@@ -251,7 +323,7 @@ export default function ContactSection() {
 
                 <div className="form-group">
                   <label htmlFor="contact-message" className="form-label font-mono">
-                    MESSAGE <span className="required-mark">*</span>
+                    MESSAGE CONTENT <span className="required-mark">*</span>
                   </label>
                   <textarea
                     id="contact-message"
@@ -265,7 +337,7 @@ export default function ContactSection() {
                   ></textarea>
                 </div>
 
-                <button type="submit" className="btn-primary form-submit-btn">
+                <button type="submit" className="btn-primary form-submit-btn font-mono">
                   <span>Transmit Inquiry</span>
                   <span className="submit-arrow">→</span>
                 </button>

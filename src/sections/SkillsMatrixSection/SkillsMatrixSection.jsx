@@ -4,7 +4,7 @@ import "./SkillsMatrixSection.css";
 
 export default function SkillsMatrixSection() {
   const { skills } = portfolioConfig;
-  const { nativeMernCore, aiAugmentedSystems } = skills;
+  const { coreMern, toolingSystems } = skills;
 
   return (
     <section className="skills-matrix section container" id="skills">
@@ -16,38 +16,42 @@ export default function SkillsMatrixSection() {
         </div>
         <h2 className="section-title font-serif">{skills.title}</h2>
         <p className="section-subtitle font-sans">
-          Web development in MERN, with systems and mobile tooling.
+          Production full-stack MERN engineering for US enterprise clients, complemented by Linux systems and low-level exploratory tooling.
         </p>
       </div>
 
       {/* Comparative Ledger Grid */}
       <div className="comparative-ledger-grid">
-        {/* PANEL 1: NATIVE HANDCRAFTED MERN CORE */}
+        {/* PANEL 1: CORE WEB ENGINEERING (FULL STACK MERN) - PRIMARY COMMERCIAL STACK */}
         <div className="ledger-panel ledger-panel--mern has-crosshairs hairline-border">
           <div className="ledger-panel-header hairline-bottom">
             <div className="panel-badge-wrapper">
-              <span className="badge-mern font-mono">HAND-CODED</span>
-              <span className="panel-verification-tag font-mono">CORE STACK</span>
+              <span className="badge-mern font-mono">{coreMern.badgeText}</span>
+              <span className="panel-verification-tag font-mono">COMMERCIAL PRODUCTION</span>
             </div>
-            <h3 className="panel-title font-serif">{nativeMernCore.categoryName}</h3>
-            <p className="panel-description font-sans">{nativeMernCore.description}</p>
+            <h3 className="panel-title font-serif">{coreMern.categoryName}</h3>
+            <p className="panel-description font-sans">{coreMern.description}</p>
           </div>
 
-          <div className="ledger-panel-body">
-            {nativeMernCore.groups.map((group) => (
+          <div className="ledger-panel-body custom-scrollbar">
+            {coreMern.groups.map((group) => (
               <div key={group.name} className="skill-group-block hairline-bottom">
                 <h4 className="group-title font-mono">{group.name}</h4>
                 <div className="skill-tags-wrapper">
                   {group.items.map((item) => {
-                    const isSpecial = item.includes("Stored Procedures");
+                    const isStoredProcs = item.includes("Stored Procedures");
+                    const isConcur = item.includes("US Client Collaboration");
                     return (
                       <span
                         key={item}
-                        className={`skill-tag skill-tag--mern ${isSpecial ? "skill-tag--annotated" : ""}`}
+                        className={`skill-tag skill-tag--mern ${isStoredProcs || isConcur ? "skill-tag--annotated" : ""}`}
                       >
                         {item}
-                        {isSpecial && (
+                        {isStoredProcs && (
                           <span className="skill-annotation font-mono">// -45% DB latency</span>
+                        )}
+                        {isConcur && (
+                          <span className="skill-annotation font-mono">// US Teams</span>
                         )}
                       </span>
                     );
@@ -58,24 +62,24 @@ export default function SkillsMatrixSection() {
           </div>
         </div>
 
-        {/* PANEL 2: AI-AUGMENTED SYSTEMS & APPLIED TOOLING */}
-        <div className="ledger-panel ledger-panel--ai has-crosshairs hairline-border">
+        {/* PANEL 2: SYSTEMS, TOOLING & INFRASTRUCTURE - DEV TOOLING & EXPLORATORY */}
+        <div className="ledger-panel ledger-panel--systems has-crosshairs hairline-border">
           <div className="ledger-panel-header hairline-bottom">
             <div className="panel-badge-wrapper">
-              <span className="badge-ai font-mono">AI-ASSISTED</span>
-              <span className="panel-verification-tag font-mono">COMPILED & TESTED</span>
+              <span className="badge-systems font-mono">{toolingSystems.badgeText}</span>
+              <span className="panel-verification-tag font-mono">EXPLORATORY & DEVOPS</span>
             </div>
-            <h3 className="panel-title font-serif">{aiAugmentedSystems.categoryName}</h3>
-            <p className="panel-description font-sans">{aiAugmentedSystems.description}</p>
+            <h3 className="panel-title font-serif">{toolingSystems.categoryName}</h3>
+            <p className="panel-description font-sans">{toolingSystems.description}</p>
           </div>
 
-          <div className="ledger-panel-body">
-            {aiAugmentedSystems.groups.map((group) => (
+          <div className="ledger-panel-body custom-scrollbar">
+            {toolingSystems.groups.map((group) => (
               <div key={group.name} className="skill-group-block hairline-bottom">
                 <h4 className="group-title font-mono">{group.name}</h4>
                 <div className="skill-tags-wrapper">
                   {group.items.map((item) => (
-                    <span key={item} className="skill-tag skill-tag--ai">
+                    <span key={item} className="skill-tag skill-tag--systems">
                       {item}
                     </span>
                   ))}

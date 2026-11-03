@@ -13,9 +13,9 @@ export default function TestimonialsSection() {
           <span className="structural-tag">[ 06 / RECOMMENDATIONS: MANAGERS & PEERS ]</span>
           <span className="structural-status">VERIFIED ATTESTATIONS</span>
         </div>
-        <h2 className="section-title font-serif">Endorsements from Managers & Engineering Peers</h2>
+        <h2 className="section-title font-serif">Peer Recommendations</h2>
         <p className="section-subtitle font-sans">
-          Direct, verified feedback from colleagues and managers who collaborated closely with me at La Net Team Software Solution.
+          Direct endorsements from engineering managers and teammates.
         </p>
       </div>
 
