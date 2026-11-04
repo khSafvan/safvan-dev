@@ -1,0 +1,99 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-xl) 0;
+  z-index: 50;
+  background: transparent;
+}
+
+/* Reduced padding on small screens */
+@media (max-width: 768px) {
+  .header {
+    padding: var(--spacing-lg) 0;
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-family-primary);
+  /* Bold Sans per image "Mike." looks bold */
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-xl);
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-family: var(--font-family-primary);
+  font-size: 1.125rem;
+  /* Increased from base (1rem) */
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  transition: color var(--transition-normal);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+}
+
+.header-email {
+  font-family: var(--font-family-primary);
+  font-size: 1.125rem;
+  /* Increased from base (1rem) */
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color var(--transition-normal);
+}
+
+.header-email:hover {
+  color: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .header-container {
+    flex-wrap: wrap;
+    /* Allow wrapping */
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    margin-top: var(--spacing-md);
+    overflow-x: auto;
+    justify-content: center;
+  }
+
+  .contact-info {
+    order: 2;
+  }
+}

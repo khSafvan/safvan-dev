@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useMemo, useContext } from "react";
-import { CursorContext } from "../../contexts/cursorState";
+import { CursorContext } from "../../../contexts/cursorState";
 
 const cursorColors = {
   inactive: "rgba(40, 40, 40, 1)",
@@ -130,8 +130,8 @@ const CustomCursor = React.memo(() => {
     const borderColor = isClicking
       ? cursorColors.clickRing
       : isHovered
-      ? cursorColors.hoverRing
-      : cursorColors.inactive;
+        ? cursorColors.hoverRing
+        : cursorColors.inactive;
 
     const defaultBorder = `${borderWidth} solid ${borderColor}`;
     const scrollingBorder = `3px dotted ${cursorColors.active}`;
