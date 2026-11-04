@@ -13,6 +13,10 @@ export default function HeroSection() {
   return (
     <section className="hero section container" id="home">
       <div className="hero-center-content">
+        <div className="notice-pill">
+          <span className="notice-icon">✈️</span>
+          <span><strong>Note:</strong> Currently in India, relocating to the Boston area shortly.</span>
+        </div>
         <h1 className="hero-title">
           {/* Row 1: Hi, I'm [Image] Name! */}
           <div className="title-row">
@@ -27,10 +31,10 @@ export default function HeroSection() {
                     C 180,200 200,180 200,100 
                     C 200,20 180,0 100,0 Z" />
 
-                  {/* Gradient for Border: Pastel Yellow to Pastel Blue */}
+                  {/* Gradient for Border: Warm Cream to Vibrant Mint Green */}
                   <linearGradient id="border-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="200" y2="200">
-                    <stop offset="0%" stopColor="#FCD34D" /> {/* More vibrant Pastel Yellow (Amber 300) */}
-                    <stop offset="100%" stopColor="#64B5F6" /> {/* More visible Pastel Blue (Blue 300) */}
+                    <stop offset="0%" stopColor="#FFECD6" /> {/* Warm Cream */}
+                    <stop offset="100%" stopColor="#68CBA0" /> {/* Vibrant Mint Green */}
                   </linearGradient>
                 </defs>
                 <clipPath id="cookie-clip">
@@ -53,16 +57,16 @@ export default function HeroSection() {
             <span className="serif-text">{hero.name}!</span>
           </div>
 
-          {/* Row 2: I'm a [Role] at */}
+          {/* Row 2: I'm a [Role] */}
           <div className="title-row">
             <span className="sans-text-light">I'm a</span>
             <span className="sans-text-bold">{hero.title}</span>
-            <span className="sans-text-light">at</span>
           </div>
 
-          {/* Row 3: [Company] [Badge] */}
+          {/* Row 3: [Status] [Badge] */}
           <div className="title-row">
-            <span className="sans-text-colored">Binjan Design.</span>
+            <span className="sans-text-light">on a</span>
+            <span className="sans-text-colored">Career Break.</span>
 
             <div className="status-badge">
               <span className="status-dot"></span>
@@ -76,24 +80,18 @@ export default function HeroSection() {
         </p>
 
         <div className="hero-actions">
-          <button className="btn-primary">Let's Connect</button>
-          <button className="btn-secondary">View Work</button>
+          <a href={`mailto:${portfolioConfig.personal.email}`} className="btn-primary" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>Let's Connect</a>
+          <a href="#works" className="btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>View Work</a>
         </div>
       </div>
 
       <div className="hero-footer">
-        <div className="social-links">
-          {["Twitter", "Dribbble", "Behance", "LinkedIn"].map((social) => (
-            <a href="#!" key={social} className="social-link">{social}</a>
-          ))}
-        </div>
-
-        <div className="discover-more">
+        <a href="#works" className="discover-more" style={{ textDecoration: 'none', color: 'inherit' }}>
           <span>Discover</span>
           <svg className="arrow-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M12 5v14M19 12l-7 7-7-7" />
           </svg>
-        </div>
+        </a>
       </div>
     </section>
   );

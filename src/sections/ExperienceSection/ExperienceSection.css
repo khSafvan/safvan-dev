@@ -64,7 +64,7 @@
 
 .experience-node {
     width: 100vw;
-
+    min-width: 100vw;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -97,18 +97,21 @@
 }
 
 .node-company {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-2xl);
     font-weight: 700;
     margin-bottom: var(--spacing-xs);
+    color: var(--color-text-primary);
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 .node-period {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
     color: var(--color-text-secondary);
 }
 
 .node-role {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     color: var(--color-text-primary);
@@ -119,6 +122,8 @@
     color: var(--color-text-secondary);
     line-height: 1.6;
     max-width: 600px;
+    width: 100%;
+    word-break: break-word;
 }
 
 

@@ -1,37 +1,32 @@
 :root {
 
-  --color-primary: #1a56db;
+  --color-primary: #B57449;
+  --color-primary-light: #D4956A;
+  --color-primary-dark: #5C3A21;
 
-  --color-primary-light: #4c7bf4;
-  --color-primary-dark: #103c9e;
+  --color-secondary: #68CBA0;
+  --color-secondary-light: #9CECC5;
+  --color-secondary-dark: #2E8C5D;
 
-  --color-secondary: #000000;
-
-  --color-secondary-light: #333333;
-  --color-secondary-dark: #000000;
-
-  --color-background: #f8f9fa;
+  --color-background: #FFF9F0;
 
   --color-surface: #ffffff;
-  --color-surface-translucent: rgba(255, 255, 255, 0.9);
+  --color-surface-translucent: rgba(255, 255, 255, 0.85);
 
-  --color-text-primary: #111111;
-  --color-text-secondary: #555555;
-  --color-text-muted: #888888;
-  --color-text-light: #ffffff;
-  --color-text-accent: #e76f51;
+  --color-text-primary: #2D2824; /* Warm Off-Black for bodies */
+  --color-text-secondary: #4A4440; /* Standard Grey */
+  --color-text-muted: #8A817C;
+  --color-text-light: #FFECD6;
+  --color-text-accent: #B57449;
 
-
-
-  --color-brand-green: #2f6a62;
-  --color-brand-yellow: #f1c40f;
-  --color-brand-orange: #e76f51;
+  --color-brand-green: #68CBA0;
+  --color-brand-yellow: #FFECD6;
+  --color-brand-orange: #B57449;
   --color-brand-trustpilot: #00b67a;
 
-  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border: rgba(92, 58, 33, 0.1);
 
-
-  --color-surface-dark: #2a2a2a;
+  --color-surface-dark: #E2BB9C;
 
 
   --font-family-primary: "Inter", sans-serif;
@@ -85,10 +80,10 @@
   --border-radius-full: 9999px;
 
 
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --drop-shadow: drop-shadow(0 10px 20px rgba(47, 106, 98, 0.2));
+  --shadow-sm: 0 2px 4px rgba(74, 64, 54, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(74, 64, 54, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(74, 64, 54, 0.1);
+  --drop-shadow: drop-shadow(0 10px 20px rgba(74, 64, 54, 0.15));
 
 
   --transition-normal: 0.3s ease;

@@ -76,7 +76,13 @@ export default function TestimonialsSection() {
             <div className="spotlight-content">
                 <div key={activeItem.id} className="fade-wrapper">
                     <div className="spotlight-info">
-                        <span className="spotlight-name">{activeItem.name}</span>
+                        {activeItem.linkedin ? (
+                            <a href={activeItem.linkedin} target="_blank" rel="noopener noreferrer" className="spotlight-name spotlight-link">
+                                {activeItem.name}
+                            </a>
+                        ) : (
+                            <span className="spotlight-name">{activeItem.name}</span>
+                        )}
                         <span className="spotlight-divider">|</span>
                         <span className="spotlight-relationship">{activeItem.relationship}</span>
                     </div>
